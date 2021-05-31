@@ -19,10 +19,10 @@ public class BwriteAction implements CommandProcess {
              request.setCharacterEncoding("utf-8");
              String m_nickname = null;
              int m_num = 0;
-                HttpSession session = request.getSession();
-                m_num = (int)session.getAttribute("m_num");
-                BoardDao bd = BoardDao.getInstance();
-                m_nickname = bd.getNickname(m_num);
+             HttpSession session = request.getSession();
+             m_num = (int)session.getAttribute("m_num");
+             BoardDao bd = BoardDao.getInstance();
+             m_nickname = bd.getNickname(m_num);
              request.setAttribute("m_nickname", m_nickname);
              request.setAttribute("m_num", m_num);
              request.setAttribute("b_type", Integer.parseInt (request.getParameter("b_type")));

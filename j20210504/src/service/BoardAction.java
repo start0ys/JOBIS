@@ -34,7 +34,8 @@ public class BoardAction implements CommandProcess {
 	        request.setAttribute("b_type", b_type);
 	        request.setAttribute("m_nickname", m_nickname);
 	        request.setAttribute("m_num", m_num);
-	         
+	        
+	        //글목록 불러오기
 	        int totCnt = bd.getTotalCnt(b_type);
 			String pageNum = request.getParameter("pageNum");
 			if (pageNum == null || pageNum.equals("")) { pageNum = "1";}
@@ -48,6 +49,8 @@ public class BoardAction implements CommandProcess {
 			int startPage = (int)(currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
 			if ( endPage> pageCnt ) endPage = pageCnt;
+			//Best글 보기
+			List<Board> best = bd.best(b_type);
 			
 
 			request.setAttribute("totCnt", totCnt);
@@ -59,7 +62,8 @@ public class BoardAction implements CommandProcess {
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-			
+			//Best글 보기
+			request.setAttribute("best", best);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

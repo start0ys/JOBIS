@@ -157,6 +157,83 @@ public class BoardDao {
 		}
 		return list;
 	}
+	
+	public List<Board> best (int b_type) throws SQLException{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> list = new ArrayList<Board>();
+		String sql = "select * from "
+								+ "(select rownum rn, a.* from "
+																+ "(select * from board where b_type = ? order by b_count desc) a )"
+								+ " where rn between 1 and 3";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, b_type);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				do{
+					Board board = new Board();
+					board.setB_idx(rs.getInt("b_idx"));
+					board.setM_num(rs.getInt("m_num"));
+					board.setB_type(rs.getInt("b_type"));
+					board.setB_title(rs.getString("b_title"));
+					board.setM_nickname(rs.getString("m_nickname"));
+					board.setB_regdate(rs.getDate("b_regdate"));
+					board.setB_content(rs.getString("b_content"));
+					board.setB_count(rs.getInt("b_count"));
+					board.setB_img(rs.getString("b_img"));
+					board.setB_notice(rs.getInt("b_notice"));
+					list.add(board);
+				} while(rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if ( rs   != null)  rs.close();
+			if (pstmt  != null)  pstmt.close();
+			if (conn  != null)  conn.close();
+		}
+		return list;
+	}
+	
+	
+	
+	
+	public Board select(int b_idx) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Board board = new Board();
+		String sql = "select * from board where b_idx = ? ";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, b_idx);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				board.setB_idx(rs.getInt("b_idx"));
+				board.setM_num(rs.getInt("m_num"));
+				board.setB_type(rs.getInt("b_type"));
+				board.setB_title(rs.getString("b_title"));
+				board.setM_nickname(rs.getString("m_nickname"));
+				board.setB_regdate(rs.getDate("b_regdate"));
+				board.setB_content(rs.getString("b_content"));
+				board.setB_count(rs.getInt("b_count"));
+				board.setB_img(rs.getString("b_img"));
+				board.setB_notice(rs.getInt("b_notice"));
+				
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if ( rs   != null)  rs.close();
+			if (pstmt  != null)  pstmt.close();
+			if (conn  != null)  conn.close();
+		}
+		return board;
+	}
 	/////////////////////////////////////////////////
 	
 	public int getM_divide(int m_num) throws SQLException {

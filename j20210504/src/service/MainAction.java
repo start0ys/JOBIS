@@ -18,19 +18,16 @@ public class MainAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		  try {
-		         request.setCharacterEncoding("utf-8");
-		         String m_nickname = null;
-		         int m_num = 0;
-		            HttpSession session = request.getSession();
-		            m_num = (int)session.getAttribute("m_num");
-		            BoardDao bd = BoardDao.getInstance();
-		            m_nickname = bd.getNickname(m_num);
-		         if (m_nickname == null){
-		            request.setAttribute("log", 1);
-		            return "loginState.jsp";
-		         } 
-		         request.setAttribute("m_nickname", m_nickname);
-		         request.setAttribute("m_num", m_num);
+		        request.setCharacterEncoding("utf-8");
+		        String m_nickname = null;
+		        int m_num = 0;
+	            HttpSession session = request.getSession();
+	            m_num = (int)session.getAttribute("m_num");
+	            BoardDao bd = BoardDao.getInstance();
+	            m_nickname = bd.getNickname(m_num);
+		      
+		        request.setAttribute("m_nickname", m_nickname);
+		        request.setAttribute("m_num", m_num);
 		         
 		      } catch (Exception e) {
 		         System.out.println(e.getMessage());
