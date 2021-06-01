@@ -18,6 +18,11 @@
 		width: 90%;
 		resize: none;
 	}
+	.btn1{
+		background-color: white;
+		border: 0;
+		font-weight: bold;
+	}
 </style>
 <script type="text/javascript">
 	var b = "a";
@@ -111,8 +116,8 @@
 					<span>👤${board.m_nickname }</span>
 				</div>
 				<div style="border: 0; border-bottom: 2px solid #4d6083; width: 91%;">
-					<span style=" font-size: 13px; color: gray;">조회수 : ${board.b_count }</span>
 					<span style=" font-size: 13px; color: gray;">${board.b_regdate }</span>
+					<span style=" font-size: 13px; color: gray;">조회수 : ${board.b_count }</span>
 					<span style=" font-size: 15px; color: gray; position: absolute; right: 20%;">댓글 <b>${c_tot }</b></span>
 				</div>
 
@@ -127,7 +132,7 @@
 				</div>
 	
 		
-			
+				<div style="margin-top: 123px;position: absolute; right: 20%;"><input style="padding: 5px;" class="btn" type="button" value="뒤로가기" onclick="history.go(-1);" ></div>
 				<div style="margin-top: 160px; width: 91%; border-top: 2px dotted #4d6083;">
 					<c:forEach var="comment" items="${list }">
 						<c:if test="${comment.re_level > 0 }">
@@ -142,10 +147,10 @@
 							<div style="margin: 5px 0 0 11px;">${comment.c_content }</div>
 							<div style="font-size: 13px; color: gray; margin: 0  0 5px 11px;">${comment.c_regdate }</div>
 						    <div style="margin: 0  0 11px 0; border-bottom: 1px dotted;">
-							    <input style="font-size: 9px; padding: 5px;" class="btn" type="button" value="답글" onclick="re(${comment.c_idx})">
+							    <input style="margin-left: 11px" class="btn1" type="button" value="답글" onclick="re(${comment.c_idx})">
 								<c:if test="${comment.m_num == m_num }">
-									<input style="font-size: 9px; padding: 5px;" class="btn" type="button" value="삭제" onclick="redel(${comment.c_idx })">
-									<input style="font-size: 9px;padding: 5px;" class="btn" type="button" value="수정" onclick="remd(${comment.c_idx })">
+									<input class="btn1" type="button" value="수정" onclick="remd(${comment.c_idx })">
+									<input class="btn1" type="button" value="삭제" onclick="redel(${comment.c_idx })">
 								</c:if>
 						    </div>
 			

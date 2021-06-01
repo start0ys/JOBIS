@@ -27,7 +27,10 @@ public class BoardAction implements CommandProcess {
             m_nickname = bd.getNickname(m_num);
             
             int m_divide = bd.getM_divide(m_num);
-            if (m_divide == 0) { return "boardfail.jsp"; }
+            if (m_divide == 0) { 
+            	request.setAttribute("m_nickname", m_nickname);
+            	return "boardfail.jsp"; 
+            }
 	       
 	         
 	         
