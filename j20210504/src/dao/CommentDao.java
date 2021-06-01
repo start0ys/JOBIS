@@ -195,5 +195,29 @@ public class CommentDao {
 		return result;
 	}
 	
+	public int getTotalCnt(int b_idx) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		String sql = "select count(*) from comment1 where b_idx = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, b_idx);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				tot = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if ( rs   != null)  rs.close();
+			if (pstmt  != null)  pstmt.close();
+			if (conn  != null)  conn.close();
+		}
+		return tot;
+	}
+	
 	
 }

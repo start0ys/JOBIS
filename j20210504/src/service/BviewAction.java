@@ -67,9 +67,11 @@ public class BviewAction implements CommandProcess {
 			
 			//댓글작업
 			List<Comment> list = cd.list(b_idx);
+			int c_tot = cd.getTotalCnt(b_idx);
+			
 			
 			request.setAttribute("list", list);
-		
+			request.setAttribute("c_tot", c_tot);
 			
 			
 			
