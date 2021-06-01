@@ -115,7 +115,7 @@
 					</c:if>
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 						<c:if test="${pageNum == i }">
-							<a href="board.do?pageNum=${i }&b_type=${b_type }" style="color: red;">[ ${i } ]</a>
+							<a href="board.do?pageNum=${i }&b_type=${b_type }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
 						</c:if>
 						<c:if test="${pageNum != i }">
 							<a href="board.do?pageNum=${i }&b_type=${b_type }" style="color: #005dff;">[ ${i } ]</a>

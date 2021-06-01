@@ -16,6 +16,7 @@
 	}
 	textarea{
 		width: 90%;
+		resize: none;
 	}
 </style>
 <script type="text/javascript">
@@ -43,8 +44,12 @@
 	}
 	
 	function remd(id) {
+		var popupX = (document.body.offsetWidth / 2) - (200 / 2);
+		//&nbsp;만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+		var popupY= (window.screen.height / 2) - (300 / 2);
+		//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 		var c_idx = id;
-		window.open("reUpdate.do?c_idx="+c_idx,"","width=500 height=300");
+		window.open("reUpdate.do?c_idx="+c_idx,"","width=500,height=300, left="+ popupX + ", top="+ popupY);
 	}
 	
 </script>
@@ -123,17 +128,20 @@
 	
 		
 			
-				<div style="margin-top: 160px; width: 91%; border-top: 2px solid #4d6083;">
+				<div style="margin-top: 160px; width: 91%; border-top: 2px dotted #4d6083;">
 					<c:forEach var="comment" items="${list }">
 						<c:if test="${comment.re_level > 0 }">
 							<img src="images/level.gif" width="${comment.re_level*10 }">
 							<img src="images/re.gif">
+							<span style="margin: 11px 0 0 0;">👤${comment.nickname }</span>
 						</c:if> 
-						<div style="margin: 11px 0 0 11px;">👤${comment.nickname }</div>
+						<c:if test="${comment.re_level == 0 }">
+							<div style="margin: 11px 0 0 11px;">👤${comment.nickname }</div>
+						</c:if> 
 						<div style="margin-left: ${comment.re_level*15 }px; ">
 							<div style="margin: 5px 0 0 11px;">${comment.c_content }</div>
 							<div style="font-size: 13px; color: gray; margin: 0  0 5px 11px;">${comment.c_regdate }</div>
-						    <div style="margin: 0  0 11px 0;">
+						    <div style="margin: 0  0 11px 0; border-bottom: 1px dotted;">
 							    <input style="font-size: 9px; padding: 5px;" class="btn" type="button" value="답글" onclick="re(${comment.c_idx})">
 								<c:if test="${comment.m_num == m_num }">
 									<input style="font-size: 9px; padding: 5px;" class="btn" type="button" value="삭제" onclick="redel(${comment.c_idx })">
@@ -160,10 +168,10 @@
 						</div>
 					</c:forEach>
 	
+	 
+		 
 	
-		
-	
-					<form action="reWrite.do?pageNum=${pageNum }" method="post" name="frm2">
+					<form action="reWrite.do?pageNum=${pageNum }" method="post" name="frm2"> 
 						<input type="hidden" name="m_nickname" value="${m_nickname }">
 						<input type="hidden" name="m_num" value="${m_num }">
 						<input type="hidden" name="b_idx" value="${board.b_idx }">
@@ -173,9 +181,9 @@
 						<input type="hidden" name="re_step" value="${re_step }">
 						<div style="border: 1px dotted #4d6083; ">
 							<div style="margin: 11px 0 0 11px;">👤${m_nickname }</div>
-						    <div style="margin: 11px 0 0 11px;"><textarea name="c_content" id="c_content" maxlength="2000" style="height:100px;" required="required"
+						    <div style="margin: 20px 0 0 20px;"><textarea name="c_content" id="c_content" maxlength="2000" style="height:100px; border: 0px;" required="required"
 					                               placeholder="댓글을 입력해주세요"></textarea></div>        
-						    <div style="margin: 0  0 11px 11px;"><input style="padding: 5px;" class="btn" type="submit" value="등록"></div>
+						    <div style="margin: 0  0 11px 11px; width: 43px; border: 1px dotted; padding: 5px; border-radius: 10px;"><input style="padding: 5px;" class="btn" type="submit" value="등록"></div>
 						</div>
 					
 					</form>
