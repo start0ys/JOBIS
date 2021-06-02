@@ -52,7 +52,7 @@
 			            <li><input type="button" value="당근마켓"></li>
 		        	</ul>
 			    </li>
-			    <li class="menu1" id="mymenu"><a >마이페이지</a></li>
+			    <li class="menu1" id="mymenu"><span class="menu">마이페이지</span></li>
 			  
 			  </ul>
 			  
