@@ -22,6 +22,14 @@
 	tr{
 		background-color: #e6efff;
 	}
+ 	.boardCot{
+		display: inline-block; 
+		width: 80%; 
+		white-space: nowrap; 
+		overflow: hidden; 
+		text-overflow: ellipsis; 
+		
+	} 
 </style>
 </head>
 <body>
@@ -76,38 +84,92 @@
 			<c:if test="${b_type==1 }"><h2 class="btn" style="margin:30px; display: inline-block; background-color: #4d6083;">Q&A 게시판</h2></c:if>
 			<c:if test="${b_type==2 }"><h2 class="btn" style="margin:30px; display: inline-block; background-color: #4d6083;">자유 게시판</h2></c:if>
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
-		
-				<table style="text-align: center;margin: 0 auto; width: 90%; ;">
-					<tr><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th></tr>
-					<c:forEach var="board" items="${best }">
+				
+				<c:if test="${b_type == 0 || b_type == 2 }">
+					<table style="text-align: center;margin: 0 auto; width: 90%;">
 						<tr>
-							<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #cdddf9;">
-								<img src="images/hot.gif">
-								<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
-							</td>
-							<td style="width: 15%;background-color: #cdddf9;">👤${board.m_nickname }</td>
-							<td style="width: 15%;background-color: #cdddf9;">${board.b_regdate }</td>
-							<td style="width: 15%;background-color: #cdddf9;">${board.b_count }</td>
+							<c:if test="${m_num == 0}">
+								<th>삭제</th>
+							</c:if>
+							<th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th>
 						</tr>
-					</c:forEach>
-					<c:if test="${totCnt > 0 }">
-						<c:forEach var="board" items="${list }">
+						<c:forEach var="board" items="${best }">
 							<tr>
-								<td style="width: 55%; font-weight: bold; font-size: 18px;">
+								<c:if test="${m_num == 0}">
+										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></td>
+								</c:if>
+								<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #cdddf9;">
+									<img src="images/hot.gif">
 									<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
 								</td>
-								<td style="width: 15%;">👤${board.m_nickname }</td>
-								<td style="width: 15%;">${board.b_regdate }</td>
-								<td style="width: 15%;">${board.b_count }</td>
+								<td style="width: 15%;background-color: #cdddf9;">👤${board.m_nickname }</td>
+								<td style="width: 15%;background-color: #cdddf9;">${board.b_regdate }</td>
+								<td style="width: 15%;background-color: #cdddf9;">${board.b_count }</td>
 							</tr>
 						</c:forEach>
-					</c:if>
-					<c:if test="${toCnt == 0 }">
-						<tr>
-							<td colspan="7">데이터가 없습니다</td>
-						</tr>
-					</c:if>
-				</table>
+						<c:if test="${totCnt > 0 }">
+							<c:forEach var="board" items="${list }">
+								<tr>
+									<c:if test="${m_num == 0}">
+										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></td>
+									</c:if>
+									<td style="width: 55%; font-weight: bold; font-size: 18px;">
+										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
+									</td>
+									<td style="width: 15%;">👤${board.m_nickname }</td>
+									<td style="width: 15%;">${board.b_regdate }</td>
+									<td style="width: 15%;">${board.b_count }</td>
+								</tr>
+							</c:forEach>
+						</c:if>
+						<c:if test="${toCnt == 0 }">
+							<tr>
+								<td colspan="7">데이터가 없습니다</td>
+							</tr>
+						</c:if>
+					</table>
+				</c:if>
+				
+				<c:if test="${b_type == 1 }">
+					<div style="text-align: left;margin: 0 auto; width: 80%;">
+						<c:forEach var="board" items="${best }">
+							<div style="border: 2px solid #4d6083; border-radius: 25px; padding: 28px;">
+								<h3 style="width: 90%; font-weight: bold; font-size: 18px;">
+									<img src="images/hot.gif">
+									<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
+								</h3>
+								<div class="boardCot">${board.b_content }</div>
+								<div>
+									<span>👤${board.m_nickname }</span>
+									<span style=" font-size: 13px; color: gray;">조회수 ${board.b_count }</span>
+									<span style=" font-size: 13px; color: gray;">${board.b_regdate }</span>
+								</div>
+							</div>
+						</c:forEach>
+						<c:if test="${totCnt > 0 }">
+							<c:forEach var="board" items="${list }">
+								<div style="border: 2px solid #4d6083; border-radius: 25px; padding: 28px; margin-top: 10px;">
+									<h3 style="width: 90%; font-weight: bold; font-size: 18px;">
+										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
+									</h3>
+									<div class="boardCot">${board.b_content }</div>
+									<div>
+										<span>👤${board.m_nickname }</span> 
+										<span style=" font-size: 13px; color: gray;">조회수 ${board.b_count }</span>
+										<span style=" font-size: 13px; color: gray;">${board.b_regdate }</span>
+									</div>
+								</div>
+							</c:forEach>
+						</c:if>
+						<c:if test="${toCnt == 0 }">
+							<tr>
+								<td colspan="7">데이터가 없습니다</td>
+							</tr> 
+						</c:if> 
+					</div>
+				</c:if>
+				
+				
 				<span style="position: absolute; right: 17%;"><input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'"></span>	
 				<div style="text-align: center; margin-top: 20px;">
 					<c:if test="${startPage > blockSize }">

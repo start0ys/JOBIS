@@ -53,6 +53,7 @@ public class BoardAction implements CommandProcess {
 			if (pageNum == null || pageNum.equals("")) { pageNum = "1";}
 			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10, blockSize = 10;
+			if (b_type == 1) { pageSize = 5; }
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
