@@ -18,6 +18,15 @@ public class BoardAction implements CommandProcess {
 			throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("utf-8");
+			//검색
+			String s_type = request.getParameter("s_type");
+			if (s_type == null || s_type.equals("")) { s_type = "0";}
+			
+			String search = request.getParameter("search");
+			if (search == null || search.equals("")) { search = "0";}
+			
+			
+			//게시판 목록가져오기
 			int b_type = Integer.parseInt(request.getParameter("b_type"));
 	        String m_nickname = null;
 	        int m_num = 0;
@@ -39,7 +48,7 @@ public class BoardAction implements CommandProcess {
 	        request.setAttribute("m_num", m_num);
 	        
 	        //글목록 불러오기
-	        int totCnt = bd.getTotalCnt(b_type);
+	        int totCnt = bd.getTotalCnt(b_type,s_type,search);
 			String pageNum = request.getParameter("pageNum");
 			if (pageNum == null || pageNum.equals("")) { pageNum = "1";}
 			int currentPage = Integer.parseInt(pageNum);
@@ -47,7 +56,7 @@ public class BoardAction implements CommandProcess {
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
-			List<Board> list = bd.list(startRow,endRow,b_type);
+			List<Board> list = bd.list(startRow,endRow,b_type,s_type,search);
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize);
 			int startPage = (int)(currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
@@ -55,7 +64,9 @@ public class BoardAction implements CommandProcess {
 			//Best글 보기
 			List<Board> best = bd.best(b_type);
 			
-
+			
+			request.setAttribute("s_type", s_type);
+			request.setAttribute("search", search);
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);

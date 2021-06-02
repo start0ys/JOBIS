@@ -77,7 +77,6 @@ public class BoardDao {
 	public void readCount(int b_idx) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-	
 		String sql = "update board set b_count = b_count + 1 where b_idx = ?";
 		try {
 			conn = getConnection();
@@ -92,20 +91,44 @@ public class BoardDao {
 		}
 	}
 	
-	public int getTotalCnt(int b_type) throws SQLException {
+	public int getTotalCnt(int b_type, String s_type, String search) throws SQLException {
+		int type = Integer.parseInt(s_type);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int tot = 0;
 		String sql = "select count(*) from board where b_type = ?";
+		String sql1 = "select count(*) from board where b_type = ? and b_title like ?";
+		String sql2 = "select count(*) from board where b_type = ? and m_nickname like ?";
 		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, b_type);
-			rs = pstmt.executeQuery();
-			if(rs.next()){
-				tot = rs.getInt(1);
+			if(type == 1) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql1);
+				pstmt.setInt(1, b_type);
+				pstmt.setString(2, "%"+search+"%");
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					tot = rs.getInt(1);
+				}
+			} else if (type == 2) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setInt(1, b_type);
+				pstmt.setString(2, "%"+search+"%");
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					tot = rs.getInt(1);
+				}
+			} else {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, b_type);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					tot = rs.getInt(1);
+				}
 			}
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}  finally {
@@ -116,7 +139,8 @@ public class BoardDao {
 		return tot;
 	}
 	
-	public List<Board> list (int startRow, int endRow,int b_type) throws SQLException{
+	public List<Board> list (int startRow, int endRow, int b_type, String s_type, String search) throws SQLException{
+		int type = Integer.parseInt(s_type);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -125,28 +149,90 @@ public class BoardDao {
 								+ "(select rownum rn, a.* from "
 																+ "(select * from board where b_type = ? order by b_idx desc) a )"
 								+ " where rn between ? and ?";
+		
+		String sql1 = "select * from "
+				+ "(select rownum rn, a.* from "
+												+ "(select * from board where b_type = ? and b_title like ? order by b_idx desc) a )"
+				+ " where rn between ? and ?";
+		
+		String sql2 = "select * from "
+				+ "(select rownum rn, a.* from "
+												+ "(select * from board where b_type = ? and m_nickname like ? order by b_idx desc) a )"
+				+ " where rn between ? and ?";
+		
 		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, b_type);
-			pstmt.setInt(2, startRow);
-			pstmt.setInt(3, endRow);
-			rs = pstmt.executeQuery();
-			if(rs.next()){
-				do{
-					Board board = new Board();
-					board.setB_idx(rs.getInt("b_idx"));
-					board.setM_num(rs.getInt("m_num"));
-					board.setB_type(rs.getInt("b_type"));
-					board.setB_title(rs.getString("b_title"));
-					board.setM_nickname(rs.getString("m_nickname"));
-					board.setB_regdate(rs.getDate("b_regdate"));
-					board.setB_content(rs.getString("b_content"));
-					board.setB_count(rs.getInt("b_count"));
-					board.setB_img(rs.getString("b_img"));
-					board.setB_notice(rs.getInt("b_notice"));
-					list.add(board);
-				} while(rs.next());
+			
+			if(type == 1) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql1);
+				pstmt.setInt(1, b_type);
+				pstmt.setString(2, "%"+search+"%");
+				pstmt.setInt(3, startRow);
+				pstmt.setInt(4, endRow);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					do{
+						Board board = new Board();
+						board.setB_idx(rs.getInt("b_idx"));
+						board.setM_num(rs.getInt("m_num"));
+						board.setB_type(rs.getInt("b_type"));
+						board.setB_title(rs.getString("b_title"));
+						board.setM_nickname(rs.getString("m_nickname"));
+						board.setB_regdate(rs.getDate("b_regdate"));
+						board.setB_content(rs.getString("b_content"));
+						board.setB_count(rs.getInt("b_count"));
+						board.setB_img(rs.getString("b_img"));
+						board.setB_notice(rs.getInt("b_notice"));
+						list.add(board);
+					} while(rs.next());
+				}
+			} else if (type == 2) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setInt(1, b_type);
+				pstmt.setString(2, "%"+search+"%");
+				pstmt.setInt(3, startRow);
+				pstmt.setInt(4, endRow);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					do{
+						Board board = new Board();
+						board.setB_idx(rs.getInt("b_idx"));
+						board.setM_num(rs.getInt("m_num"));
+						board.setB_type(rs.getInt("b_type"));
+						board.setB_title(rs.getString("b_title"));
+						board.setM_nickname(rs.getString("m_nickname"));
+						board.setB_regdate(rs.getDate("b_regdate"));
+						board.setB_content(rs.getString("b_content"));
+						board.setB_count(rs.getInt("b_count"));
+						board.setB_img(rs.getString("b_img"));
+						board.setB_notice(rs.getInt("b_notice"));
+						list.add(board);
+					} while(rs.next());
+				}
+			} else {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, b_type);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					do{
+						Board board = new Board();
+						board.setB_idx(rs.getInt("b_idx"));
+						board.setM_num(rs.getInt("m_num"));
+						board.setB_type(rs.getInt("b_type"));
+						board.setB_title(rs.getString("b_title"));
+						board.setM_nickname(rs.getString("m_nickname"));
+						board.setB_regdate(rs.getDate("b_regdate"));
+						board.setB_content(rs.getString("b_content"));
+						board.setB_count(rs.getInt("b_count"));
+						board.setB_img(rs.getString("b_img"));
+						board.setB_notice(rs.getInt("b_notice"));
+						list.add(board);
+					} while(rs.next());
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

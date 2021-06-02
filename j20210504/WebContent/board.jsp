@@ -107,26 +107,34 @@
 							<td colspan="7">데이터가 없습니다</td>
 						</tr>
 					</c:if>
-			
 				</table>
+				<span style="position: absolute; right: 17%;"><input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'"></span>	
 				<div style="text-align: center; margin-top: 20px;">
 					<c:if test="${startPage > blockSize }">
-						<a href="board.do?pageNum=${startPage-blockSize }&b_type=${b_type }">[이전]</a>
+						<a href="board.do?pageNum=${startPage-blockSize }&b_type=${b_type }&s_type=${s_type }&search=${search }">[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 						<c:if test="${pageNum == i }">
-							<a href="board.do?pageNum=${i }&b_type=${b_type }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
+							<a href="board.do?pageNum=${i }&b_type=${b_type }&s_type=${s_type }&search=${search }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
 						</c:if>
 						<c:if test="${pageNum != i }">
-							<a href="board.do?pageNum=${i }&b_type=${b_type }" style="color: #005dff;">[ ${i } ]</a>
+							<a href="board.do?pageNum=${i }&b_type=${b_type }&s_type=${s_type }&search=${search }" style="color: #005dff;">[ ${i } ]</a>
 						</c:if>
 					</c:forEach>
 					<c:if test="${endPage < pageCnt }">
-						<a href="board.do?pageNum=${startPage+blockSize }&b_type=${b_type }">[다음]</a>
+						<a href="board.do?pageNum=${startPage+blockSize }&b_type=${b_type }&s_type=${s_type }&search=${search }">[다음]</a>
 					</c:if>
 				</div>
 				<div style="margin-top: 30px;">
-					<input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'">
+					<form action="board.do">
+						<select name="s_type">
+							<option value="1">제목</option>
+							<option value="2">글쓴이</option>
+						</select>
+						<input type="hidden" name="b_type" value="${b_type }">
+						<input type="text" name="search">
+						<input type="submit" value="검색" class="btn" style="padding: 3px 5px;">
+					</form>
 				</div>	
 			</div>
 			
