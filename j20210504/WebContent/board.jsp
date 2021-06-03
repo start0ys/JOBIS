@@ -71,7 +71,7 @@
 			  
 			  <div id="log">
 			  	  <span style="margin-right: 5px; font-size: 14px; font-weight: bold;">👤${m_nickname } 님 반갑습니다.</span>
-				  <input type="button" value="로그아웃" class="btn">
+				  <input type="button" value="로그아웃" class="btn" onclick = "location.href = 'logout.do'">
 			  </div>
 			
 			</nav>
@@ -140,7 +140,7 @@
 								</h3>
 								<div class="boardCot">${board.b_content }</div>
 								<div>
-									<span>👤${board.m_nickname }</span>
+									<span style=" font-size: 14px;">👤${board.m_nickname }</span>
 									<span style=" font-size: 13px; color: gray;">조회수 ${board.b_count }</span>
 									<span style=" font-size: 13px; color: gray;">${board.b_regdate }</span>
 								</div>
@@ -154,7 +154,7 @@
 									</h3>
 									<div class="boardCot">${board.b_content }</div>
 									<div>
-										<span>👤${board.m_nickname }</span> 
+										<span style=" font-size: 14px;">👤${board.m_nickname }</span> 
 										<span style=" font-size: 13px; color: gray;">조회수 ${board.b_count }</span>
 										<span style=" font-size: 13px; color: gray;">${board.b_regdate }</span>
 									</div>

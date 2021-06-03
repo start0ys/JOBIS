@@ -58,7 +58,7 @@
 			  
 			  <div id="log">
 			  	  <span style="margin-right: 5px; font-size: 14px; font-weight: bold;">👤${m_nickname } 님 반갑습니다.</span>
-				  <input type="button" value="로그아웃" class="btn">
+				  <input type="button" value="로그아웃" class="btn" onclick = "location.href = 'logout.do'">
 			  </div>
 			
 			</nav>
