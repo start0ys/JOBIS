@@ -129,7 +129,7 @@
 						<input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()">
 					</c:if>
 				</div>
-				<div style="margin: 20px 0 0 20px; width: 87%;">
+				<div style="margin: 20px 0 0 20px; width: 75%;">
 					${content } 
 				</div>
 	
@@ -152,6 +152,8 @@
 							    <input style="margin-left: 11px" class="btn1" type="button" value="답글" onclick="re(${comment.c_idx})">
 								<c:if test="${comment.m_num == m_num }">
 									<input class="btn1" type="button" value="수정" onclick="remd(${comment.c_idx })">
+								</c:if>
+								<c:if test="${comment.m_num == m_num || m_num == 0}">
 									<input class="btn1" type="button" value="삭제" onclick="redel(${comment.c_idx })">
 								</c:if>
 						    </div>

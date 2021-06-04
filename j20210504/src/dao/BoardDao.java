@@ -139,6 +139,34 @@ public class BoardDao {
 		return tot;
 	}
 	
+	public int getTotal(String search) throws SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		String sql = "select count(*) from board where m_num like ?";
+		try {
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setString(1, "%"+search+"%");
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				tot = rs.getInt(1);
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if ( rs   != null)  rs.close();
+			if (pstmt  != null)  pstmt.close();
+			if (conn  != null)  conn.close();
+		}
+		return tot;
+	}
+	
 	public List<Board> list (int startRow, int endRow, int b_type, String s_type, String search) throws SQLException{
 		int type = Integer.parseInt(s_type);
 		Connection conn = null;
@@ -320,6 +348,55 @@ public class BoardDao {
 		}
 		return board;
 	}
+	
+	public List<Board> mylist (int startRow, int endRow, String s_type, String search) throws SQLException{
+		int type = Integer.parseInt(s_type);
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> list = new ArrayList<Board>();
+		String sql = "select * from "
+				+ "(select rownum rn, a.* from "
+												+ "(select * from board where  m_num like ? order by b_idx desc) a )"
+				+ " where rn between ? and ?";
+		
+		try {
+			
+			if(type == 1) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%"+search+"%");
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					do{
+						Board board = new Board();
+						board.setB_idx(rs.getInt("b_idx"));
+						board.setM_num(rs.getInt("m_num"));
+						board.setB_type(rs.getInt("b_type"));
+						board.setB_title(rs.getString("b_title"));
+						board.setM_nickname(rs.getString("m_nickname"));
+						board.setB_regdate(rs.getDate("b_regdate"));
+						board.setB_content(rs.getString("b_content"));
+						board.setB_count(rs.getInt("b_count"));
+						board.setB_img(rs.getString("b_img"));
+						board.setB_notice(rs.getInt("b_notice"));
+						list.add(board);
+					} while(rs.next());
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if ( rs   != null)  rs.close();
+			if (pstmt  != null)  pstmt.close();
+			if (conn  != null)  conn.close();
+		}
+		return list;
+	}
+	
+	
 	/////////////////////////////////////////////////
 	
 	public int getM_divide(int m_num) throws SQLException {
