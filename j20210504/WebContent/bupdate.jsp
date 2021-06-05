@@ -8,16 +8,6 @@
 <link rel="stylesheet" type="text/css" href="commons.css">
 <link rel="stylesheet" type="text/css" href="headerss.css?ver4">
 <link rel="stylesheet" type="text/css" href="menus.css">
-<style type="text/css">
-	.warning{
-		border: 2.5px dotted #4d6083; 
-		width: 500px;
-		padding: 50px;
-		margin: 10% auto 10% auto;
-		border-radius: 60px;
-		
-	}
-</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -79,11 +69,15 @@
 		
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center; margin: 0 auto;">
-				<div class="warning">
-					<b>자소서</b>나 <b>이력서</b>를 <span style="background-color: yellow; color: red;">1개 이상 등록한 유저</span>들만 커뮤니티를 이용할수있습니다.<p>
-					커뮤니티를 이용하시려면 <b>자소서</b>나 <b>이력서</b>를 등록해주세요.<p>
-					<div style="margin-top: 20px;"><input type="button" value="뒤로가기" class="btn" onclick="history.go(-1);"></div>
-				</div>
+				<form action="bupdatePro.do" method="post">
+					<input type="hidden" name="pageNum" value="${pageNum }">
+					<input type="hidden" name="m_num" value="${board.m_num }">
+					<input type="hidden" name="b_idx" value="${board.b_idx }">
+					<input type="hidden" name="m_nickname" value="${board.m_nickname }">
+					<input type="text" placeholder="글 제목" name="b_title" id="b_title" maxlength="50" style="height:40px;" required="required" value="${board.b_title }"><p>
+					<pre><textarea  placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required">${board.b_content }</textarea></pre><p>
+					<input type="submit" value="수정하기" class="btn" >
+				</form>
 			</div>	
 		</div>
 	</div>

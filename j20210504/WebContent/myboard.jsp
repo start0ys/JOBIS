@@ -31,7 +31,7 @@
 		
 	} 
 </style>
-</head>
+</head> 
 <body>
 	<div id="wrapper">
 		<header>
@@ -65,7 +65,16 @@
 			            <li><input type="button" value="당근마켓"></li>
 		        	</ul>
 			    </li>
-			    <li class="menu1" id="mymenu"><span class="menu">마이페이지</span></li>
+			    <li class="menu1">
+			    	<span class="menu">마이페이지</span>
+		       		<ul class="subMenu">
+			        	<li><input type="button" value="회원관리"></li>
+			            <li><input type="button" value="이력서관리"></li>
+			            <li><input type="button" value="자소서관리"></li>
+			            <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
+	
+		        	</ul>
+			    </li>
 			  
 			  </ul>
 			  
@@ -126,18 +135,18 @@
 				
 				<div style="text-align: center; margin-top: 20px;">
 					<c:if test="${startPage > blockSize }">
-						<a href="board.do?pageNum=${startPage-blockSize }&b_type=${b_type }&s_type=${s_type }&search=${search }">[이전]</a>
+						<a href="myboard.do?pageNum=${startPage-blockSize }&search=${m_num }">[이전]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 						<c:if test="${pageNum == i }">
-							<a href="board.do?pageNum=${i }&b_type=${b_type }&s_type=${s_type }&search=${search }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
+							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
 						</c:if>
 						<c:if test="${pageNum != i }">
-							<a href="board.do?pageNum=${i }&b_type=${b_type }&s_type=${s_type }&search=${search }" style="color: #005dff;">[ ${i } ]</a>
+							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ ${i } ]</a>
 						</c:if>
 					</c:forEach>
 					<c:if test="${endPage < pageCnt }">
-						<a href="board.do?pageNum=${startPage+blockSize }&b_type=${b_type }&s_type=${s_type }&search=${search }">[다음]</a>
+						<a href="myboard.do?pageNum=${startPage+blockSize }&search=${m_num }">[다음]</a>
 					</c:if>
 				</div>
 			

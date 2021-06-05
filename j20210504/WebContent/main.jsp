@@ -45,7 +45,7 @@
 			    <li class="menu1">
 			    	<span class="menu">마이페이지</span>
 		       		<ul class="subMenu">
-			        	<li><input type="button" value="회원탈퇴"></li>
+			        	<li><input type="button" value="회원관리"></li>
 			            <li><input type="button" value="이력서관리"></li>
 			            <li><input type="button" value="자소서관리"></li>
 			            <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>

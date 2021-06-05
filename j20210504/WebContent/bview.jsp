@@ -93,7 +93,16 @@
 			            <li><input type="button" value="당근마켓"></li>
 		        	</ul>
 			    </li>
-			    <li class="menu1" id="mymenu"><span class="menu">마이페이지</span></li>
+			    <li class="menu1">
+			    	<span class="menu">마이페이지</span>
+		       		<ul class="subMenu">
+			        	<li><input type="button" value="회원관리"></li>
+			            <li><input type="button" value="이력서관리"></li>
+			            <li><input type="button" value="자소서관리"></li>
+			            <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
+	
+		        	</ul>
+			    </li>
 			  
 			  </ul>
 			  
@@ -123,7 +132,7 @@
 
 				<div style="margin-top: 5px; position: absolute; right: 21%;">
 					<c:if test="${board.m_num == m_num }">
-						<input style="padding: 5px;" type="button" class="btn" value="수정" onclick="location.href='update.do?b_idx=${board.b_idx }&pageNum=${pageNum }'">
+						<input style="padding: 5px;" type="button" class="btn" value="수정" onclick="location.href='bupdate.do?b_idx=${board.b_idx }&pageNum=${pageNum }'">
 					</c:if>
 					<c:if test="${board.m_num == m_num || m_num == 0}">
 						<input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()">

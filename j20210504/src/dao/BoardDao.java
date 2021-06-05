@@ -425,6 +425,30 @@ public class BoardDao {
 	}
 	
 	
+	public int update(Board board) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update board set b_title=?,b_content=? where b_idx = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getB_title());
+			pstmt.setString(2, board.getB_content());
+			pstmt.setInt(3, board.getB_idx());
+		
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn  != null) conn.close();
+		}
+		return result;
+	}
+	
+	
+	
 	/////테스트/////////////////////////////////////////////////////////
 	
 	public int login(String id , String password) throws SQLException {
