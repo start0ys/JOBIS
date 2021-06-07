@@ -18,11 +18,15 @@ public class BwriteProAction  implements CommandProcess {
 			request.setCharacterEncoding("utf-8");
 			//b_type을 넘겨주기위해 추가해주었습니다. 추가한 이유는 해당 게시판에서 글을쓰고나면 해당 게시판으로 이동하기위해서입니다.
 			int b_type = Integer.parseInt(request.getParameter("b_type"));
+			String b_title = null;
+			if(b_type == 0 || b_type == 1) { b_title = request.getParameter("t_type") + request.getParameter("b_title"); }
+			else if (b_type == 2) { b_title = request.getParameter("b_title"); }
+			
 			Board board = new Board();
 			
 			board.setM_num(Integer.parseInt(request.getParameter("m_num")));
 			board.setM_nickname(request.getParameter("m_nickname"));
-			board.setB_title(request.getParameter("b_title"));
+			board.setB_title(b_title);
 			board.setB_content(request.getParameter("b_content"));
 			board.setB_type(b_type);
 			

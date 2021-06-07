@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,15 +53,18 @@
 			            <li><input type="button" value="당근마켓"></li>
 		        	</ul>
 			    </li>
-			    <li class="menu1">
-			    	<span class="menu">마이페이지</span>
-		       		<ul class="subMenu">
-			        	<li><input type="button" value="회원관리"></li>
-			            <li><input type="button" value="이력서관리"></li>
-			            <li><input type="button" value="자소서관리"></li>
-			            <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
-	
-		        	</ul>
+			   <li class="menu1">
+			    	<c:if test="${m_num == 0 }"><span class="menu"><a href="#">관리자페이지</a></span></c:if>
+			    	<c:if test="${m_num > 0 }">
+				    	<span class="menu">마이페이지</span>
+			       		<ul class="subMenu">
+				        	<li><input type="button" value="회원관리"></li>
+				            <li><input type="button" value="이력서관리"></li>
+				            <li><input type="button" value="자소서관리"></li>
+				            <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
+		
+			        	</ul>
+			    	</c:if>
 			    </li>
 			  
 			  </ul>

@@ -27,6 +27,17 @@ public class BwriteAction implements CommandProcess {
              request.setAttribute("m_num", m_num);
              request.setAttribute("b_type", Integer.parseInt (request.getParameter("b_type")));
              
+             String ib = "최종학력 : \r\n"
+             		+ "전공 : \r\n"
+             		+ "대외활동 : \r\n"
+             		+ "경력 : \r\n"
+             		+ "자격증 : \r\n"
+             		+ "기억나는 질문 : \r\n"
+             		+ "내가 한 대답 : \r\n"
+             		+ "면접관 분위기 : \r\n ";
+            
+             request.setAttribute("ib", ib);
+             
           } catch (Exception e) {
              System.out.println(e.getMessage());
           }

@@ -34,7 +34,7 @@ public class BupdateAction implements CommandProcess {
 			Board board = bd.select(b_idx);
 			
 			
-		
+			request.setAttribute("b_type", board.getB_type());
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("board", board);
 		} catch (Exception e) {
