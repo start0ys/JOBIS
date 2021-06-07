@@ -24,6 +24,11 @@
 		font-weight: bold;
 	}
 </style>
+<c:if test="${empty content }">
+	<script type="text/javascript">
+		location.href = document.referrer; 
+	</script>
+</c:if>
 <script type="text/javascript">
 	var b = "a";
 	function re(id) {
@@ -37,7 +42,7 @@
 	function del() {
 		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
 		if(del){
-			location.href='delete.do?b_idx=${board.b_idx }&pageNum=${pageNum }';
+			location.href='bdelete.do?b_idx=${board.b_idx }&pageNum=${pageNum }';
 		}
 	}
 	function redel(id) {

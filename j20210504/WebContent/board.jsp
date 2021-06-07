@@ -31,6 +31,14 @@
 		
 	} 
 </style>
+<script type="text/javascript">
+	function del(b_idx) {
+		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
+		if(del){
+			location.href='bdelete.do?b_idx='+b_idx+'&pageNum=${pageNum }';
+		}
+	}
+</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -105,7 +113,7 @@
 						<c:forEach var="board" items="${best }">
 							<tr>
 								<c:if test="${m_num == 0}">
-										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></td>
+										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
 								</c:if>
 								<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #cdddf9;">
 									<img src="images/hot.gif">
@@ -120,7 +128,7 @@
 							<c:forEach var="board" items="${list }">
 								<tr>
 									<c:if test="${m_num == 0}">
-										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></td>
+										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
 									</c:if>
 									<td style="width: 55%; font-weight: bold; font-size: 18px;">
 										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>

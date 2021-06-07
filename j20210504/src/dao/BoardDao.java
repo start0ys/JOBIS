@@ -447,6 +447,26 @@ public class BoardDao {
 		return result;
 	}
 	
+	public int delete(int b_idx) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "delete from board where b_idx = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, b_idx);
+			result = pstmt.executeUpdate();					
+		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn  != null) conn.close();
+		}
+		return result;
+	}  
+	
 	
 	
 	/////테스트/////////////////////////////////////////////////////////

@@ -65,9 +65,12 @@
 		<script src="menu.js"></script>
 		
 		
-		<div style="width: 90%; margin: 0 auto; margin-top:30px; text-align: center; color:black; ">
-			
-			
+	
+		
+		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
+			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center; margin: 0 auto;">
+				
+			</div>	
 		</div>
 	</div>
 </body>
