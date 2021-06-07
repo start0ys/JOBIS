@@ -31,6 +31,14 @@
 		
 	} 
 </style>
+<script type="text/javascript">
+	function del(b_idx) {
+		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
+		if(del){
+			location.href='bdelete.do?b_idx='+b_idx+'&pageNum=${pageNum }';
+		}
+	}
+</script>
 </head> 
 <body>
 	<div id="wrapper">
@@ -99,7 +107,7 @@
 					<table style="text-align: center;margin: 0 auto; width: 90%;">
 						<tr>
 							
-							<th>게시판</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th>
+							<th>게시판</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th>
 						</tr>
 						
 						<c:if test="${totCnt > 0 }">
@@ -114,15 +122,14 @@
 									<c:if test="${board.b_type == 2 }">
 										<td style="width: 15%;">자유게시판</td>
 									</c:if>
-									<c:if test="${m_num == 0}">
-										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></td>
-									</c:if>
+									
 									<td style="width: 40%; font-weight: bold; font-size: 18px;">
 										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
 									</td>
 									<td style="width: 15%;">👤${board.m_nickname }</td>
 									<td style="width: 10%;">${board.b_regdate }</td>
 									<td style="width: 10%;">${board.b_count }</td>
+									<td style="widows: 5%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
 								</tr>
 							</c:forEach>
 						</c:if>

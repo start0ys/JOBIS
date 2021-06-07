@@ -147,6 +147,14 @@
 					</c:if>
 				</div>
 				<div style="margin: 20px 0 0 20px; width: 75%;">
+					<c:if test="${not empty board.b_img }">
+						 <div style="margin-bottom: 50px; text-align: center; margin-left: 16%;">
+							 <form action = "fileDownload.do" method = "post">
+								<input type = "hidden" name = "fileName" value="${board.b_img }">
+								📁 ${board.b_img } <input type = "submit" value = "다운로드" class="btn">
+							 </form>
+						 </div>
+					</c:if>
 					${content } 
 				</div>
 	

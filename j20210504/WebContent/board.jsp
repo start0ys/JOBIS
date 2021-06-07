@@ -158,7 +158,7 @@
 									<img src="images/hot.gif">
 									<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
 									<c:if test="${m_num == 0}">
-										<span style="position: absolute; right: 23%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></span>
+										<span style="position: absolute; right: 23%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></span>
 									</c:if>
 								</h3>
 								<div class="boardCot">${board.b_content }</div>
@@ -175,7 +175,7 @@
 									<h3 style="width: 90%; font-weight: bold; font-size: 18px;">
 										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
 										<c:if test="${m_num == 0}">
-											<span style="position: absolute; right: 23%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()"></span>
+											<span style="position: absolute; right: 23%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></span>
 										</c:if>
 									</h3>
 									<div class="boardCot">${board.b_content }</div>
