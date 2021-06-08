@@ -425,19 +425,37 @@ public class BoardDao {
 	}
 	
 	
-	public int update(Board board) throws SQLException {
+	public int update(Board board, int fileResult) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = "update board set b_title=?,b_content=? where b_idx = ?";
+		String sql2 = "update board set b_title=?,b_content=?,b_img=? where b_idx = ?";
+		String sql3 = "update board set b_title=?,b_content=?,b_img=null where b_idx = ?";
 		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, board.getB_title());
-			pstmt.setString(2, board.getB_content());
-			pstmt.setInt(3, board.getB_idx());
-		
-			result = pstmt.executeUpdate();
+			if(fileResult == 0) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, board.getB_title());
+				pstmt.setString(2, board.getB_content());
+				pstmt.setInt(3, board.getB_idx());
+				result = pstmt.executeUpdate();
+			}else if (fileResult == 1) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setString(1, board.getB_title());
+				pstmt.setString(2, board.getB_content());
+				pstmt.setString(3, board.getB_img());
+				pstmt.setInt(4, board.getB_idx());
+				result = pstmt.executeUpdate();
+			} else if (fileResult == 2) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql3);
+				pstmt.setString(1, board.getB_title());
+				pstmt.setString(2, board.getB_content());
+				pstmt.setInt(3, board.getB_idx());
+				result = pstmt.executeUpdate();
+			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {

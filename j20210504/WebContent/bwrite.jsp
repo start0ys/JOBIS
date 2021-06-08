@@ -14,47 +14,18 @@
 		width: 90%;
 		resize: none;
 	}
-/* 	.filebox label {
-	  display: inline-block;
-	  padding: .5em .75em;
-	  color: #fff;
-	  font-size: inherit;
-	  line-height: normal;
-	  vertical-align: middle;
-	  background-color: #4d6083;
-	  cursor: pointer;
-	  border: 1px solid #4cae4c;
-	  border-radius: .25em;
-	  -webkit-transition: background-color 0.2s;
-	  transition: background-color 0.2s;
-	}
-	
-	.filebox label:hover {
-	  background-color: #3f4f6b;
-	}
-	
-	
-	.filebox input[type="file"] {
-	  position: absolute;
-	  width: 1px;
-	  height: 1px;
-	  padding: 0;
-	  margin: -1px;
-	  overflow: hidden;
-	  clip: rect(0, 0, 0, 0);
-	  border: 0;
-	} */
 	
 	.fileBox .fileName {
 		display:inline-block;
-		width:190px;
+		width:170px;
 		height:30px;
 		padding-left:10px;
 		margin-right:5px;
 		line-height:30px;
 		border:1px solid #aaa;
 		background-color:#fff;
-		vertical-align:middle
+		vertical-align:middle;
+		border-radius: 10px;
 	}
 	.fileBox .btn_file {
 		display:inline-block;
@@ -64,7 +35,11 @@
 		font-size:0.8em;
 		line-height:30px;
 		text-align:center;
-		vertical-align:middle
+		vertical-align:middle;
+		border: 1 solid white;
+		background-color: #203864;
+		color:white;
+		border-radius: 10px;
 	}
 	.fileBox input[type="file"] {
 		position:absolute;
@@ -146,11 +121,6 @@
 						<input type="hidden" name="b_type" value="${b_type }">
 						<input type="hidden" name="m_num" value="${m_num }">
 						<input type="hidden" name="m_nickname" value="${m_nickname }">
-						<!-- <div class="filebox">
-						  <label for="ex_file">파일 업로드</label>
-						  <input type="file" id="ex_file" name="uploadFile">
-						</div> -->
-						<!-- <input type="file" name="uploadFile"><p> -->
 						<c:if test="${b_type == 0 }">
 							<select name="t_type" style="height: 40px;width: 10%;">
 								<option value="[면접후기]">면접후기</option>
@@ -175,12 +145,12 @@
 							<input type="text" placeholder="글 제목" name="b_title" maxlength="50" style="height:40px; width: 90%; margin-bottom: 20px;" required="required"><p>
 							<textarea placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required"></textarea><p>
 						</c:if>
-						<div class="fileBox">
+						<div class="fileBox" style="position: absolute; right: 17%;">
 							<input type="text" class="fileName" readonly="readonly">
-							<label for="uploadBtn" class="btn_file">찾아보기</label>
+							<label for="uploadBtn" class="btn_file">파일 업로드</label>
 							<input type="file" id="uploadBtn" class="uploadBtn" name="uploadFile">
 						</div>
-						<input type="submit" value="글쓰기" class="btn">	
+						<div style="position: absolute; left: 17%;"><input type="submit" value="글쓰기" class="btn"></div>	
 					</form>
 				</div>
 			</div>	

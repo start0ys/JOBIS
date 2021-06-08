@@ -15,6 +15,42 @@
 		width: 90%;
 		resize: none;
 	}
+	.fileBox .fileName {
+		display:inline-block;
+		width:170px;
+		height:30px;
+		padding-left:10px;
+		margin-right:5px;
+		line-height:30px;
+		border:1px solid #aaa;
+		background-color:#fff;
+		vertical-align:middle;
+		border-radius: 10px;
+	}
+	.fileBox .btn_file {
+		display:inline-block;
+		border:1px solid #000;
+		width:100px;
+		height:30px;
+		font-size:0.8em;
+		line-height:30px;
+		text-align:center;
+		vertical-align:middle;
+		border: 1 solid white;
+		background-color: #203864;
+		color:white;
+		border-radius: 10px;
+	}
+	.fileBox input[type="file"] {
+		position:absolute;
+		width:1px;
+		height:1px;
+		padding:0;
+		margin:-1px;
+		overflow:hidden;
+		clip:rect(0,0,0,0);
+		border:0
+	}
 </style>
 </head>
 <body>
@@ -81,12 +117,13 @@
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center; margin: 0 auto;">
 				<div style="margin: 50px 0px;">
-					<form action="bupdatePro.do" method="post">
+					<form action="bupdatePro.do" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="pageNum" value="${pageNum }">
 						<input type="hidden" name="m_num" value="${board.m_num }">
 						<input type="hidden" name="b_idx" value="${board.b_idx }">
 						<input type="hidden" name="b_type" value="${b_type }">
 						<input type="hidden" name="m_nickname" value="${board.m_nickname }">
+						<input type="hidden" name="filedel" value="0" id="filedel">
 						
 						<c:if test="${b_type == 0 }">
 							<select name="t_type" style="height: 40px;width: 10%;">
@@ -114,11 +151,37 @@
 							<input type="text" placeholder="글 제목" name="b_title" id="b_title" maxlength="50" style="height:40px; width: 90%; margin-bottom: 20px;" required="required" value="${board.b_title }"><p>
 							<pre><textarea  placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required">${board.b_content }</textarea></pre><p>
 						</c:if>
-						<input type="submit" value="수정하기" class="btn" >
+						<div class="fileBox" style="position: absolute; right: 17%;">
+							<input type="text" class="fileName" readonly="readonly" value="${board.b_img }">
+							<label for="uploadBtn" class="btn_file">업로드 수정</label>
+							<input type="file" id="uploadBtn" class="uploadBtn" name="uploadFile">
+							<input type="button" class="btn" value="삭제" onclick="fd()">
+						</div>
+						<div style="position: absolute; left: 17%;"><input type="submit" value="수정하기" class="btn"></div>
 					</form>
 				</div>
 			</div>	
 		</div>
 	</div>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		var uploadFile = $('.fileBox .uploadBtn');
+		uploadFile.on('change', function(){
+			if(window.FileReader){
+				var filename = $(this)[0].files[0].name;
+			} else {
+				var filename = $(this).val().split('/').pop().split('\\').pop();
+			}
+			$(this).siblings('.fileName').val(filename);
+			$('#filedel').val('1');
+		});
+	 	function fd() {
+			$('.fileName').val(''); 
+			$('#filedel').val('2');
+		} 
+	</script>
+	
+	
 </body>
 </html>

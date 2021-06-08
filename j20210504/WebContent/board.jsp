@@ -196,7 +196,7 @@
 				</c:if>
 				
 				
-				<span style="position: absolute; right: 17%;"><input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'"></span>	
+				<span style="position: absolute; right: 17%; margin-top: 4px;"><input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'"></span>	
 				<div style="text-align: center; margin-top: 20px;">
 					<c:if test="${startPage > blockSize }">
 						<a href="board.do?pageNum=${startPage-blockSize }&b_type=${b_type }&s_type=${s_type }&search=${search }">[이전]</a>
