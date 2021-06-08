@@ -36,7 +36,9 @@ public class ReWriteAction implements CommandProcess {
 			CommentDao cd = CommentDao.getInstance();
 			int result = cd.insert(comment);
 			
-	
+			int b_type = Integer.parseInt(request.getParameter("b_type"));
+			
+			request.setAttribute("b_type", b_type);
 			request.setAttribute("b_idx", b_idx);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("result", result);

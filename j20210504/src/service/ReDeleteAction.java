@@ -17,10 +17,12 @@ public class ReDeleteAction implements CommandProcess {
 		try {
 			int c_idx = Integer.parseInt(request.getParameter("c_idx"));
 			int b_idx = Integer.parseInt(request.getParameter("b_idx"));
+			int b_type = Integer.parseInt(request.getParameter("b_type"));
 			String pageNum = request.getParameter("pageNum");
 			CommentDao cd = CommentDao.getInstance();
 			int result = cd.delete(c_idx);
-			
+
+			request.setAttribute("b_type", b_type);
 			request.setAttribute("b_idx", b_idx);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("result", result);

@@ -49,7 +49,7 @@
 		const redel =  confirm("해당 댓글을 삭제하시겠습니까?");
 		var c_idx = id;
 		if(redel){
-			location.href='reDelete.do?c_idx='+c_idx+'&pageNum=${pageNum }&b_idx=${board.b_idx }';
+			location.href='reDelete.do?c_idx='+c_idx+'&pageNum=${pageNum }&b_idx=${board.b_idx }&b_type=${b_type}';
 		}
 	}
 	
@@ -189,6 +189,7 @@
 									<input type="hidden" name="m_num" value="${m_num }">
 									<input type="hidden" name="b_idx" value="${board.b_idx }">
 									<input type="hidden" name="c_idx" value="${comment.c_idx }">
+									<input type="hidden" name="b_type" value="${b_type }">
 									<input type="hidden" name="ref" value="${comment.ref }">
 									<input type="hidden" name="re_level" value="${comment.re_level }">
 									<input type="hidden" name="re_step" value="${comment.re_step }">
@@ -210,6 +211,7 @@
 						<input type="hidden" name="m_num" value="${m_num }">
 						<input type="hidden" name="b_idx" value="${board.b_idx }">
 						<input type="hidden" name="c_idx" value="${c_idx }">
+						<input type="hidden" name="b_type" value="${b_type }">
 						<input type="hidden" name="ref" value="${ref }">
 						<input type="hidden" name="re_level" value="${re_level }">
 						<input type="hidden" name="re_step" value="${re_step }">
