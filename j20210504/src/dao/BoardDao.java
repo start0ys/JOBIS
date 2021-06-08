@@ -97,9 +97,9 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int tot = 0;
-		String sql = "select count(*) from board where b_type = ?";
-		String sql1 = "select count(*) from board where b_type = ? and b_title like ?";
-		String sql2 = "select count(*) from board where b_type = ? and m_nickname like ?";
+		String sql = "select count(*) from board where b_type = ?  and ( b_notice != 1 or b_notice is null)";
+		String sql1 = "select count(*) from board where b_type = ? and b_title like ?  and ( b_notice != 1 or b_notice is null)";
+		String sql2 = "select count(*) from board where b_type = ? and m_nickname like ?  and ( b_notice != 1 or b_notice is null)";
 		try {
 			if(type == 1) {
 				conn = getConnection();
@@ -145,7 +145,7 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int tot = 0;
-		String sql = "select count(*) from board where m_num like ?";
+		String sql = "select count(*) from board where m_num like ?  and ( b_notice != 1 or b_notice is null)";
 		try {
 			
 			conn = getConnection();
@@ -175,17 +175,17 @@ public class BoardDao {
 		List<Board> list = new ArrayList<Board>();
 		String sql = "select * from "
 								+ "(select rownum rn, a.* from "
-																+ "(select * from board where b_type = ? order by b_idx desc) a )"
+																+ "(select * from board where b_type = ?  and ( b_notice != 1 or b_notice is null) order by b_idx desc) a )"
 								+ " where rn between ? and ?";
 		
 		String sql1 = "select * from "
 				+ "(select rownum rn, a.* from "
-												+ "(select * from board where b_type = ? and b_title like ? order by b_idx desc) a )"
+												+ "(select * from board where b_type = ? and b_title like ?  and ( b_notice != 1 or b_notice is null) order by b_idx desc) a )"
 				+ " where rn between ? and ?";
 		
 		String sql2 = "select * from "
 				+ "(select rownum rn, a.* from "
-												+ "(select * from board where b_type = ? and m_nickname like ? order by b_idx desc) a )"
+												+ "(select * from board where b_type = ? and m_nickname like ?  and ( b_notice != 1 or b_notice is null) order by b_idx desc) a )"
 				+ " where rn between ? and ?";
 		
 		try {
@@ -279,7 +279,7 @@ public class BoardDao {
 		List<Board> list = new ArrayList<Board>();
 		String sql = "select * from "
 								+ "(select rownum rn, a.* from "
-																+ "(select * from board where b_type = ? order by b_count desc) a )"
+																+ "(select * from board where b_type = ?  and ( b_notice != 1 or b_notice is null)  order by b_count desc) a )"
 								+ " where rn between 1 and 3";
 		try {
 			conn = getConnection();
@@ -312,32 +312,89 @@ public class BoardDao {
 		return list;
 	}
 	
+	public List<Board> notice() throws SQLException{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> list = new ArrayList<Board>();
+		String sql = "select * from board where b_notice = 1 order by b_count desc";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				do{
+					Board board = new Board();
+					board.setB_idx(rs.getInt("b_idx"));
+					board.setM_num(rs.getInt("m_num"));
+					board.setB_type(rs.getInt("b_type"));
+					board.setB_title(rs.getString("b_title"));
+					board.setM_nickname(rs.getString("m_nickname"));
+					board.setB_regdate(rs.getDate("b_regdate"));
+					board.setB_content(rs.getString("b_content"));
+					board.setB_count(rs.getInt("b_count"));
+					board.setB_img(rs.getString("b_img"));
+					board.setB_notice(rs.getInt("b_notice"));
+					list.add(board);
+				} while(rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}  finally {
+			if ( rs   != null)  rs.close();
+			if (pstmt  != null)  pstmt.close();
+			if (conn  != null)  conn.close();
+		}
+		return list;
+	}
 	
 	
 	
-	public Board select(int b_idx) throws SQLException {
+	
+	public Board select(int b_idx, int b_type) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Board board = new Board();
-		String sql = "select * from board where b_idx = ? ";
+		String sql = "select * from board where b_idx = ?  and ( b_notice != 1 or b_notice is null) ";
+		String sql2 = "select * from board where b_idx = ?  and b_notice = 1";
 		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, b_idx);
-			rs = pstmt.executeQuery();
-			if(rs.next()){
-				board.setB_idx(rs.getInt("b_idx"));
-				board.setM_num(rs.getInt("m_num"));
-				board.setB_type(rs.getInt("b_type"));
-				board.setB_title(rs.getString("b_title"));
-				board.setM_nickname(rs.getString("m_nickname"));
-				board.setB_regdate(rs.getDate("b_regdate"));
-				board.setB_content(rs.getString("b_content"));
-				board.setB_count(rs.getInt("b_count"));
-				board.setB_img(rs.getString("b_img"));
-				board.setB_notice(rs.getInt("b_notice"));
-				
+			if(b_type == 3) {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setInt(1, b_idx);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					board.setB_idx(rs.getInt("b_idx"));
+					board.setM_num(rs.getInt("m_num"));
+					board.setB_type(rs.getInt("b_type"));
+					board.setB_title(rs.getString("b_title"));
+					board.setM_nickname(rs.getString("m_nickname"));
+					board.setB_regdate(rs.getDate("b_regdate"));
+					board.setB_content(rs.getString("b_content"));
+					board.setB_count(rs.getInt("b_count"));
+					board.setB_img(rs.getString("b_img"));
+					board.setB_notice(rs.getInt("b_notice"));
+					
+				}
+			} else {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, b_idx);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					board.setB_idx(rs.getInt("b_idx"));
+					board.setM_num(rs.getInt("m_num"));
+					board.setB_type(rs.getInt("b_type"));
+					board.setB_title(rs.getString("b_title"));
+					board.setM_nickname(rs.getString("m_nickname"));
+					board.setB_regdate(rs.getDate("b_regdate"));
+					board.setB_content(rs.getString("b_content"));
+					board.setB_count(rs.getInt("b_count"));
+					board.setB_img(rs.getString("b_img"));
+					board.setB_notice(rs.getInt("b_notice"));
+					
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

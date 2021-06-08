@@ -57,12 +57,16 @@ public class BwriteProAction  implements CommandProcess {
 			String b_title = null;
 			if(b_type == 0 || b_type == 1) { b_title = multi.getParameter("t_type") + multi.getParameter("b_title"); }
 			else if (b_type == 2) { b_title = multi.getParameter("b_title"); }
+			else if (b_type == 3) { b_title = multi.getParameter("t_type") + multi.getParameter("b_title"); }
 			
 			Board board = new Board();
 			
 			if(fileResult == 1) {
-				System.out.println("널아님");
 				board.setB_img(filename);
+			}
+			
+			if (b_type == 3) {
+				board.setB_notice(1);
 			}
 			
 			board.setM_num(Integer.parseInt(multi.getParameter("m_num")));
@@ -77,6 +81,9 @@ public class BwriteProAction  implements CommandProcess {
 			
 			request.setAttribute("result", result);
 			//b_type 넘겨주는것을 추가했습니다.
+			if (b_type == 3) {
+				b_type = 0;
+			}
 			request.setAttribute("b_type", b_type);
 			
 			

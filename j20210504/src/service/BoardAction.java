@@ -64,7 +64,8 @@ public class BoardAction implements CommandProcess {
 			if ( endPage> pageCnt ) endPage = pageCnt;
 			//Best글 보기
 			List<Board> best = bd.best(b_type);
-			
+			//공지 보기
+			List<Board> notice = bd.notice();
 			
 			request.setAttribute("s_type", s_type);
 			request.setAttribute("search", search);
@@ -79,6 +80,9 @@ public class BoardAction implements CommandProcess {
 			request.setAttribute("endPage", endPage);
 			//Best글 보기
 			request.setAttribute("best", best);
+			//공지 보기
+			request.setAttribute("notice", notice);
+			
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

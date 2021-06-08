@@ -118,9 +118,22 @@
 								<c:if test="${m_num == 0}">
 										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
 								</c:if>
-								<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #cdddf9;">
+								<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #9ebdf5;">
 									<img src="images/hot.gif">
 									<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
+								</td>
+								<td style="width: 15%;background-color: #9ebdf5;">👤${board.m_nickname }</td>
+								<td style="width: 15%;background-color: #9ebdf5;">${board.b_regdate }</td>
+								<td style="width: 15%;background-color: #9ebdf5;">${board.b_count }</td>
+							</tr>
+						</c:forEach>
+						<c:forEach var="board" items="${notice }">
+							<tr>
+								<c:if test="${m_num == 0}">
+										<td><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
+								</c:if>
+								<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #cdddf9;">
+									<a style="color: red;" href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=3">${board.b_title }</a>
 								</td>
 								<td style="width: 15%;background-color: #cdddf9;">👤${board.m_nickname }</td>
 								<td style="width: 15%;background-color: #cdddf9;">${board.b_regdate }</td>
@@ -152,6 +165,24 @@
 				
 				<c:if test="${b_type == 1 }">
 					<div style="text-align: left;margin: 0 auto; width: 80%;">
+						<c:if test="${not empty notice }">
+							<div style="border: 2px solid #4d6083; border-radius: 25px; padding: 28px;">
+								<table style="text-align: center;margin: 0 auto; width: 90%;">
+									<c:forEach var="board" items="${notice }">
+										<tr>
+											<td style="width: 55%; font-weight: bold; font-size: 18px;background-color: white;">
+												<a style="color: red;" href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=3">${board.b_title }</a>
+											</td>
+											<td style="width: 15%;background-color: white;">👤${board.m_nickname }</td>
+											<td style="width: 15%;background-color: white;">${board.b_regdate }</td>
+											<c:if test="${m_num == 0}">
+													<td style="background-color: white;"><input style="padding: 5px; " type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
+											</c:if>
+										</tr>
+									</c:forEach>
+								</table>
+							</div> 
+						</c:if>
 						<c:forEach var="board" items="${best }">
 							<div style="border: 2px solid #4d6083; border-radius: 25px; padding: 28px;">
 								<h3 style="width: 90%; font-weight: bold; font-size: 18px;">
@@ -169,6 +200,8 @@
 								</div>
 							</div>
 						</c:forEach>
+						
+						
 						<c:if test="${totCnt > 0 }">
 							<c:forEach var="board" items="${list }">
 								<div style="border: 2px solid #4d6083; border-radius: 25px; padding: 28px; margin-top: 10px;">
@@ -196,7 +229,12 @@
 				</c:if>
 				
 				
-				<span style="position: absolute; right: 17%; margin-top: 4px;"><input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'"></span>	
+				<span style="position: absolute; right: 17%; margin-top: 4px;">
+					<c:if test="${m_num == 0}">
+						<input type="button" value="공지작성" class="btn" onclick="location.href = 'bwrite.do?b_type=3'">
+					</c:if>
+					<input type="button" value="글쓰기" class="btn" onclick="location.href = 'bwrite.do?b_type=${b_type}'">
+				</span>	
 				<div style="text-align: center; margin-top: 20px;">
 					<c:if test="${startPage > blockSize }">
 						<a href="board.do?pageNum=${startPage-blockSize }&b_type=${b_type }&s_type=${s_type }&search=${search }">[이전]</a>

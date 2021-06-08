@@ -145,6 +145,13 @@
 							<input type="text" placeholder="글 제목" name="b_title" maxlength="50" style="height:40px; width: 90%; margin-bottom: 20px;" required="required"><p>
 							<textarea placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required"></textarea><p>
 						</c:if>
+						<c:if test="${b_type == 3 }">
+							<select name="t_type" style="height: 40px;width: 10%;">
+								<option value="[공지]">공지</option>
+							</select>
+							<input type="text" placeholder="글 제목" name="b_title" maxlength="50" style="height:40px; width: 80%; margin-bottom: 20px;" required="required"><p>
+							<textarea placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required"></textarea><p>
+						</c:if>
 						<div class="fileBox" style="position: absolute; right: 17%;">
 							<input type="text" class="fileName" readonly="readonly">
 							<label for="uploadBtn" class="btn_file">파일 업로드</label>

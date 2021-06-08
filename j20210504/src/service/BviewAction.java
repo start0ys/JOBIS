@@ -33,10 +33,11 @@ public class BviewAction implements CommandProcess {
 	        request.setAttribute("m_num", m_num);
 			
 	        //게시글보기위한 작업
+	        int b_type = Integer.parseInt(request.getParameter("b_type"));
 			int b_idx = Integer.parseInt(request.getParameter("b_idx"));
 			String pageNum = request.getParameter("pageNum");
 			bd.readCount(b_idx);
-			Board board = bd.select(b_idx);
+			Board board = bd.select(b_idx,b_type);
 			//게시글작성할때 뛰어쓰기 한 것을 그대로 불러오기위한 작업
 			String content = board.getB_content();
 			content = content.replace("\r\n","<br>");
