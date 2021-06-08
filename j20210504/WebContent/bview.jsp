@@ -140,7 +140,7 @@
 
 				<div style="margin-top: 5px; position: absolute; right: 21%;">
 					<c:if test="${board.m_num == m_num }">
-						<input style="padding: 5px;" type="button" class="btn" value="수정" onclick="location.href='bupdate.do?b_idx=${board.b_idx }&pageNum=${pageNum }'">
+						<input style="padding: 5px;" type="button" class="btn" value="수정" onclick="location.href='bupdate.do?b_idx=${board.b_idx }&pageNum=${pageNum }&b_type=${b_type }'">
 					</c:if>
 					<c:if test="${board.m_num == m_num || m_num == 0}">
 						<input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del()">

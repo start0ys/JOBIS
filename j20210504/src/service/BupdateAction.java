@@ -28,10 +28,10 @@ public class BupdateAction implements CommandProcess {
 			request.setAttribute("m_num", m_num);
 			
 			
-			
+			int b_type = Integer.parseInt(request.getParameter("b_type"));
 			int b_idx = Integer.parseInt(request.getParameter("b_idx"));
 			String pageNum = request.getParameter("pageNum");
-			Board board = bd.select(b_idx);
+			Board board = bd.select(b_idx,b_type);
 			
 			
 			request.setAttribute("b_type", board.getB_type());

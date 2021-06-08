@@ -124,7 +124,7 @@
 									</c:if>
 									
 									<td style="width: 40%; font-weight: bold; font-size: 18px;">
-										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${b_type }">${board.b_title }</a>
+										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${board.b_type }">${board.b_title }</a>
 									</td>
 									<td style="width: 15%;">👤${board.m_nickname }</td>
 									<td style="width: 10%;">${board.b_regdate }</td>

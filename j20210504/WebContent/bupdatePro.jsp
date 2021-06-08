@@ -10,7 +10,7 @@
 <body>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
-			location.href="bview.do?b_idx=${b_idx}&pageNum=${pageNum}";
+			location.href="bview.do?b_idx=${b_idx}&pageNum=${pageNum}&b_type=${b_type}";
 		</script>
 	</c:if>
 	<c:if test="${result == 0 }">

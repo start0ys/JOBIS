@@ -78,7 +78,7 @@ public class BupdateProAction implements CommandProcess {
 			
 			int result = bd.update(board,fileResult);
 			
-			
+			request.setAttribute("b_type", b_type);
 			request.setAttribute("result", result);
 			request.setAttribute("b_idx", board.getB_idx());
 			request.setAttribute("pageNum", pageNum);

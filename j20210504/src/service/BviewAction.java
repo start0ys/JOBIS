@@ -42,7 +42,7 @@ public class BviewAction implements CommandProcess {
 			String content = board.getB_content();
 			content = content.replace("\r\n","<br>");
 		
-			
+			request.setAttribute("b_type", b_type);
 			request.setAttribute("b_idx", b_idx);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("board", board);
@@ -52,7 +52,7 @@ public class BviewAction implements CommandProcess {
 
 			//대댓글 작업
 			int c_idx = 0, ref = 0, re_level = 0, re_step = 0;
-			if (pageNum == null ) pageNum = "1";
+			if (pageNum == null || pageNum == "" ) pageNum = "1";
 			CommentDao cd = CommentDao.getInstance();
 			if(request.getParameter("c_idx") != null ) {
 				c_idx = Integer.parseInt(request.getParameter("c_idx"));
