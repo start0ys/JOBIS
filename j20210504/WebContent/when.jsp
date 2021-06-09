@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JOBIS</title>
-<script type="text/javascript">
-	location.href="main.do";
-</script>
+<title>Insert title here</title>
 </head>
 <body>
-
+<pre><textarea  placeholder="글 내용" name="b_content" id="b_content" 
+	maxlength="4000" required="required"></textarea></pre><p>
 </body>
 </html>

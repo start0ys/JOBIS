@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,37 +9,7 @@
 <link rel="stylesheet" type="text/css" href="commons.css">
 <link rel="stylesheet" type="text/css" href="headerss.css?ver4">
 <link rel="stylesheet" type="text/css" href="menus.css">
-<style type="text/css">
-	a{
-		text-decoration: none;
-		color:black;
-	}
-	th{
-		border-top: solid 2px #aaaaaa;
-    	background-color: #4d6083;
-    	color:white;
-	}
-	tr{
-		background-color: #e6efff;
-	}
- 	.boardCot{
-		display: inline-block; 
-		width: 80%; 
-		white-space: nowrap; 
-		overflow: hidden; 
-		text-overflow: ellipsis; 
-		
-	} 
-</style>
-<script type="text/javascript">
-	function del(b_idx) {
-		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
-		if(del){
-			location.href='bdelete.do?b_idx='+b_idx+'&pageNum=${pageNum }';
-		}
-	}
-</script>
-</head> 
+</head>
 <body>
 	<div id="wrapper">
 		<header>
@@ -98,69 +68,56 @@
 		<script src="menu.js"></script>
 		
 		
+	
+		
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
-			<h2 class="btn" style="margin:30px; display: inline-block; background-color: #4d6083;">작성한 게시글</h2>
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
-				
-				
-					<table style="text-align: center;margin: 0 auto; width: 90%;">
-						<tr>
-							
-							<th>게시판</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th>
-						</tr>
-						
-						<c:if test="${totCnt > 0 }">
-							<c:forEach var="board" items="${list }">
-								<tr>
-									<c:if test="${board.b_type == 0 }">
-										<td style="width: 15%;">면접게시판</td>
-									</c:if>
-									<c:if test="${board.b_type == 1 }">
-										<td style="width: 15%;">Q&A게시판</td>
-									</c:if>
-									<c:if test="${board.b_type == 2 }">
-										<td style="width: 15%;">자유게시판</td>
-									</c:if>
-									
-									<td style="width: 40%; font-weight: bold; font-size: 18px;">
-										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${board.b_type }">${board.b_title }</a>
-									</td>
-									<td style="width: 15%;">👤${board.m_nickname }</td>
-									<td style="width: 10%;">${board.b_regdate }</td>
-									<td style="width: 10%;">${board.b_count }</td>
-									<td style="widows: 5%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
-								</tr>
-							</c:forEach>
-						</c:if>
-						<c:if test="${toCnt == 0 }">
-							<tr>
-								<td colspan="7">데이터가 없습니다</td>
-							</tr>
-						</c:if>
+					<h1>이력서</h1>
+					<table>
+						<input type="hidden" name="m_num" value="${m_num }">
+						<tr><td>이름</td><td>${erboard.m_name }</td></tr>
+						<tr><td>이메일</td><td>${erboard.mail }</td></tr>
+						<tr><td>기타사항</td><td>${erboard.additions }</td></tr>
+						<tr><td colspan="3"><h2>학력</h2></td></tr>
+						<tr><td>학교</td><td>${erboard.college }</td></tr>
+						<tr><td>전공</td><td>${erboard.major }</td></tr>
+						<tr><td>기간</td><td>${erboard.date1 }</td><td>~</td><td>${erboard.date2 }</td>
+						<tr><td>학점</td><td>${erboard.credit }</td>
+						<tr><td colspan="3"><h2>병역</h2></td></tr>
+						<tr><td>군벌</td><td>${erboard.millitary }</td></tr>
+						<tr><td>병과</td><td>${erboard.m_dept }</td></tr>
+						<tr><td>계급</td><td>${erboard.m_class }</td></tr>
+						<tr><td>기간</td><td>${erboard.m_date1 }</td><td>~</td><td>${erboard.m_date2 }</td></tr>
+						<tr><td colspan="3"><h2>경력</h2></td></tr>
+						<tr><td>회사</td><td>${erboard.ename }</td></tr>
+						<tr><td>기간</td><td>${erboard.edate1 }</td><td>~</td><td>${erboard.edate2 }</td></tr>
+						<tr><td>직무</td><td>${erboard.ejob }</td></tr>
+						<tr><td>기타사항</td><td>${erboard.econtent }</td></tr>
+						<tr><td colspan="3"><h2>대외활동</h2></td></tr>
+						<tr><td>활동명</td><td>${erboard.aname }</td></tr>
+						<tr><td>기간</td><td>${erboard.adate1 }</td><td>~</td><td>${erboard.adate2 }</td></tr>
+						<tr><td colspan="3">기타사항</td><td>${erboard.acontent }</td></tr>
+						<tr><td colspan="3"><h2>어학성적</h2></td></tr>
+						<tr><td>시험명</td><td>${erboard.tname }</td></tr>
+						<tr><td>취득날짜</td><td>${erboard.tdate }</td></tr>
+						<tr><td>점수</td><td>${erboard.tscore }</td></tr>
+						<tr><td>수험번호</td><td>${erboard.tnumber }</td></tr>
+						<tr><td colspan="3"><h2>자격증</h2></td></tr>
+						<tr><td>자격증명</td><td>${erboard.lname }</td></tr>
+						<tr><td>자격증번호</td><td>${erboard.col }</td></tr>
+						<tr><td>발급기관</td><td>${erboard.ldept }</td></tr>
+						<tr><td>취득날짜</td><td>${erboard.ldate }</td></tr>
+						<tr><td colspan="3"><h2>수상</h2></td></tr>
+						<tr><td>대회명</td><td>${erboard.pname }</td></tr>
+						<tr><td>상</td><td>${erboard.price }</td></tr>
+						<tr><td>상일련번호</td><td>${erboard.p_id }</td></tr>
+						<tr><td>수상기관</td><td>${erboard.pdept }</td></tr>
+						<tr><td>수상날짜</td><td>${erboard.pdate }</td></tr>
+						<tr><td>기타사항</td><td>${erboard.pcontent }</td></tr>
+						<tr><td><a href="erwriteForm.do?m_num=${m_num }">작성하기</a></td></tr>
+						<tr><td><a href="erupdateForm.do?m_num=${m_num }">수정하기</a></td></tr>
 					</table>
-				
-			
-				
-				
-				<div style="text-align: center; margin-top: 20px;">
-					<c:if test="${startPage > blockSize }">
-						<a href="myboard.do?pageNum=${startPage-blockSize }&search=${m_num }">[이전]</a>
-					</c:if>
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
-						<c:if test="${pageNum == i }">
-							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
-						</c:if>
-						<c:if test="${pageNum != i }">
-							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ ${i } ]</a>
-						</c:if>
-					</c:forEach>
-					<c:if test="${endPage < pageCnt }">
-						<a href="myboard.do?pageNum=${startPage+blockSize }&search=${m_num }">[다음]</a>
-					</c:if>
-				</div>
-			
-			</div>
-			
+			</div>	
 		</div>
 	</div>
 </body>

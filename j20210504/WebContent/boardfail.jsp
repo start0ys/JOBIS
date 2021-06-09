@@ -26,7 +26,7 @@
 		
 			<!------ 밑의 a태그의 #부분에는 소연님이 메인페이지 만들어주시면 메인페이지.do를 넣어주면됩니다.--- -->
 			
-		   <a href="#"><img id="logo" src="images/main.png" width="240px" height="90"></a>
+		   <a href="main.do"><img id="logo" src="images/main.png" width="240px" height="90"></a>
 		
 		
 			<nav id="main_menu">
@@ -53,16 +53,15 @@
 			            <li><input type="button" value="당근마켓"></li>
 		        	</ul>
 			    </li>
-			   <li class="menu1">
+			    <li class="menu1">
 			    	<c:if test="${m_num == 0 }"><span class="menu"><a href="#">관리자페이지</a></span></c:if>
 			    	<c:if test="${m_num > 0 }">
 				    	<span class="menu">마이페이지</span>
 			       		<ul class="subMenu">
-				        	<li><input type="button" value="회원관리"></li>
-				            <li><input type="button" value="이력서관리"></li>
-				            <li><input type="button" value="자소서관리"></li>
-				            <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
-		
+			       			<li><input type="button" value="회원관리"      onclick="location.href = 'updatePage.do'"></li>
+	            			<li><input type="button" value="이력서관리"    onclick="location.href = 'ercontent.do'"></li>
+	            			<li><input type="button" value="자소서관리"    onclick="location.href = 'myse.do'"></li>
+							<li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
 			        	</ul>
 			    	</c:if>
 			    </li>

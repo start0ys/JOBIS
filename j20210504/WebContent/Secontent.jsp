@@ -1,45 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
+<%
+	String context = request.getContextPath();
+%>
 <head>
 <meta charset="UTF-8">
 <title>JOBIS</title>
 <link rel="stylesheet" type="text/css" href="commons.css">
 <link rel="stylesheet" type="text/css" href="headerss.css?ver4">
 <link rel="stylesheet" type="text/css" href="menus.css">
-<style type="text/css">
-	a{
-		text-decoration: none;
-		color:black;
-	}
-	th{
-		border-top: solid 2px #aaaaaa;
-    	background-color: #4d6083;
-    	color:white;
-	}
-	tr{
-		background-color: #e6efff;
-	}
- 	.boardCot{
-		display: inline-block; 
-		width: 80%; 
-		white-space: nowrap; 
-		overflow: hidden; 
-		text-overflow: ellipsis; 
-		
-	} 
-</style>
-<script type="text/javascript">
-	function del(b_idx) {
-		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
-		if(del){
-			location.href='bdelete.do?b_idx='+b_idx+'&pageNum=${pageNum }';
-		}
-	}
-</script>
-</head> 
+</head>
 <body>
 	<div id="wrapper">
 		<header>
@@ -98,69 +72,27 @@
 		<script src="menu.js"></script>
 		
 		
+	
+		
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
-			<h2 class="btn" style="margin:30px; display: inline-block; background-color: #4d6083;">작성한 게시글</h2>
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
-				
-				
-					<table style="text-align: center;margin: 0 auto; width: 90%;">
-						<tr>
-							
-							<th>게시판</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th>
-						</tr>
-						
-						<c:if test="${totCnt > 0 }">
-							<c:forEach var="board" items="${list }">
-								<tr>
-									<c:if test="${board.b_type == 0 }">
-										<td style="width: 15%;">면접게시판</td>
-									</c:if>
-									<c:if test="${board.b_type == 1 }">
-										<td style="width: 15%;">Q&A게시판</td>
-									</c:if>
-									<c:if test="${board.b_type == 2 }">
-										<td style="width: 15%;">자유게시판</td>
-									</c:if>
-									
-									<td style="width: 40%; font-weight: bold; font-size: 18px;">
-										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${board.b_type }">${board.b_title }</a>
-									</td>
-									<td style="width: 15%;">👤${board.m_nickname }</td>
-									<td style="width: 10%;">${board.b_regdate }</td>
-									<td style="width: 10%;">${board.b_count }</td>
-									<td style="widows: 5%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
-								</tr>
-							</c:forEach>
-						</c:if>
-						<c:if test="${toCnt == 0 }">
-							<tr>
-								<td colspan="7">데이터가 없습니다</td>
-							</tr>
-						</c:if>
-					</table>
-				
-			
-				
-				
-				<div style="text-align: center; margin-top: 20px;">
-					<c:if test="${startPage > blockSize }">
-						<a href="myboard.do?pageNum=${startPage-blockSize }&search=${m_num }">[이전]</a>
-					</c:if>
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
-						<c:if test="${pageNum == i }">
-							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
-						</c:if>
-						<c:if test="${pageNum != i }">
-							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ ${i } ]</a>
-						</c:if>
-					</c:forEach>
-					<c:if test="${endPage < pageCnt }">
-						<a href="myboard.do?pageNum=${startPage+blockSize }&search=${m_num }">[다음]</a>
-					</c:if>
-				</div>
-			
-			</div>
-			
+				<table border="1" style="text-align: center;margin: 0 auto; width: 90%;">
+	<caption><h2>자기소개서 상세내역</h2></caption>
+	<tr><td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #838ea3;">회사이름</td><td>${Seboard.s_companyname}</td></tr>
+	<tr><td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #838ea3;">작성자</td><td>${Seboard.m_nickname}</td></tr>
+	<tr><td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #838ea3;">작성일</td><td>${Seboard.s_regdate}</td></tr>
+	<tr><td style="width: 55%; font-weight: bold; font-size: 18px;background-color: #838ea3;">내용</td><td><pre style="white-space: pre-wrap;">${Seboard.s_content}</pre></td></tr>
+	<tr><td colspan="2">
+		<c:if test="${Seboard.m_num == m_num }">
+			<input type="button" value="수정" class="btn"
+			            onclick="location.href='SeupdateForm.do?s_idx=${Seboard.s_idx}&pageNum=${pageNum}'">
+			<input type="button" value="삭제" class="btn"
+			            onclick="location.href='SedeleteForm.do?s_idx=${Seboard.s_idx}&pageNum=${pageNum}'">
+		</c:if>
+			<input type="button" value="목록" class="btn" onclick="location.href='Selist.do?pageNum=${pageNum}'">
+		</td></tr>
+</table>
+			</div>	
 		</div>
 	</div>
 </body>
