@@ -526,10 +526,15 @@ public class BoardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = 0;
-		String sql = "delete from board where b_idx = ?";
+		String sql1 = "delete from comment1 where b_idx = ?";
+		String sql2 = "delete from board where b_idx = ?";
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setInt(1, b_idx);
+			pstmt.executeUpdate();
+			pstmt.close();
+			pstmt = conn.prepareStatement(sql2);
 			pstmt.setInt(1, b_idx);
 			result = pstmt.executeUpdate();					
 		
