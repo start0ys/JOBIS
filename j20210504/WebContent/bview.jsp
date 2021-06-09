@@ -159,7 +159,7 @@
 				</div>
 	
 		
-				<div style="margin-top: 123px;position: absolute; right: 20%;"><input style="padding: 5px;" class="btn" type="button" value="뒤로가기" onclick="history.go(-1);" ></div>
+				<div style="margin-top: 123px;position: absolute; right: 20%;"><input style="padding: 5px;" class="btn" type="button" value="목록" onclick="location.href = 'board.do?b_type=${b_type}'"></div>
 				<div style="margin-top: 160px; width: 91%; border-top: 2px dotted #4d6083;">
 					<c:forEach var="comment" items="${list }">
 						<c:if test="${comment.re_level > 0 }">
