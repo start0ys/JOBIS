@@ -171,7 +171,7 @@ public class OtherDao {
 		PreparedStatement pstmt= null; 
 		int result = 0;
 		String sql = "update user1 set m_pw=?, m_name=?, m_sex=?, mail=?, m_nickname=?,"
-				+ "college=?, major=?, millitary=?, m_dept=?";
+				   + "college=?, major=?, millitary=?, m_dept=? where m_num=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -184,6 +184,7 @@ public class OtherDao {
 			pstmt.setString(7, other.getMajor());
 			pstmt.setString(8, other.getMillitary());
 			pstmt.setString(9, other.getM_dept());
+			pstmt.setInt(10, other.getM_num());
 			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			System.out.println(e.getMessage());

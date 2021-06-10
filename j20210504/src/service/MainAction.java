@@ -1,12 +1,14 @@
 package service;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Board;
 import dao.BoardDao;
 
 
@@ -28,6 +30,11 @@ public class MainAction implements CommandProcess {
 		      
 		        request.setAttribute("m_nickname", m_nickname);
 		        request.setAttribute("m_num", m_num);
+		        
+		        //베스트글 불러오기
+		        List<Board> best1 = bd.best(0);
+		        List<Board> best2 = bd.best(1);
+		        List<Board> best3 = bd.best(2);
 		         
 		      } catch (Exception e) {
 		         System.out.println(e.getMessage());
