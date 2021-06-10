@@ -1,0 +1,113 @@
+delete from comment1;
+delete from board;
+--면접게시판 데이터 10개
+
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(1,1,0,'[면접후기]카카오 면접후기','[취업자]nick1',sysdate,'면접 본 기업 :카카오
+<br>최종학력 : 4년제 대학졸업
+<br>전공 : 정보통신공학
+<br>대외활동 : 없음
+<br>경력 : 없음
+<br>자격증 : 정보통신기사,정보처리기사
+<br>기억나는 질문 : MVC모델2와 MVC모델1의 차이점
+<br>내가 한 대답 : 1은 구조는 간단하지만 JSP코드가 복잡하며 벡엔드와 프런트엔드가 섞여 디자이너와 협업이 힘들고 유지보수가 어렵다<br> 2는 JSP코드가 단순해져서 디자이너와 협업이 쉽고 유지보수가 용이하지만 개발의 난이도가 어렵고 작업이 많다
+<br>면접관 분위기 :  대부분 편안하게해주셨지만 한 분이 압박 면접하셨다..
+<br>
+<br>분위기는 나쁘지않았는데 붙을수있을까요…?');
+
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(2,2,0,'[면접후기]쿠팡 면접 보고왔습니다.','[취업자]nick1',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(3,3,0,'[면접후기]면접10번 떨어지고 느낀점','[취업자]nick2',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(4,4,0,'[합격후기]2년만에 네이버 붙었다.','[취업자]nick3',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(5,5,0,'[면접후기]떨어진 것 같다.','[취업자]nick4',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(6,6,0,'[합격후기]다들 정말 감사합니다 덕분이에요.','[취업자]nick5',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(7,7,0,'[합격후기]드디어...끝났다','[취준생]nick1',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(8,8,0,'[면접후기]분위기 좀 봐주세요','[취준생]nick2',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(9,9,0,'[면접후기]네이버면접 후기','[취준생]nick3',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(10,10,0,'[합격후기]저는 떠납니다.','[취준생]nick4',sysdate,'테스트');
+
+--Q&A게시판 데이터 5개
+
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(11,1,1,'[국비]국비교육 할 만한가요?','[취업자]nick1',sysdate
+,'
+개발자가 되고싶은 비전공자입니다.
+코딩을 배우고 개발자가 되기위해 국비교육을 들으려고하는데 비전공자는
+따라가기 너무 힘들다고 하더라고요. 비전공자가 국비교육들으면 포기하게될까요?
+비전공자 출신 고수님들의 답변을 기다립니다
+');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(12,2,1,'[스펙]제 스펙 좀 봐주세요','[취업자]nick1',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(13,3,1,'[대외활동]대외활동이 꼭 있어야하나요?','[취업자]nick2',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(14,4,1,'[국비]이번에 국비 수료 질문이요','[취업자]nick3',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(15,5,1,'[자격증]개발자는 정보처리기사 꼭 필요할까요?','[취업자]nick4',sysdate,'테스트');
+
+------------------
+
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(16,2,1,'[자격증]이번 정처기 쉬운편이였나요?','[취업자]nick1',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(17,3,1,'[이것저것]프로그래밍을 진로로 잡으려고 합니다.','[취업자]nick2',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(18,4,1,'[이것저것]JAVA 프로그래머 연봉 질문 드립니다!','[취업자]nick3',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(19,5,1,'[스펙]곧 졸업하는 졸업생이 질문드립니다','[취업자]nick4',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(20,6,1,'[자격증]외국어 자격증 필요한가요?','[취업자]nick5',sysdate,'테스트');
+
+
+--자유게시판 데이터 10개
+
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(21,1,2,'오늘 면접 보고 오는데 ㅋㅋ','[취업자]nick1',sysdate,'
+회사 앞에 붕어빵 맛있더라
+<br>붙으면 맨날 사먹을 듯');
+
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(22,2,2,'오늘도 화이팅 합시다~','[취업자]nick1',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(23,3,2,'열나는데 이거 병원 가야함?','[취업자]nick2',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(24,4,2,'집에서 공부 안되는거 나만 그럼?','[취업자]nick3',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(25,5,2,'맛점들요','[취업자]nick4',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(26,6,2,'면접에서 학교 동기만남;;','[취업자]nick5',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(27,7,2,'다음주에 진짜 때려침','[취준생]nick1',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(28,8,2,'안녕하세요','[취준생]nick2',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(29,9,2,'곧 졸업인데 슬슬 준비하러옴','[취준생]nick3',sysdate,'테스트');
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content) values(30,10,2,'배고프다','[취준생]nick4',sysdate,'테스트');
+
+
+--공지
+insert into board (b_idx,M_num,b_type,b_title,M_nickname,b_regdate,b_content,b_notice) values(31,0,3,'[공지] JOBIS 이용 방법','관리자',sysdate
+,'
+안녕하세요 JOBIS회원 여러분들 JOBIS 관리자입니다.<br>
+JOBIS는 본인의 이력서와 자기소개서를 작성하고 관리할수있으며<br>
+기업 정보들을 확인할수있고 본인의 일정을 달력으로 관리할수있습니다.<br>
+또 커뮤니티를 이용하여 다른 유저들과 정보와 파일을 공유할수있는 사이트입니다.<br><br>
+커뮤니티를 이용하기 위해서는 자기소개서나 이력서를 1개 이상 등록하셔야하고<br>
+등록하시고나면 커뮤니티를 이용하여 사람들과 정보와 파일을 공유할수있습니다.<br>
+또 자기소개서를 등록할때 공개,비공개를 선택할수있는데 공개를 선택한 자기소개서들은 <br>
+다른 유저들이 보면서 참고할수있습니다.<br><br>
+커뮤니티에 글을 작성할시때 주의사항은 게시판마다 글쓰기 방식이 다른 점 입니다.<br>
+면접게시판에서 글을 쓰게되면 제목 옆에 면접후기,합격후기를 선택해주시고<br>
+제목을 작성한 다음 양식에 맞게 글을 쓴 후 양식 밑에 하고싶은 말을 작성해주시면됩니다.<br>
+Q'||'&'||'A게시판 같은 경우에는 따로 양식이 없고 제목 옆에 스펙,이직,국비,자격증...등등을 선택하고 글을 작성해주시면됩니다.<br>
+자유게시판은 말 그대로 제목과 글 내용을 편하게 작성해주시면 됩니다.<br>
+모든 게시판에서 글을 작성하실때 파일을 업로드를 할 수 있는데<br>
+업로드를 하시게 된다면 파일 업로드 버튼을 눌러서 업로드 해주시면됩니다. <br>
+게시글에 업로드한 파일은 다운로드 버튼을 누르면 다운받을수있는데 다운로드 되는 위치는 내 PC -> 다운로드 입니다.<br>
+여기서 한 게시글 당 파일은 한 개씩만 업로드 할 수 있으니 주의해주시기 바랍니다.<br><br>
+
+커뮤니티에서 취준생입장에서 본인과 같이 취준생들의 정보를 확인하고싶으면 <br>
+글쓴이 -> [취준생]을 검색해서 취준생분들의 정보만 확일할수도있고<br>
+글쓴이 -> [취업자]를 통해 취업자분들의 정보만 확인할수도있습니다.<br>
+<br> 취업생,취준생 여러분들이 JOBIS를 효율적으로 이용하여 도움이 되면 좋겠습니다.
+',1);
+
+delete from user1;
+---테스트할유저들
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('0','system','1',sysdate,'*','1234','관리자','관리자','JOBIS@jobis.do');
+
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('1','aa','0','20000101','m','1234','[취업자]nick1','홍길동','a@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('2','bb','0','20000102','m','1234','[취업자]nick1','홍길동','a@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('3','cc','1','20000103','m','1234','[취업자]nick2','고길동','b@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('4','dd','1','20000104','m','1234','[취업자]nick3','김길동','c@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('5','ee','0','20000105','m','1234','[취업자]nick4','최길동','d@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('6','ff','0','20000106','f','1234','[취업자]nick5','황길동','e@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('7','gg','0','20000111','f','1234','[취준생]nick1','정길동','f@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('8','hh','0','20000107','f','1234','[취준생]nick2','강길동','g@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('9','ii','0','20000108','f','1234','[취준생]nick3','선길동','h@naver.com');
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('10','jj','0','20000109','f','1234','[취준생]nick4','박길동','i@naver.com');
+
+commit;
+
+
+
+
