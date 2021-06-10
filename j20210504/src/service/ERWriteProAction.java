@@ -53,11 +53,11 @@ public class ERWriteProAction implements CommandProcess {
 			erboard.setP_id(request.getParameter("p_id"));
 			
 			ERBoardDao bd = ERBoardDao.getInstance();
-			int result = bd.ERNew(erboard);
+			int result = bd.erNew(erboard);
 			request.setAttribute("m_num", erboard.getM_num());
 			request.setAttribute("result", result);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		} return "erukcontent.jsp";
+		} return "erukwritePro.jsp";
 	}
 }

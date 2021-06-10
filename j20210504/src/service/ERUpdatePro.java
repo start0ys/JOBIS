@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ERBoard;
 import dao.ERBoardDao;
 
-public class ERUpdatePro {
+public class ERUpdatePro implements CommandProcess  {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			System.out.println("ERUpdatePro start...");
 			request.setCharacterEncoding("utf-8");
 			ERBoard erboard = new ERBoard();
 			erboard.setM_num(Integer.parseInt(request.getParameter("m_num")));
@@ -54,9 +55,23 @@ public class ERUpdatePro {
 			erboard.setP_id(request.getParameter("p_id"));
 			
 			ERBoardDao bd = ERBoardDao.getInstance(); 
-			int result = bd.ERUpdate(erboard);
+			int result1 = bd.erUpdate1(erboard);
+			int result2 = bd.erUpdate2(erboard);
+			int result3 = bd.erUpdate3(erboard);
+			int result4 = bd.erUpdate4(erboard);
+			int result5 = bd.erUpdate5(erboard);
+			System.out.println("ERUpdatePro result1->"+result1);
+			System.out.println("ERUpdatePro result2->"+result2);
+			System.out.println("ERUpdatePro result3->"+result3);
+			System.out.println("ERUpdatePro result4->"+result4);
+			System.out.println("ERUpdatePro result5->"+result5);
+
 			request.setAttribute("m_num", erboard.getM_num());
-			request.setAttribute("result", result);
+			request.setAttribute("result1", result1);
+			request.setAttribute("result2", result2);
+			request.setAttribute("result3", result3);
+			request.setAttribute("result4", result4);
+			request.setAttribute("result5", result5);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

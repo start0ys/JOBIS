@@ -21,7 +21,7 @@ public class ERContentAction implements CommandProcess{
 			m_num = (int)session.getAttribute("m_num");
 			ERBoardDao bd = ERBoardDao.getInstance();
 			m_nickname = bd.getNickname(m_num);   
-			ERBoard erboard = bd.ERSelect(m_num);
+			ERBoard erboard = bd.erSelect(m_num);
 			
 			request.setAttribute("m_nickname", m_nickname);
 			request.setAttribute("m_num", m_num);

@@ -32,9 +32,13 @@ public class MainAction implements CommandProcess {
 		        request.setAttribute("m_num", m_num);
 		        
 		        //베스트글 불러오기
-		        List<Board> best1 = bd.best(0);
-		        List<Board> best2 = bd.best(1);
-		        List<Board> best3 = bd.best(2);
+		        List<Board> best0 = bd.best(0);
+		        List<Board> best1 = bd.best(1);
+		        List<Board> best2 = bd.best(2);
+		        
+		        request.setAttribute("best0", best0);
+		        request.setAttribute("best1", best1);
+		        request.setAttribute("best2", best2);
 		         
 		      } catch (Exception e) {
 		         System.out.println(e.getMessage());

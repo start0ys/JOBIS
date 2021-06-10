@@ -28,10 +28,6 @@ public class UserModifyAction implements CommandProcess {
 			other.setM_sex(request.getParameter("m_sex"));
 			other.setMail(request.getParameter("mail"));
 			other.setM_nickname(request.getParameter("m_nickname"));
-			other.setCollege(request.getParameter("college"));
-			other.setMajor(request.getParameter("major"));
-			other.setMillitary(request.getParameter("millitary"));
-			other.setM_dept(request.getParameter("m_dept"));
 			OtherDao od = OtherDao.getInstance();
 			result = od.update(other);
 			request.setAttribute("result",  result);

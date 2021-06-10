@@ -33,10 +33,6 @@ public class UpdatePageAction implements CommandProcess {
 	        request.setAttribute("m_name", other.getM_name());
 	        request.setAttribute("m_sex", other.getM_sex());
 	        request.setAttribute("mail", other.getMail());
-	        request.setAttribute("college", other.getCollege());
-	        request.setAttribute("major", other.getMajor());
-	        request.setAttribute("millitary", other.getMillitary());
-	        request.setAttribute("m_dept", other.getM_dept());
 	      } catch (Exception e) {
 	         System.out.println(e.getMessage());
 	      }
