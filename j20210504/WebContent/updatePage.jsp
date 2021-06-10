@@ -13,10 +13,21 @@
 <script type="text/javascript">
 function chk(){
 	var chk = false;
-   	 	if   (!confirm("정말 회원 탈퇴하시겠습니까?"))  
+   	 	if   (!confirm("회원 탈퇴시 작성한 게시글, 이력서, 자소서는 삭제되지 않습니다.\n정말 회원 탈퇴하시겠습니까?"))  
    	 	{chk = false;}
 	    else	 chk = true;
 	    return chk;
+}
+
+function password() {
+	var p1 = document.getElementById('m_pw').value;
+	var p2 = document.getElementById('m_pw2').value;
+    if(p1 != p2) {
+    	alert("비밀번호가 일치하지 않습니다.");
+    	return false;
+    } else if(p1 == p2) {
+    	return true;
+    }
 }
 </script>
 <body>
@@ -55,7 +66,7 @@ function chk(){
 				    	<span class="menu">마이페이지</span>
 			       		<ul class="subMenu">
 			       			<li><input type="button" value="회원관리"      onclick="location.href = 'updatePage.do'"></li>
-	            			<li><input type="button" value="이력서관리"    onclick="location.href = 'ercontent.do'"></li>
+	            			<li><input type="button" value="이력서관리"    onclick="location.href = 'erContent.do'"></li>
 	            			<li><input type="button" value="자소서관리"    onclick="location.href = 'myse.do'"></li>
 							<li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
 			        	</ul>
@@ -73,23 +84,12 @@ function chk(){
 		</header>  
 		<script src="menu.js"></script>
 	<div style="width: 90%; margin: 0 auto; margin-top:30px; text-align: center; color:black; ">
-	<!-- 여기까지 상단 -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<!-- 아이디, 비밀번호, 이름, 성별, 이메일, 학교, 전공, 군벌, 병과를 sql에서 불러온 상태로 ㄱㄱ -->
+
+		
+
 <div id="modify_container">
 	<h1>회원정보 수정 화면</h1>
-    <form action="userModify.do" method="post">
+    <form action="userModify.do" onsubmit="return password()" >
     	<table class="modify_table">
     	<tr>
     		<td class="text">아이디</td>
@@ -97,11 +97,11 @@ function chk(){
     	</tr>
     	<tr>
     		<td class="text">비밀번호</td>
-    		<td><input type="password" name="m_pw" value="${m_pw}" required="required"></td>
+    		<td><input type="password" name="m_pw" id="m_pw" value="${m_pw}" required="required"></td>
     	</tr>
     	<tr>
     		<td class="text">비밀번호 확인</td>
-    		<td><input type="password" name="m_pw2" value="${m_pw}" required="required"></td>
+    		<td><input type="password" name="m_pw2" id="m_pw2" value="${m_pw}" required="required"></td>
     	</tr>
     	<tr>
     		<td class="text">이름</td>
@@ -109,7 +109,15 @@ function chk(){
     	</tr>
     	<tr>
     		<td class="text">성별</td>
-    		<td><input type="text" name="m_sex" value="${m_sex }" required="required"></td>
+    		<c:if test="${m_sex == '남자' }">
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="남자" checked>남자</td>
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="여자">여자</td>
+    		</c:if>
+    	
+    		<c:if test="${m_sex == '여자' }">
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="남자">남자</td>
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="여자" checked>여자</td>
+    		</c:if>
     	</tr>    	    	
     	<tr>
     		<td class="text">이메일</td>
@@ -118,22 +126,6 @@ function chk(){
     	<tr>
     		<td>닉네임</td>
     		<td><input type="text" name="m_nickname" value="${m_nickname }" required="required"></td>
-    	</tr>
-    	<tr>
-    		<td>학교</td>
-    		<td><input type="text" name="college" value="${college}" required="required"></td>
-    	</tr>
-    	<tr>
-    		<td>전공</td>
-    		<td><input type="text" name="major" value="${major }" required="required"></td>
-    	</tr>
-    	<tr>
-    		<td>군벌</td>
-    		<td><input type="text" name="millitary" value="${millitary }" required="required"></td>
-    	</tr>
-    	<tr>
-    		<td>병과</td>
-    		<td><input type="text" name="m_dept" value="${m_dept }" required="required"></td>
     	</tr>
     	</table>
     	<input type="submit" value="수정" class="btn">
