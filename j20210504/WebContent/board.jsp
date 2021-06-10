@@ -41,12 +41,18 @@
 </script>
 </head>
 <body>
+<c:if test="${ empty m_nickname}">
+	<script type="text/javascript">
+		alert("커뮤니티는 로그인 후 이용할수있습니다.");
+		history.go(-1);
+	</script>
+</c:if>
 	<div id="wrapper">
 		<header>
 		
 			<!------ 밑의 a태그의 #부분에는 소연님이 메인페이지 만들어주시면 메인페이지.do를 넣어주면됩니다.--- -->
 			
-		   <a href="main.do"><img id="logo" src="images/main.png" width="240px" height="90"></a>
+		   <a href="main.do"><img id="logo" src="images/main.png" width="200px" height="90"></a>
 		
 		
 			<nav id="main_menu">
@@ -63,14 +69,14 @@
 			    <li class="menu1">
 			    	<span class="menu">기업 바로가기</span>
 		       		<ul class="subMenu">
-			            <li><input type="button" value="삼성"></li>
-			            <li><input type="button" value="쿠팡"></li>
-			            <li><input type="button" value="배달의 민족"></li>
-			            <li><input type="button" value="라인"></li>
-			            <li><input type="button" value="카카오"></li>
-			            <li><input type="button" value="토스"></li>
-			            <li><input type="button" value="네이버"></li>
-			            <li><input type="button" value="당근마켓"></li>
+			            <li><input type="button" value="삼성" onclick="location.href = 'mycom.do?comType=1'"></li>
+			            <li><input type="button" value="쿠팡" onclick="location.href = 'mycom.do?comType=2'"></li>
+			            <li><input type="button" value="배달의 민족" onclick="location.href = 'mycom.do?comType=3'"></li>
+			            <li><input type="button" value="라인" onclick="location.href = 'mycom.do?comType=4'"></li>
+			            <li><input type="button" value="카카오" onclick="location.href = 'mycom.do?comType=5'"></li>
+			            <li><input type="button" value="토스" onclick="location.href = 'mycom.do?comType=6'"></li>
+			            <li><input type="button" value="네이버" onclick="location.href = 'mycom.do?comType=7'"></li>
+			            <li><input type="button" value="당근마켓" onclick="location.href = 'mycom.do?comType=8'"></li>
 		        	</ul>
 			    </li>
 			    <li class="menu1">

@@ -10,7 +10,7 @@
 <body>
 <!-- header -->
         <div id="header">
-            <a href="#" target="_blank" title="메인페이지로 이동"><img src="images/main.png" id="logo"></a>
+            <a href="main.do" target="_blank" title="메인페이지로 이동"><img src="images/main.png" id="logo"></a>
         </div>
 		<form action="join.do" method="post" id="join">
         <!-- wrapper -->

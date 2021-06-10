@@ -1,46 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>JOBIS</title>
-<link rel="stylesheet" type="text/css" href="commons.css">
+<link rel="stylesheet" type="text/css" href="commons.css?ver2">
 <link rel="stylesheet" type="text/css" href="headerss.css?ver4">
-<link rel="stylesheet" type="text/css" href="menus.css">
-<style type="text/css">
-	a{
-		text-decoration: none;
-		color:black;
-	}
-	th{
-		border-top: solid 2px #aaaaaa;
-    	background-color: #4d6083;
-    	color:white;
-	}
-	tr{
-		background-color: #e6efff;
-	}
- 	.boardCot{
-		display: inline-block; 
-		width: 80%; 
-		white-space: nowrap; 
-		overflow: hidden; 
-		text-overflow: ellipsis; 
-		
-	} 
-</style>
-<script type="text/javascript">
-	function del(b_idx) {
-		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
-		if(del){
-			location.href='bdelete.do?b_idx='+b_idx+'&pageNum=${pageNum }';
-		}
-	}
-</script>
-</head> 
+<link rel="stylesheet" type="text/css" href="menus.css?ver2">
+<style > 
+table{
+margin-left:auto;
+
+margin-right:auto;
+border-collapse:collapse
+
+
+
+
+}</style>
+</head>
 <body>
+<c:if test="${ empty m_nickname}">
+	<script type="text/javascript">
+		alert("기업바로 가기는 로그인 후 이용할수있습니다.");
+		history.go(-1);
+	</script>
+</c:if>
 	<div id="wrapper">
 		<header>
 		
@@ -98,69 +87,95 @@
 		<script src="menu.js"></script>
 		
 		
+	
+		
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
-			<h2 class="btn" style="margin:30px; display: inline-block; background-color: #4d6083;">작성한 게시글</h2>
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
-				
-				
-					<table style="text-align: center;margin: 0 auto; width: 90%;">
-						<tr>
-							
-							<th>게시판</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>삭제</th>
-						</tr>
-						
-						<c:if test="${totCnt > 0 }">
-							<c:forEach var="board" items="${list }">
-								<tr>
-									<c:if test="${board.b_type == 0 }">
-										<td style="width: 15%;">면접게시판</td>
-									</c:if>
-									<c:if test="${board.b_type == 1 }">
-										<td style="width: 15%;">Q&A게시판</td>
-									</c:if>
-									<c:if test="${board.b_type == 2 }">
-										<td style="width: 15%;">자유게시판</td>
-									</c:if>
-									
-									<td style="width: 40%; font-weight: bold; font-size: 18px;">
-										<a href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${board.b_type }">${board.b_title }</a>
-									</td>
-									<td style="width: 15%;">👤${board.m_nickname }</td>
-									<td style="width: 10%;">${board.b_regdate }</td>
-									<td style="width: 10%;">${board.b_count }</td>
-									<td style="widows: 5%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
-								</tr>
-							</c:forEach>
-						</c:if>
-						<c:if test="${toCnt == 0 }">
-							<tr>
-								<td colspan="7">데이터가 없습니다</td>
-							</tr>
-						</c:if>
-					</table>
-				
 			
-				
-				
-				<div style="text-align: center; margin-top: 20px;">
-					<c:if test="${startPage > blockSize }">
-						<a href="myboard.do?pageNum=${startPage-blockSize }&search=${m_num }">[이전]</a>
-					</c:if>
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
-						<c:if test="${pageNum == i }">
-							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ <b style="color: red;">${i }</b> ]</a>
-						</c:if>
-						<c:if test="${pageNum != i }">
-							<a href="myboard.do?pageNum=${i }&search=${m_num }" style="color: #005dff;">[ ${i } ]</a>
-						</c:if>
-					</c:forEach>
-					<c:if test="${endPage < pageCnt }">
-						<a href="myboard.do?pageNum=${startPage+blockSize }&search=${m_num }">[다음]</a>
-					</c:if>
-				</div>
-			
-			</div>
-			
+	
+				<img src="images/kakao.png" width="500" height="200" align=center/>
+			<table border=1>
+			<tr>
+			<td width="100" height="50"  align=center >위치</td>
+			<td width="300" height="50">경기 성남시 분당구 삼평동 681번지 에이치스퀘어 N동</td>
+			<td width="400" height="50" align=center>
+			<a href="http://www.kakaocorp.com		">카카오 채용사이트 바로가기</a>
+			</td></tr></table>
+				<br><br>
+				<table border=1 >
+					<tr c><td colspan="4"><h2>기업정보</h2></td></tr>
+					
+					<tr align=center >
+					<td width="100" height="50"><h2>산업</h2></td>
+					<td width="300" height="50">포털 및 대기업 인터넷 정보매개 서비스업</td>
+					<td width="100" height="50"><h2>사원수</h2></td>
+					<td width="300" height="50">2937명</td>
+					</tr>
+					<tr  align=center >
+					<td width="100" height="50"><h2>기업구분</h2></td>
+					<td width="300" height="50">대기업</td>
+					<td width="100" height="50"><h2>설립연도</h2></td>
+					<td width="300" height="50">1995년</td>
+					</tr>
+					<tr  align=center >
+					<td width="100" height="50"><h2>대표자</h2></td>
+					<td width="300" height="50">여민수,조수용</td>
+					<td width="100" height="50"><h2>매출액</h2></td>
+					<td width="300" height="50">1조 7791억원</td>
+					</tr>
+					<tr  align=center >
+					<td width="100" height="50"><h2>자본금</h2></td>
+					<td width="300" height="50">443억 90만원</td>
+					<td width="100" height="50"><h2>4대보험</h2></td>
+					<td width="300" height="50">국민연금, 건강보험, 고용보험, 산재보험</td>
+					</tr>
+				</table>
+
+<br>
+<br>
+
+		<table border=1 >
+			     <tr align=center ><td colspan="4"><h2>문화 & 복지</h2></td></tr>
+					   
+					<tr align=center >
+						<td width="200" height="100">
+						<h2>시차근무제</h2>
+						</td>
+						<td width="200" height="100">
+						<h2>월 1회 문화데이</h2>
+						</td>
+						<td width="200" height="100">
+						<h2>통근버스 운영 및 주차비 지원</h2>
+						</td>
+						<td width="200" height="100">
+						<h2>1인 1법인카드</h2>
+						</td>
+					</tr>
+					<tr>
+						<td width="200" height="100">
+						<h2>통신비 지원</h2>
+						</td>
+						<td width="200" height="100">
+						<h2>도서 구입비 지원</h2>
+						</td>
+						<td width="200" height="100">
+						<h2>최신 최고급 맥북/아이맥 지원</h2>
+						</td>
+						<td width="200" height="100">
+						<h2>대출 지원</h2>
+						</td>
+					</tr>
+						 
+	</table>
+	
+	
+	
+	
+	
+	
+	
+</table>
+			</div>	
 		</div>
 	</div>
 </body>
