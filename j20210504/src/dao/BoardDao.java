@@ -629,4 +629,86 @@ public class BoardDao {
 	
 	
 	////테스트/////////////////////////////////////////////////////////////
+	
+	public int getTotalCnt1(int m_num) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		ResultSet rs = null;    
+		int tot = 0;
+		String sql = "select count(*) from selfid where m_num=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, m_num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) tot = rs.getInt(1);
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return tot;
+	}
+	
+	public List<SeBoard> list2(int startRow, int endRow,int m_num ) throws SQLException {
+		List<SeBoard> list = new ArrayList<SeBoard>();
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		 String sql = "select * from (select rownum rn ,a.* from " + 
+			"  (select * from selfid where m_num = ? and s_type = 1 order by s_regdate desc) a ) "+
+			" where rn between ? and ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, m_num);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				SeBoard Seboard = new SeBoard();
+				Seboard.setS_idx(rs.getInt("s_idx"));
+				Seboard.setM_num(rs.getInt("m_num"));
+				Seboard.setS_type(rs.getInt("s_type"));
+				Seboard.setS_companyname(rs.getString("s_companyname"));
+				Seboard.setM_nickname(rs.getString("m_nickname"));
+				Seboard.setS_content(rs.getString("s_content"));
+				Seboard.setS_regdate(rs.getDate("s_regdate"));
+				list.add(Seboard);
+			}
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		} 
+		return list;
+	}
+	
+	
+	public int stype(int m_num) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		ResultSet rs = null;    
+		int s_type = 0;
+		String sql = "select count(*) from selfid where m_num=? and s_type = 1";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, m_num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) s_type = rs.getInt(1);
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return s_type;
+	}
+
 }
