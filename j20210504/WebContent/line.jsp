@@ -93,13 +93,13 @@ border-collapse:collapse
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
 			
 	
-				<img src="images/line.jpg" width="500" height="200" align=center/>
+				<img src="images/line.jpg" width="500" height="150" align=center/>
 			<table border=1>
 			<tr>
 			<td width="100" height="50"  align=center >위치</td>
 			<td width="300" height="50">경기 성남시 분당구 삼평동 629번지 플레이뮤지엄</td>
 			<td width="400" height="50" align=center>
-			<a href="http://www.linepluscorp.com">토스 채용사이트 바로가기</a>
+			<a href="http://www.linepluscorp.com">라인 채용사이트 바로가기</a>
 			</td></tr></table>
 			<br>
 			
@@ -140,7 +140,7 @@ border-collapse:collapse
 			     
 			     <tr>
 			     <td width="300" height="100">
-						안정된 생활지원
+						<h3>안정된 생활지원</h3>
 						</td>
 						<td width="500" height="100">
 						건강검진, 의료비지원(본인), 직원대출제도, 각종 경조사 지원, 단체 상해보험, 업무활동비 지급, 통신비 지원, 선
@@ -149,7 +149,7 @@ border-collapse:collapse
 			     </tr>
 			     <tr>
 			     <td width="300" height="100">
-						직원들의 자기계발을 존중합니다!
+						<h3>직원들의 자기계발을 존중합니다!</h3>
 						</td>
 						<td width="400" height="100">
 						워크샵, 플레이샵, 신입사원교육(OJT), 도서구입비지원, 외국어 교육 지원, 교육비 지원, 자기계발비 지원, 아침식사 제공,
@@ -158,7 +158,7 @@ border-collapse:collapse
 			     </tr>
 			     <tr>
 			     <td width="300" height="100">
-						편안하게 일할 수 있는 최선의 환경을 제공합니다.
+						<h3>편안하게 일할 수 있는 최선의 환경을 제공합니다.</h3>
 						</td>
 						<td width="400" height="100">
 						수유실, 사내 어린이집 운영, 휴게실, 수면실, 회의실, 공기청정기, 카페테리아, 게임기, 휠체어용 난간, 노트북, 사원증,
@@ -167,14 +167,14 @@ border-collapse:collapse
 			     </tr>
 			     <tr>
 			     <td width="300" height="100">
-						편하게 출퇴근하세요
+						<h3>편하게 출퇴근하세요</h3>
 						</td>
 						<td width="400" height="100">
 						주차비지원, 회사차량 있음, 전세자금 대출, 재택근무, 주 52시간제 준수, 주 40시간제 시행
 						</td>
 			     </tr>
 					     
-	</table>
+</table>
 	
 	
 	

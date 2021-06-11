@@ -139,30 +139,30 @@ border-collapse:collapse
 					   
 					<tr align=center >
 						<td width="200" height="100">
-						<h2>리프레시 휴가</h2>
+						<h3>리프레시 휴가</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>각종 경조금 지원</h2>
+						<h3>각종 경조금 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>본인/가족 의료비 지원</h2>
+						<h3>본인/가족 의료비 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>명절 귀향비 지급</h2>
+						<h3>명절 귀향비 지급</h3>
 						</td>
 					</tr>
 					<tr>
 						<td width="200" height="100">
-						<h2>주차비 지원</h2>
+						<h3>주차비 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>수면실 제공</h2>
+						<h3>수면실 제공</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>중식/석식/조식 제공</h2>
+						<h3>중식/석식/조식 제공</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>카페테리아 제공</h2>
+						<h3>카페테리아 제공</h3>
 						</td>
 					</tr>
 						 

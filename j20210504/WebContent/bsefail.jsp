@@ -1,41 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>JOBIS</title>
-<link rel="stylesheet" type="text/css" href="commons.css?ver2">
+<link rel="stylesheet" type="text/css" href="commons.css">
 <link rel="stylesheet" type="text/css" href="headerss.css?ver4">
-<link rel="stylesheet" type="text/css" href="menus.css?ver2">
-<style > 
-table{
-margin-left:auto;
-
-margin-right:auto;
-border-collapse:collapse
-
-
-
-
-}</style>
+<link rel="stylesheet" type="text/css" href="menus.css">
+<style type="text/css">
+	.warning{
+		border: 2.5px dotted #4d6083; 
+		width: 500px;
+		padding: 50px;
+		margin: 10% auto 10% auto;
+		border-radius: 60px;
+		
+	}
+</style>
 </head>
 <body>
-<c:if test="${ empty m_nickname}">
-	<script type="text/javascript">
-		alert("기업바로 가기는 로그인 후 이용할수있습니다.");
-		history.go(-1);
-	</script>
-</c:if>
 	<div id="wrapper">
 		<header>
 		
 			<!------ 밑의 a태그의 #부분에는 소연님이 메인페이지 만들어주시면 메인페이지.do를 넣어주면됩니다.--- -->
 			
-		 <a href="main.do"><img id="logo" src="images/main.png" width="200px" height="90"></a>
+		   <a href="main.do"><img id="logo" src="images/main.png" width="200px" height="90"></a>
 		
 		
 			<nav id="main_menu">
@@ -90,90 +81,11 @@ border-collapse:collapse
 	
 		
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
-			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
-			
-	
-				<img src="images/samsung.jpg" width="500" height="200" align=center/>
-				
-				
-				<table border=1>
-			<tr>
-			<td width="100" height="50"  align=center >위치</td>
-			<td width="300" height="50">경기 수원시 영통구 삼성로129 </td>
-			<td width="400" height="50" align=center>
-			<a href="https://www.samsungcareers.com/main.html">삼성전자 채용사이트 바로가기</a>
-			</td></tr></table>
-			
-				<table border=1 >
-					<tr align=center><td colspan="4"><h2>기업정보</h2></td></tr>
-					
-					<tr align=center >
-					<td width="100" height="50"><h2>산업</h2></td>
-					<td width="300" height="50">이동전화기 제조업</td>
-					<td width="100" height="50"><h2>사원수</h2></td>
-					<td width="300" height="50">111,143명</td>
-					</tr>
-					<tr  align=center >
-					<td width="100" height="50"><h2>기업구분</h2></td>
-					<td width="300" height="50">대기업</td>
-					<td width="100" height="50"><h2>설립연도</h2></td>
-					<td width="300" height="50">1969년</td>
-					</tr>
-					<tr  align=center >
-					<td width="100" height="50"><h2>대표자</h2></td>
-					<td width="300" height="50">김기남,김현석,고동진</td>
-					<td width="100" height="50"><h2>매출액</h2></td>
-					<td width="300" height="50">166조 3천억원</td>
-					</tr>
-					<tr  align=center >
-					<td width="100" height="50"><h2>자본금</h2></td>
-					<td width="300" height="50">8,975억 1천만원</td>
-					<td width="100" height="50"><h2>4대보험</h2></td>
-					<td width="300" height="50">국민연금, 건강보험, 고용보험, 산재보험</td>
-					</tr>
-				</table>
-
-<br>
-<br>
-<table border=1 >
-			     <tr align=center ><td colspan="4"><h2>복리후생</h2></td></tr>
-			     
-			     <tr>
-			     <td width="300" height="100">
-						<h3>안정된 생활을 지원합니다.</h3>
-						</td>
-						<td width="500" height="100">
-						건강검진,각종 경조사 지원,자녀 학자금
-						</td>
-			     </tr>
-			     <tr>
-			     <td width="300" height="100">
-						<h3>직원들의 열정에 <br>보답하고 싶습니다.</h3>
-						</td>
-						<td width="400" height="100">
-						인센티브제,상여금,퇴직금,야근수당<br>휴일(특근)수당,연차수당,4대보험
-						</td>
-			     </tr>
-			     <tr>
-			     <td width="300" height="100">
-						<h3>직원들의 자기계발을 존중합니다.</h3>
-						</td>
-						<td width="400" height="100">
-						점심식사 제공
-						</td>
-			     </tr>
-			     
-					     
-	</table>
-	
-	
-	
-	
-	
-	
-	
-	
-</table>
+			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center; margin: 0 auto;">
+				<div class="warning" style="font-size: 20px;">
+					<b>${s_nickname }님</b>의 공개된 자소서가 없습니다.
+					<div style="margin-top: 20px;"><input type="button" value="뒤로가기" class="btn" onclick="history.go(-1);"></div>
+				</div>
 			</div>	
 		</div>
 	</div>

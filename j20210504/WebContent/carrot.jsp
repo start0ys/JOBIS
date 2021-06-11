@@ -141,16 +141,16 @@ border-collapse:collapse
 					   
 					<tr align=center >
 						<td width="200" height="100">
-						<h2>도서구입비 지원</h2>
+						<h3>도서구입비 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>매주 목요일 재택근무제</h2>
+						<h3>매주 목요일 <br>재택근무제</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>세미나/스터디 참석비용지원</h2>
+						<h3>세미나/스터디 <br>참석비용지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>점심제공</h2>
+						<h3>점심제공</h3>
 						</td>
 					</tr>
 						 

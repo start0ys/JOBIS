@@ -133,6 +133,7 @@
 								<option value="[스펙]">스펙</option>
 								<option value="[이직]">이직</option>
 								<option value="[국비]">국비</option>
+								<option value="[외국어]">외국어</option>
 								<option value="[자격증]">자격증</option>
 								<option value="[대외활동]">대외활동</option>
 								<option value="[이것저것]">이것저것</option>

@@ -162,7 +162,7 @@
 						</c:if>
 						<c:if test="${toCnt == 0 }">
 							<tr>
-								<td colspan="7">데이터가 없습니다</td>
+								<td colspan="7"></td>
 							</tr>
 						</c:if>
 					</table>

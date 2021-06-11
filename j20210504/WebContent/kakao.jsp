@@ -139,30 +139,30 @@ border-collapse:collapse
 					   
 					<tr align=center >
 						<td width="200" height="100">
-						<h2>시차근무제</h2>
+						<h3>시차근무제</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>월 1회 문화데이</h2>
+						<h3>월 1회 문화데이</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>통근버스 운영 및 주차비 지원</h2>
+						<h3>통근버스 운영 및 주차비 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>1인 1법인카드</h2>
+						<h3>1인 1법인카드</h3>
 						</td>
 					</tr>
 					<tr>
 						<td width="200" height="100">
-						<h2>통신비 지원</h2>
+						<h3>통신비 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>도서 구입비 지원</h2>
+						<h3>도서 구입비 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>최신 최고급 맥북/아이맥 지원</h2>
+						<h3>최신 최고급 맥북/아이맥 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>대출 지원</h2>
+						<h3>대출 지원</h3>
 						</td>
 					</tr>
 						 

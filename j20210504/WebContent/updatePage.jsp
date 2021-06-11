@@ -109,14 +109,14 @@ function password() {
     	</tr>
     	<tr>
     		<td class="text">성별</td>
-    		<c:if test="${m_sex == '남자' }">
-    		<td><input type="radio" name="m_sex" autocomplete="off" value="남자" checked>남자</td>
-    		<td><input type="radio" name="m_sex" autocomplete="off" value="여자">여자</td>
+    		<c:if test="${m_sex == 'm' }">
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="m" checked>남자</td>
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="f">여자</td>
     		</c:if>
     	
-    		<c:if test="${m_sex == '여자' }">
-    		<td><input type="radio" name="m_sex" autocomplete="off" value="남자">남자</td>
-    		<td><input type="radio" name="m_sex" autocomplete="off" value="여자" checked>여자</td>
+    		<c:if test="${m_sex == 'f' }">
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="m">남자</td>
+    		<td><input type="radio" name="m_sex" autocomplete="off" value="f" checked>여자</td>
     		</c:if>
     	</tr>    	    	
     	<tr>

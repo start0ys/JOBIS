@@ -127,8 +127,12 @@
 						<c:if test="${b_type == 0 }">
 							<select name="t_type" style="height: 40px;width: 10%;">
 								<option value="${fn:substringBefore(board.b_title, ']')}]" selected="selected">${fn:substringBefore(fn:substringAfter(board.b_title, '['), ']')}</option>
-								<option value="[면접후기]">면접후기</option>
-								<option value="[합격후기]">합격후기</option>
+								<c:if test="${fn:substringBefore(board.b_title, ']') == '[합격후기'}">
+									<option value="[면접후기]">면접후기</option>
+								</c:if>
+								<c:if test="${fn:substringBefore(board.b_title, ']') == '[면접후기'}">
+									<option value="[합격후기]">합격후기</option>
+								</c:if>
 							</select>
 							<input type="text" placeholder="글 제목" name="b_title" id="b_title" maxlength="50" style="height:40px; width: 80%; margin-bottom: 20px;" required="required" value="${fn:substringAfter(board.b_title, ']')}"><p>
 						<pre><textarea  placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required">${board.b_content }</textarea></pre><p>
@@ -136,12 +140,62 @@
 						<c:if test="${b_type == 1 }">
 							<select name="t_type" style="height: 40px;width: 10%;">
 								<option value="${fn:substringBefore(board.b_title, ']')}]" selected="selected">${fn:substringBefore(fn:substringAfter(board.b_title, '['), ']')}</option>
-								<option value="[스펙]">스펙</option>
-								<option value="[이직]">이직</option>
-								<option value="[국비]">국비</option>
-								<option value="[자격증]">자격증</option>
-								<option value="[대외활동]">대외활동</option>
-								<option value="[이것저것]">이것저것</option>
+								<c:if test="${fn:substringBefore(board.b_title, ']') == '[스펙'}">
+									<option value="[이직]">이직</option>
+									<option value="[국비]">국비</option>
+									<option value="[외국어]">외국어</option>
+									<option value="[자격증]">자격증</option>
+									<option value="[대외활동]">대외활동</option>
+									<option value="[이것저것]">이것저것</option>
+								</c:if>
+									<c:if test="${fn:substringBefore(board.b_title, ']') == '[이직'}">
+									<option value="[스펙]">스펙</option>
+									<option value="[국비]">국비</option>
+									<option value="[외국어]">외국어</option>
+									<option value="[자격증]">자격증</option>
+									<option value="[대외활동]">대외활동</option>
+									<option value="[이것저것]">이것저것</option>
+								</c:if>
+									<c:if test="${fn:substringBefore(board.b_title, ']') == '[국비'}">
+									<option value="[스펙]">스펙</option>
+									<option value="[이직]">이직</option>
+									<option value="[외국어]">외국어</option>
+									<option value="[자격증]">자격증</option>
+									<option value="[대외활동]">대외활동</option>
+									<option value="[이것저것]">이것저것</option>
+								</c:if>
+									<c:if test="${fn:substringBefore(board.b_title, ']') == '[외국어'}">
+									<option value="[스펙]">스펙</option>
+									<option value="[이직]">이직</option>
+									<option value="[국비]">국비</option>
+									<option value="[자격증]">자격증</option>
+									<option value="[대외활동]">대외활동</option>
+									<option value="[이것저것]">이것저것</option>
+								</c:if>
+									<c:if test="${fn:substringBefore(board.b_title, ']') == '[자격증'}">
+									<option value="[스펙]">스펙</option>
+									<option value="[이직]">이직</option>
+									<option value="[국비]">국비</option>
+									<option value="[외국어]">외국어</option>
+									<option value="[대외활동]">대외활동</option>
+									<option value="[이것저것]">이것저것</option>
+								</c:if>
+									<c:if test="${fn:substringBefore(board.b_title, ']') == '[대외활동'}">
+									<option value="[스펙]">스펙</option>
+									<option value="[이직]">이직</option>
+									<option value="[국비]">국비</option>
+									<option value="[외국어]">외국어</option>
+									<option value="[자격증]">자격증</option>
+									<option value="[이것저것]">이것저것</option>
+								</c:if>
+									<c:if test="${fn:substringBefore(board.b_title, ']') == '[이것저것'}">
+									<option value="[스펙]">스펙</option>
+									<option value="[이직]">이직</option>
+									<option value="[국비]">국비</option>
+									<option value="[외국어]">외국어</option>
+									<option value="[자격증]">자격증</option>
+									<option value="[대외활동]">대외활동</option>
+								</c:if>
 							</select>
 							<input type="text" placeholder="글 제목" name="b_title" id="b_title" maxlength="50" style="height:40px; width: 80%; margin-bottom: 20px;" required="required" value="${fn:substringAfter(board.b_title, ']')}"><p>
 							<pre><textarea  placeholder="글 내용" name="b_content" id="b_content" maxlength="4000" style="height:350px;" required="required">${board.b_content }</textarea></pre><p>

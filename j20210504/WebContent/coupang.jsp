@@ -94,9 +94,16 @@ border-collapse:collapse
 			
 	
 				<img src="images/logo_coupang.jpg" width="500" height="200" align=center/>
-			<a href="https://rocketyourcareer.kr.coupang.com/?gclid=Cj0KCQjw--GFBhDeARIsACH_kdawf_iOfMxwaEB-UbRUgilHzElYti9Q6QDwht9MSk2h9AvqIVxLkrcaAq1hEALw_wcB">쿠팡 채용사이트 바로가기</a>
+		
 			<br>
-				<button onclick="back()">돌아가기</button>
+				<table border=1>
+			<tr>
+			<td width="100" height="50"  align=center >위치</td>
+			<td width="300" height="50">서울특별시 송파구 송파대로 570 18층 (신천동)</td>
+			<td width="400" height="50" align=center>
+			<a href="https://rocketyourcareer.kr.coupang.com/?gclid=Cj0KCQjw--GFBhDeARIsACH_kdawf_iOfMxwaEB-UbRUgilHzElYti9Q6QDwht9MSk2h9AvqIVxLkrcaAq1hEALw_wcB">쿠팡 채용사이트 바로가기</a>
+			</td></tr></table>
+			
 				<table border=1 >
 					<tr align=center><td colspan="4"><h2>기업정보</h2></td></tr>
 					
@@ -132,10 +139,10 @@ border-collapse:collapse
 		<table border=1 >
 			     <tr align=center ><td colspan="4"><h2>문화 & 복지</h2></td></tr>
 					     <tr align=center>
-					     <td><h2>열린문화</h2></td>
-					     <td><h2>휴게공간 & 카페</h2></td>
-					     <td><h2>유연근무제</h2></td>
-					     <td><h2>해외근무 기회</h2></td>
+					     <td><h3>열린문화</h3></td>
+					     <td><h3>휴게공간 & 카페</h3></td>
+					     <td><h3>유연근무제</h3></td>
+					     <td><h3>해외근무 기회</h3></td>
 					     </tr>
 					<tr align=center >
 						<td width="200" height="100">
@@ -155,10 +162,10 @@ border-collapse:collapse
 						</td>
 					</tr>
 						 <tr align=center>
-					     <td><h2>사내 이벤트</h2></td>
-					     <td><h2>교육프로그램</h2></td>
-					     <td><h2>건강보험</h2></td>
-					     <td><h2>휴가 제도</h2></td>
+					     <td><h3>사내 이벤트</h3></td>
+					     <td><h3>교육프로그램</h3></td>
+					     <td><h3>건강보험</h3></td>
+					     <td><h3>휴가 제도</h3></td>
 					     </tr>
 				<tr align=center >
 							<td width="200" height="100">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="error.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,6 +141,7 @@
 				<div style="border: 0; border-bottom: 2px solid #4d6083; width: 91%;">
 					<span style=" font-size: 13px; color: gray;">${board.b_regdate }</span>
 					<span style=" font-size: 13px; color: gray;">조회수 : ${board.b_count }</span>
+					<span style=" font-size: 13px;"><a href="bseContent.do?bm_num=${board.m_num }" style="text-decoration: none; color: gray;"><b>${fn:substringAfter(board.m_nickname, ']')}님의 자소서 보러가기</b></a></span>
 					<span style=" font-size: 15px; color: gray; position: absolute; right: 20%;">댓글 <b>${c_tot }</b></span>
 				</div>
 

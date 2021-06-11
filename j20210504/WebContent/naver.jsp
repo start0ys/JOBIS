@@ -139,30 +139,30 @@ border-collapse:collapse
 					   
 					<tr align=center >
 						<td width="200" height="100">
-						<h2>유연근무제</h2>
+						<h3>유연근무제</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>호칭체계</h2>
+						<h3>호칭체계</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>성과중심문화</h2>
+						<h3>성과중심문화</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>미래가치 공유</h2>
+						<h3>미래가치 공유</h3>
 						</td>
 					</tr>
 					<tr>
 						<td width="200" height="100">
-						<h2> 회사와 직원간 쌍방향 소통</h2>
+						<h3> 회사와 직원간 쌍방향 소통</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>리프레시 휴가</h2>
+						<h3>리프레시 휴가</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>휴양시설 지원</h2>
+						<h3>휴양시설 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>대출 지원</h2>
+						<h3>대출 지원</h3>
 						</td>
 					</tr>
 						 

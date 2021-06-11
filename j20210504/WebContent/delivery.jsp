@@ -139,30 +139,30 @@ border-collapse:collapse
 					   
 					<tr align=center >
 						<td width="200" height="100">
-						<h2>4.5일 근무제</h2>
+						<h3>4.5일 근무제</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>개인 노트북 지원</h2>
+						<h3>개인 노트북 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>도서비 무한지원</h2>
+						<h3>도서비 무한지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>단체 상해보험지원</h2>
+						<h3>단체 상해보험지원</h3>
 						</td>
 					</tr>
 					<tr>
 						<td width="200" height="100">
-						<h2>우수사원 포상제도</h2>
+						<h3>우수사원 포상제도</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>각종 경조사 지원</h2>
+						<h3>각종 경조사 지원</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>우아한휴가/휴무제도</h2>
+						<h3>우아한휴가/휴무제도</h3>
 						</td>
 						<td width="200" height="100">
-						<h2>설/추석 명절선물 지급</h2>
+						<h3>설/추석 명절선물 지급</h3>
 						</td>
 					</tr>
 						 
