@@ -1,0 +1,61 @@
+insert into cert1 values('16가111111', 1, '토익', '990', '20/01/01');
+insert into cert1 values('16가222222', 5, '토익', '900', '20/01/01');
+insert into cert1 values('16가333333',10, '토익', '950', '20/01/01');
+insert into cert2 values('111111', 1, '대한상공회의소', '정보처리기사', '21/01/01');
+insert into cert2 values('222222', 1, '대한상공회의소', '네트워크관리사', '20/02/02');
+insert into cert2 values('333333', 3, '대한상공회의소', '정보처리기사', '21/01/01');
+insert into cert2 values('444444', 6, '대한상공회의소', '정보처리기사', '21/01/01');
+insert into cert2 values('555555', 8, '대한상공회의소', '네트워크관리사', '20/02/02');
+
+alter table user1 modify date1 varchar2(30);
+alter table user1 modify date2 varchar2(30);
+alter table user1 modify m_date1 varchar2(30);
+alter table user1 modify m_date1 varchar2(30);
+alter table mycompany modify adate1 varchar2(30);
+alter table mycompany modify adate2 varchar2(30);
+alter table mycompany modify edate1 varchar2(30);
+alter table mycompany modify edate2 varchar2(30);
+alter table prizes modify pdate varchar2(30);
+
+--기존 유저삭제
+delete from user1;
+--user1 테이블
+INSERT INTO user1(M_num,M_id,M_divide,M_birth,M_sex,M_pw,M_nickname,M_name,mail) values('0','system','1',sysdate,'*','1234','관리자','관리자','JOBIS@jobis.do');
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (1,'aa',0,to_date('00/01/01','RR/MM/DD'),'m','1234','[취업자]nick1','홍길동',null,'a@naver.com','010-1111-2222','서울대학교','컴퓨터공학','201403','202102',4.5,'육군','암호병','병장','20160314','20171213');
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (2,'bb',0,to_date('00/01/02','RR/MM/DD'),'m','1234','[취업자]nick1','홍길동',null,'a@naver.com','010-1234-5678','연세대학교','컴퓨터공학','201503','202102',4.17,'해군','갑판병','병장','20160314','20171213');
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (3,'cc',1,to_date('00/01/03','RR/MM/DD'),'m','1234','[취업자]nick2','고길동',null,'b@naver.com','010-1133-4466','고려대학교','컴퓨터공학','201603','202102',4.2,'공군','항공정비병','병장','20160314','20171213');
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (4,'dd',1,to_date('00/01/04','RR/MM/DD'),'m','1234','[취업자]nick3','김길동',null,'c@naver.com','0102255-8800','성균관대학교','컴퓨터공학','201703','202102',4.4,'육군','소총수','병장','20180314','20191213');
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (5,'ee',0,to_date('00/01/05','RR/MM/DD'),'m','1234','[취업자]nick4','최길동',null,'d@naver.com','010-7654-3210','한양대학교','컴퓨터공학','201803','202102',4.49,null,null,null,null,null);
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (6,'ff',0,to_date('00/01/06','RR/MM/DD'),'f','1234','[취업자]nick5','황길동',null,'e@naver.com','010-8462-7980','서강대학교','컴퓨터공학','201103','201502',4.11,null,null,null,null,null);
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (7,'gg',0,to_date('00/01/11','RR/MM/DD'),'f','1234','[취준생]nick1','정길동',null,'f@naver.com','010-4691-7810','건국대학교','컴퓨터공학','200803','201502',4.5,null,null,null,null,null);
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (8,'hh',0,to_date('00/01/07','RR/MM/DD'),'f','1234','[취준생]nick2','강길동',null,'g@naver.com','010-7692-8521','동국대학교','컴퓨터공학','201103','201602',4.5,null,null,null,null,null);
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (9,'ii',0,to_date('00/01/08','RR/MM/DD'),'f','1234','[취준생]nick3','선길동',null,'h@naver.com','010-8845-8547','아주대학교','컴퓨터공학','201503','202002',4.33,null,null,null,null,null);
+Insert into USER1 (M_NUM,M_ID,M_DIVIDE,M_BIRTH,M_SEX,M_PW,M_NICKNAME,M_NAME,PHOTO,MAIL,ADDITIONS,COLLEGE,MAJOR,DATE1,DATE2,CREDIT,MILLITARY,M_DEPT,M_CLASS,M_DATE1,M_DATE2) values (10,'jj',0,to_date('00/01/09','RR/MM/DD'),'f','1234','[취준생]nick4','박길동',null,'i@naver.com','010-9991-5803','제주대학교','컴퓨터공학','201503','202002',4.19,null,null,null,null,null);
+
+--myconmany 테이블 col컬럼 제거후 insert
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (1,'축구동아리','20/01/01','20/02/01','21/01/01','삼성전자',null,null,'과장','21/06/06');
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (2,null,null,null,'15/05/05','신지모루',null,null,'사원','16/05/05');
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (3,'우간다봉사활동','21/01/02','21/02/01',null,null,null,null,null,null);
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (4,'댄스동아리','21/01/03','21/02/01',null,null,null,null,null,null);
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (5,null,null,null,'18/01/01','현대자동차',null,null,'대리','18/02/01');
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (7,'아르헨티나봉사활동','21/01/03','21/02/01',null,null,null,null,null,null);
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (8,null,null,null,'16/01/01','쉐보레',null,null,'사원','17/01/01');
+Insert into MYCOMPANY (M_NUM,ANAME,ADATE1,ADATE2,EDATE1,ENAME,ACONTENT,ECONTENT,EJOB,EDATE2) values (9,null,null,null,'17/01/01','로지텍',null,null,'사원','18/01/01');
+
+--prizes 테이블 컬럼명 M_ID ->P_ID로 변경
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112233',1,'최우수상',null,'20200202','국방부','군단보안감사');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112234',1,'최우수상',null,'20190814','청와대','수학올림피아드');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112235',1,'최우수상',null,'20210505','백악관','창의력대회');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112243',2,'장려상',null,'20200202','국방부','군단보안감사');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112253',5,'우수상',null,'20200202','국방부','군단보안감사');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112244',7,'우수상',null,'20190814','청와대','학올림피아드');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112255',8,'장려상',null,'20210505','백악관','창의력대회');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112263',8,'최우수상',null,'20200202','국방부','군단보안감사');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112265',9,'우수상',null,'20210505','백악관','창의력대회');
+Insert into PRIZES (P_ID,M_NUM,PRICE,PCONTENT,PDATE,PDEPT,PNAME) values ('112276',10,'대상',null,'20201205','SBS','가요대제전');
+
+
+
+
+
+
