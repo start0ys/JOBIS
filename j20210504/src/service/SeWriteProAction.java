@@ -22,6 +22,10 @@ public class SeWriteProAction implements CommandProcess {
 
 	        SeBoardDao bd = SeBoardDao.getInstance(); 
 	        int result = bd.insert(Seboard);
+	        int m_num = Integer.parseInt(request.getParameter("m_num"));
+	        if(result > 0) {
+	       	bd.enupdate(m_num);
+	        }
 	        request.setAttribute("s_idx", Seboard.getS_idx());
 	        request.setAttribute("result", result);
 	        request.setAttribute("pageNum", pageNum);

@@ -395,6 +395,25 @@ public class SeBoardDao {
 		return m_num;
 		}
 		
+		public int enupdate(int m_num) throws SQLException {
+		System.out.println("enupdate옴");
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		int result = 0;
+		String sql="update user1 set m_divide=1 where m_num=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setInt(1, m_num);
+			result = pstmt.executeUpdate();
+		} catch(Exception e) {	
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
 		
 		////테스트/////////////////////////////////////////////////////////////
 }
