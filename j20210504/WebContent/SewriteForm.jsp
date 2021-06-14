@@ -196,7 +196,7 @@ i {float: right;}
 		<input type="hidden" name="m_nickname" value="${m_nickname }">
 		<input type="hidden" name="m_num" value="${m_num }">
 		<input type="hidden" name="s_idx" value="0">
-      <h1 class="w3-text-teal" style="text-align: center;">자기소개서 작성</h1>
+      <h1 class="w3-text-teal">자기소개서 작성</h1>
       	<table border="1" style="text-align: center; background-color:#ddd; margin: 0 auto; width: 100%">
 			<tr>
 				<td>공개여부</td>

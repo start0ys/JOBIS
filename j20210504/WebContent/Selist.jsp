@@ -97,7 +97,7 @@ i {float: right;}
 <div class="w3-main" style="margin-left:250px;"> 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container" style="margin-left: 44px; margin-top: 18px; width: 78%;">
-      <h1 class="w3-text-teal" style="text-align: center;">자기소개서 목록</h1>
+      <h1 class="w3-text-teal">자기소개서 목록</h1>
       	<table  style="text-align: center;margin: 0 auto; width: 100%;"> 
 		<tr>
 			<th style="width: 55%; font-weight: bold; font-size: 18px;background-color:#999696;">회사이름</th>
