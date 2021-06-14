@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>JOBIS</title>
 <script type="text/javascript">
-	location.href="main.do";
+	location.href="index.do";
 </script>
 </head>
 <body>

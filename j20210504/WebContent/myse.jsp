@@ -98,22 +98,16 @@
 			</c:forEach>
 		</c:if>
 		<c:if test="${totCnt == 0 }">
-			<tr>
-				<td colspan=7>데이터가 없네</td>
-			</tr>
+		<!--  -->
+			<script type="text/javascript">
+				alert("작성한 자기소개서가 없습니다.");
+				location.href="SewriteForm.do";
+			</script>
+		<!--  -->	
 		</c:if>
 	</table>
 	
 	<div style="text-align: center;">
-<%-- 		<c:if test="${startPage > blockSize }"> --%>
-<%-- 			<a href='Selist.do?pageNum=${startPage-blockSize}'>[이전]</a> --%>
-<%-- 		</c:if> --%>
-<%-- 		<c:forEach var="i" begin="${startPage}" end="${endPage}"> --%>
-<%-- 			<a href='Selist.do?pageNum=${i}'>[${i}]</a> --%>
-<%-- 		</c:forEach> --%>
-<%-- 		<c:if test="${endPage < pageCnt }"> --%>
-<%-- 			<a href='Selist.do?pageNum=${startPage+blockSize}'>[다음]</a> --%>
-<%-- 		</c:if> --%>
 		<c:if test="${startPage > blockSize }">
 			<a href='myse.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>

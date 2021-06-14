@@ -11,17 +11,17 @@
 <meta charset="UTF-8">
 <title>JOBIS</title>
 <script type="text/javascript">
-function checkOnlyOne(element) {
-	  
-	  const checkboxes 
-	      = document.getElementsByName("s_type");
-	  
-	  checkboxes.forEach((cb) => {
-	    cb.checked = false;
-	  })
-	  
-	  element.checked = true;
-	}
+function checkOnlyOne(chk){
+    var obj = document.getElementsByName("s_type");
+    for(var i=0; i<obj.length; i++){
+        if(obj[i] != chk){
+        	alert("하나 이상 선택해주세요!")
+            obj[i].checked = false;
+        }
+    }
+}
+
+출처: https://canworld42.tistory.com/25 [깨어 있는 세상]
 </script>
 <style type="text/css">
 	textarea{
@@ -183,7 +183,7 @@ function checkOnlyOne(element) {
 			<tr>
 				<td>공개여부</td>
 				<td>
-					<input type="checkbox" name="s_type" value="1" onclick="checkOnlyOne(this)">공개 
+					<input type="checkbox" name="s_type" value="1" onclick="checkOnlyOne(this)" checked="checked">공개 
 					<input type="checkbox" name="s_type" value="0" onclick="checkOnlyOne(this)">비공개
 				</td>
 			</tr>

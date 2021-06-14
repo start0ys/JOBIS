@@ -10,7 +10,7 @@
 <body>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
-			alert("삭제 완료!");
+			alert("삭제하시겠습니까?");
 			location.href= "Selist.do?pageNum=${pageNum }";
 		</script>
 	</c:if>

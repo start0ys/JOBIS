@@ -49,7 +49,7 @@
                    <span class="menu">마이페이지</span>
                       <ul class="subMenu">
                          <li><input type="button" value="회원관리"      onclick="location.href = 'updatePage.do'"></li>
-                        <li><input type="button" value="이력서관리"    onclick="location.href = 'erContent.do'"></li>
+                        <li><input type="button" value="이력서관리"    onclick="location.href = 'ercontent.do'"></li>
                         <li><input type="button" value="자소서관리"    onclick="location.href = 'myse.do'"></li>
                      <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
                     </ul>
@@ -74,46 +74,51 @@
 			<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
 					<h1>이력서</h1>
 					<table>
-						<input type="hidden" name="m_num" value="${m_num }">
-						<tr><td>이름</td><td>${erboard.m_name }</td></tr>
-						<tr><td>이메일</td><td>${erboard.mail }</td></tr>
-						<tr><td>기타사항</td><td>${erboard.additions }</td></tr>
+						<tr><td><input type="hidden" name="m_num" value="${m_num }"></td></tr>
+						<tr><td colspan="3"><h2>기본정보</h2></td></tr>
+						<tr><th>이름</th><td>${erboard.m_name }</td>
+						<td rowspan="2">
+							<c:if test="${not empty erboard.photo }">
+								<img width="200" height="200" src="${erboard.photo }">
+							</c:if></td></tr>
+						<tr><th>이메일</th><td>${erboard.mail }</td></tr>
+						<tr><th>기타사항</th><td>${erboard.additions }</td></tr>
 						<tr><td colspan="3"><h2>학력</h2></td></tr>
-						<tr><td>학교</td><td>${erboard.college }</td></tr>
-						<tr><td>전공</td><td>${erboard.major }</td></tr>
-						<tr><td>기간</td><td>${erboard.date1 }</td><td>~</td><td>${erboard.date2 }</td>
-						<tr><td>학점</td><td>${erboard.credit }</td>
+						<tr><th>학교</th><td>${erboard.college }</td></tr>
+						<tr><th>전공</th><td>${erboard.major }</td></tr>
+						<tr><th>기간</th><td>${erboard.date1 }~${erboard.date2 }</td>
+						<tr><th>학점</th><td>${erboard.credit }</td>
 						<tr><td colspan="3"><h2>병역</h2></td></tr>
-						<tr><td>군벌</td><td>${erboard.millitary }</td></tr>
-						<tr><td>병과</td><td>${erboard.m_dept }</td></tr>
-						<tr><td>계급</td><td>${erboard.m_class }</td></tr>
-						<tr><td>기간</td><td>${erboard.m_date1 }</td><td>~</td><td>${erboard.m_date2 }</td></tr>
+						<tr><th>군벌</th><td>${erboard.millitary }</td></tr>
+						<tr><th>병과</th><td>${erboard.m_dept }</td></tr>
+						<tr><th>계급</th><td>${erboard.m_class }</td></tr>
+						<tr><th>기간</th><td>${erboard.m_date1 }~${erboard.m_date2 }</td></tr>
 						<tr><td colspan="3"><h2>경력</h2></td></tr>
-						<tr><td>회사</td><td>${erboard.ename }</td></tr>
-						<tr><td>기간</td><td>${erboard.edate1 }</td><td>~</td><td>${erboard.edate2 }</td></tr>
-						<tr><td>직무</td><td>${erboard.ejob }</td></tr>
-						<tr><td>기타사항</td><td>${erboard.econtent }</td></tr>
+						<tr><th>회사</th><td>${erboard.ename }</td></tr>
+						<tr><th>기간</th><td>${erboard.edate1 }~${erboard.edate2 }</td></tr>
+						<tr><th>직무</th><td>${erboard.ejob }</td></tr>
+						<tr><th>기타사항</th><td>${erboard.econtent }</td></tr>
 						<tr><td colspan="3"><h2>대외활동</h2></td></tr>
-						<tr><td>활동명</td><td>${erboard.aname }</td></tr>
-						<tr><td>기간</td><td>${erboard.adate1 }</td><td>~</td><td>${erboard.adate2 }</td></tr>
+						<tr><th>활동명</th><td>${erboard.aname }</td></tr>
+						<tr><th>기간</th><td>${erboard.adate1 }~${erboard.adate2 }</td></tr>
 						<tr><td colspan="3">기타사항</td><td>${erboard.acontent }</td></tr>
-						<tr><td colspan="3"><h2>어학성적</h2></td></tr>
-						<tr><td>시험명</td><td>${erboard.tname }</td></tr>
-						<tr><td>취득날짜</td><td>${erboard.tdate }</td></tr>
-						<tr><td>점수</td><td>${erboard.tscore }</td></tr>
-						<tr><td>수험번호</td><td>${erboard.tnumber }</td></tr>
+						<tr><th colspan="3"><h2>어학성적</h2></td></tr>
+						<tr><th>시험명</th><td>${erboard.tname }</td></tr>
+						<tr><th>취득날짜</th><td>${erboard.tdate }</td></tr>
+						<tr><th>점수</td><th>${erboard.tscore }</td></tr>
+						<tr><th>수험번호</th><td>${erboard.tnumber }</td></tr>
 						<tr><td colspan="3"><h2>자격증</h2></td></tr>
-						<tr><td>자격증명</td><td>${erboard.lname }</td></tr>
-						<tr><td>자격증번호</td><td>${erboard.col }</td></tr>
-						<tr><td>발급기관</td><td>${erboard.ldept }</td></tr>
-						<tr><td>취득날짜</td><td>${erboard.ldate }</td></tr>
+						<tr><td>자격증명</th><td>${erboard.lname }</td></tr>
+						<tr><td>자격증번호</th><td>${erboard.col }</td></tr>
+						<tr><td>발급기관</th><td>${erboard.ldept }</td></tr>
+						<tr><td>취득날짜</th><td>${erboard.ldate }</td></tr>
 						<tr><td colspan="3"><h2>수상</h2></td></tr>
-						<tr><td>대회명</td><td>${erboard.pname }</td></tr>
-						<tr><td>상</td><td>${erboard.price }</td></tr>
-						<tr><td>상일련번호</td><td>${erboard.p_id }</td></tr>
-						<tr><td>수상기관</td><td>${erboard.pdept }</td></tr>
-						<tr><td>수상날짜</td><td>${erboard.pdate }</td></tr>
-						<tr><td>기타사항</td><td>${erboard.pcontent }</td></tr>
+						<tr><th>대회명</td><th>${erboard.pname }</td></tr>
+						<tr><th>상</td><th>${erboard.price }</td></tr>
+						<tr><th>상일련번호</th><td>${erboard.p_id }</td></tr>
+						<tr><th>수상기관</th><td>${erboard.pdept }</td></tr>
+						<tr><th>수상날짜</th><td>${erboard.pdate }</td></tr>
+						<tr><th>기타사항</th><td>${erboard.pcontent }</td></tr>
 						<%-- <tr><td><a href="erWriteForm.do?m_num=${m_num }">작성하기</a></td></tr> --%>
 						<tr><td><a href="erUpdateForm.do?m_num=${m_num }">수정하기</a></td></tr>
 					</table>

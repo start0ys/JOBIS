@@ -9,6 +9,12 @@
 <link rel="stylesheet" type="text/css" href="commons.css">
 <link rel="stylesheet" type="text/css" href="headerss.css?ver4">
 <link rel="stylesheet" type="text/css" href="menus.css">
+<style>
+	table {
+  		border-collapse: separate;
+ 		border-spacing: 0 10px;
+	}
+</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -49,7 +55,7 @@
                    <span class="menu">마이페이지</span>
                       <ul class="subMenu">
                          <li><input type="button" value="회원관리"      onclick="location.href = 'updatePage.do'"></li>
-                        <li><input type="button" value="이력서관리"    onclick="location.href = 'erContent.do'"></li>
+                        <li><input type="button" value="이력서관리"    onclick="location.href = 'ercontent.do'"></li>
                         <li><input type="button" value="자소서관리"    onclick="location.href = 'myse.do'"></li>
                      <li><input type="button" value="작성게시글보기" onclick="location.href = 'myboard.do?search=${m_num}'"></li>
                     </ul>
@@ -72,102 +78,218 @@
 		
 		<div style="width: 90%; margin: 0 auto; margin-top:30px; color:black; border: 2px solid #4d6083;">
 			<div style="margin: 30px; margin-top: 30px;">
-				<form action="erUpdatePro.do" method="post">
-					<table>
-						<tr><td colspan="4"><h1>이력서</h1></td></tr>
-						<tr><td><input type="hidden" name="m_num" value="${m_num }"></td></tr>
-						<tr><th>이름</th><td><input type="text"  
-							name="m_name" id="m_name" required="required" value="${erboard.m_name }"></td></tr>
-						<tr><th>이메일</th><td><input type="text"  
-							name="mail" id="mail" required="required" value="${erboard.mail }"></td></tr>
-						<tr><th>추가사항</th><td colspan="6"><pre><textarea
-									style=" width:700px; height:100px;" name="additions" id="addiotions" 
-									maxlength="4000" required="required">${erboard.additions }</textarea></pre></td></tr>
-						<tr><td><h3>학력</h3></td><td colspan="3"><input type="button" name="add1" value="추가"></td></tr>		
-						<tr><th>학교</th><td><input type="text"
-								name="collage" id="collage" value="${erboard.college }"></td></tr>
-						<tr><th>전공</th><td><input type="text" 
-								name="major" id="major" value="${erboard.major }"></td></tr>
-						<tr><th>기간</th><td><input type="text"
-								name="date1" id="date1" value="${erboard.date1 }"></td>
-						<td>~</td>
-						<td><input type="text" 
-								name="date2" id="date2" value="${erboard.date2 }"></td></tr>
-						<tr><th>학점</th><td colspan="6"><input type="text" 
-								name="credit" id="credit" value="${erboard.credit }"></td><td><input type="button" name="del1" value="삭제"></td></tr>
-						<tr><td colspan="6"><h3>병역</h3></td></tr>
-						<tr><th>군벌</th><td><input type="text"
-								name="millitary" id="millitary" value="${erboard.millitary }"></td></tr>
-						<tr><th>병과</th><td><input type="text"
-								name="m_dept" id="m_dept" value="${erboard.m_dept }"></td></tr>
-						<tr><th>계급</th><td><input type="text"
-								name="m_class" id="m_class" value="${erboard.m_class }"></td></tr>
-						<tr><th>기간</th><td><input type="text"
-								name="m_date1" id="m_date1" value="${erboard.m_date1 }"></td>
-						<td>~</td>
-						<td><input type="text" 
-								name="m_date2" id="m_date2" value="${erboard.m_date2 }"></td></tr>
-						<tr><td><h3>경력</h3></td><td colspan="3"><input type="button" name="add2" value="추가"></td></tr>
-						<tr><th>회사</th><td><input type="text" 
-								name="ename" id="ename" value="${erboard.ename }"></td></tr>
-						<tr><th>근무기간</th><td><input type="text"
-								name="edate1" id="edate1" value="${erboard.edate1 }"></td><td>~</td><td><input type="text"
-								name="edate2" id="edate2" value="${erboard.edate2 }"></td></tr>
-						<tr><th>직무</th><td><input type="text"
-								name="ejob" id="ejob" value="${erboard.ejob }"></td></tr>
-						<tr><th>내용</th><td colspan="6"><pre><textarea 
-								style="width: 700px; height: 100px;" name="econtent" id="econtent" 
-								maxlength="4000">${erboard.econtent }</textarea></pre></td><td><input type="button" name="del2" value="삭제"></td></tr>
-						<tr><td><h3>대외활동</h3></td><td colspan="3"><input type="button" name="add3" value="추가"></td></tr>
-						<tr><th>활동명</th><td><input type="text" 
-								name="aname" id="aname" value="${erboard.aname }"></td></tr>
-						<tr><th>활동기간</th><td><input type="text" 
-								name="adate1" id="adate1" value="${erboard.adate1 }"></td><td>~</td><td><input type="text"  
-								name="adate2" id="adate2" value="${erboard.adate2 }"></td></tr>
-						<tr><th>내용</th><td colspan="6"><pre><textarea  
-								style="width: 700px; height: 100px;" name="acontent" id="acontent" 
-								maxlength="4000">${erboard.acontent }</textarea></pre></td><td><input type="button" name="del3" value="삭제"></td>
-						<tr><td><h3>어학성적</h3></td><td><input type="button" name="add4" value="추가"></td></tr>						
-						<tr><th>시험명</th><td><input type="text" 
-								name="tname" id="tname" value="${erboard.tname }"></td></tr>
-						<tr><th>취득날짜</th><td><input type="text"  
-								name="tdate" id="tdate" value="${erboard.tdate }"></td></tr>
-						<tr><th>점수</th><td><input type="text"
-								name="tscore" id="tscore" value="${erboard.tscore }"></td></tr>
-						<tr><th>수험번호</th><td><input type="text"  
-								name="tnumber" id="tnumber" value="${erboard.tnumber }"></td>
-							<td><input type="button" name="del4" value="삭제"></td></tr>
-						<tr><td><h3>자격증</h3></td><td><input type="button" name="add5" value="추가"></td></tr>
-						<tr><th>자격증명</th><td><input type="text" 
-								name="lname" id="lname" value="${erboard.lname }"></td></tr>
-						<tr><th>자격증번호</th><td><input type="text" 
-								name="col" id="col" value="${erboard.col }"></td></tr>
-						<tr><th>발급기관</th><td><input type="text" 
-								name="ldept" id="ldept" value="${erboard.ldept }"></td></tr>
-						<tr><th>취득날짜</th><td><input type="text"  
-								name="ldate" id="ldate" value="${erboard.ldate }"></td>
-							<td><input type="button" name="del5" value="삭제"></td></tr>
-						<tr><td><h3>수상</h3></td><td><input type="button" name="add6" value="추가"></td></tr>
-						<tr><th>대회명</th><td><input type="text" 
-								name="pname" id="pname" value="${erboard.pname }"></td></tr>
-						<tr><th>상</th><td><input type="text" 
-								name="price" id="price" value="${erboard.price }"></td></tr>
-						<tr><th>상일련번호</th><td><input type="text"
-								name="p_id" id="p_id" value="${erboard.p_id }"></td></tr>
-						<tr><th>수상기관</th><td><input type="text"  
-								name="pdept" id="pdept" value="${erboard.pdept }"></td></tr>
-						<tr><th>수상날짜</th><td><input type="text" 
-								name="pdate" id="pdate" value="${erboard.pdate }"></td></tr>
-						<tr><th>수상내용</th><td colspan="6"><pre><textarea 
-								style="width: 700px; height: 100px;" name="pcontent" id="pcontent" 
-								maxlength="4000">${erboard.pcontent }</textarea></pre></td>
-							<td><input type="button" name="del6" value="삭제"></td></tr>
-						<tr><td><input type="submit" value="저장하기"></td></tr>
-
-					</table>				
+			<div style="margin: 30px;">
+			</div>
+				<form action="erUpdatePro.do" method="post" enctype="multipart/form-data">
+					<h1>이력서</h1>
+					<input type="hidden" name="m_num" value="${m_num }">
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>기본정보</h2></th>
+							<th width="220" rowspan="4" class="image-container">
+								<img id="preview-image" src="https://dummyimage.com/200x200/ffffff/000000.png&text=preview+image" width="200" height="200">
+								<input style="display: block;" type="file" name="uploadFile" id="input-image">
+							</th>
+						</tr>
+						<tr>
+							<th width="100">이름</th>
+							<td><input type="text" name="m_name" value="${erboard.m_name }"></td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td><input type="text" name="mail" value="${erboard.mail }"></td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<th>추가사항</th>
+							<td colspan="2"><pre><textarea style="width: 500px; height: 50px;" name="additions"> ${erboard.additions }</textarea></pre>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>학력</h2></th>
+						</tr>
+						<tr>
+							<th>학교</th>
+							<td><input type="text" name="college" value="${erboard.college }"></td>
+						</tr>
+						<tr>
+							<th>전공</th>
+							<td><input type="text" name="major" value="${erboard.major }"></td>
+						</tr>
+						<tr>
+							<th>기간</th>
+							<td><input type="text" name="date1" value="${erboard.date1 }">~<input type="text" name="date2" value="${erboard.date2 }"></td>
+						</tr>
+						<tr>
+							<th>학점</th>
+							<td><input type="text" name="credit" value="${erboard.credit }"></td>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>병역</h2></th>
+						</tr>
+						<tr>
+							<th>군벌</th>
+							<td><input type="text" name="millitary" value="${erboard.millitary }"></td>
+						</tr>
+						<tr>
+							<th>병과</th>
+							<td><input type="text" name="m_dept" value="${erboard.m_dept }"></td>
+						</tr>
+						<tr>
+							<th>계급</th>
+							<td><input type="text" name="m_class" value="${erboard.m_class }"></td>
+						</tr>
+						<tr>
+							<th>기간</th>
+							<td><input type="text" name="m_date1" value="${erboard.m_date1 }">~<input type="text" name="m_date2" value="${erboard.m_date2 }"></td>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>경력</h2></th>
+						</tr>
+						<tr>
+							<th>회사</th>
+							<td><input type="text" name="ename" value="${erboard.ename }"></td>
+						</tr>
+						<tr>
+							<th>근무기간</th>
+							<td><input type="text" name="edate1" value="${erboard.edate1 }">~<input type="text" name="edate2" value="${erboard.edate2 }"></td>
+						</tr>
+						<tr>
+							<th>직무</th>
+							<td><input type="text" name="ejob" value="${erboard.ejob }"></td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td colspan="1"><pre><textarea style="width: 500px; height: 50px;" name="econtent">${erboard.econtent }</textarea></pre>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>대외활동</h2></th>
+						</tr>
+						<tr>
+							<th>활동명</th>
+							<td><input type="text" name="aname" value="${erboard.aname }"></td>
+						</tr>
+						<tr>
+							<th>활동기간</th>
+							<td><input type="text" name="adate1" value="${erboard.adate1 }">~<input type="text" name="adate2" value="${erboard.adate2 }"></td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td colspan="1"><pre><textarea style="width: 500px; height: 50px;" name="acontent">${erboard.acontent }</textarea></pre>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>어학성적</h2></th>
+						</tr>
+						<tr>
+							<th>시험명</th>
+							<td><input type="text" name="tname" value="${erboard.tname }"></td>
+						</tr>
+						<tr>
+							<th>취득날짜</th>
+							<td><input type="text" name="tdate" value="${erboard.tdate }"></td>
+						</tr>
+						<tr>
+							<th>점수</th>
+							<td><input type="text" name="tscore" value="${erboard.tscore }"></td>
+						</tr>
+						<tr>
+							<th>수험번호</th>
+							<td><input type="text" name="tnumber" value="${erboard.tnumber }"></td>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>자격증</h2></th>
+						</tr>
+						<tr>
+							<th>자격증명</th>
+							<td><input type="text" name="lname" value="${erboard.lname }"></td>
+						</tr>
+						<tr>
+							<th>자격증번호</th>
+							<td><input type="text" name="col" value="${erboard.col }"></td>
+						</tr>
+						<tr>
+							<th>발급기관</th>
+							<td><input type="text" name="ldept" value="${erboard.ldept }"></td>
+						</tr>
+						<tr>
+							<th>취득날짜</th>
+							<td><input type="text" name="ldate" value="${erboard.ldate }"></td>
+						</tr>
+					</table>
+					<div style="margin: 30px;"></div>
+					<table width="600">
+						<tr>
+							<th colspan="2" height="40"><h2>수상</h2></th>
+						</tr>
+						<tr>
+							<th>대회명</th>
+							<td><input type="text" name="pname" value="${erboard.pname }"></td>
+						</tr>
+						<tr>
+							<th>상</th>
+							<td><input type="text" name="price" value="${erboard.price }"></td>
+						</tr>
+						<tr>
+							<th>상일련번호</th>
+							<td><input type="text" name="p_id" value="${erboard.p_id }"></td>
+						</tr>
+						<tr>
+							<th>수상기관</th>
+							<td><input type="text" name="pdept" value="${erboard.pdept }"></td>
+						</tr>
+						<tr>
+							<th>수상날짜</th>
+							<td><input type="text" name="pdate" value="${erboard.pdate }"></td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td colspan="1"><pre><textarea style="width: 500px; height: 50px;" name="pcontent">${erboard.pcontent }</textarea></pre>
+						</tr>
+						<tr><td><input type="submit" value="수정하기"></td></tr>
+					</table>
 					</form>
 			</div>	
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		function readImage(input) {
+		    // 인풋 태그에 파일이 있는 경우
+		    if(input.files && input.files[0]) {
+		        // 이미지 파일인지 검사 (생략)
+		        // FileReader 인스턴스 생성
+		        const reader = new FileReader()
+		        // 이미지가 로드가 된 경우
+		        reader.onload = e => {
+		            const previewImage = document.getElementById("preview-image")
+		            previewImage.src = e.target.result
+		        }
+		        // reader가 이미지 읽도록 하기
+		        reader.readAsDataURL(input.files[0])
+		    }
+		}
+		// input file에 change 이벤트 부여
+		const inputImage = document.getElementById("input-image")
+		inputImage.addEventListener("change", e => {
+		    readImage(e.target)
+		})
+	</script>
 </body>
 </html>

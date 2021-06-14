@@ -87,7 +87,7 @@
 			<input type="button" value="수정" class="btn"
 			            onclick="location.href='SeupdateForm.do?s_idx=${Seboard.s_idx}&pageNum=${pageNum}'">
 			<input type="button" value="삭제" class="btn"
-			            onclick="location.href='SedeleteForm.do?s_idx=${Seboard.s_idx}&pageNum=${pageNum}'">
+			            onclick="location.href='SedeletePro.do?s_idx=${Seboard.s_idx}&pageNum=${pageNum}'">
 		</c:if>
 			<input type="button" value="목록" class="btn" onclick="location.href='Selist.do?pageNum=${pageNum}'">
 		</td></tr>
