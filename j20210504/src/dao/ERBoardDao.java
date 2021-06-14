@@ -459,6 +459,25 @@ public class ERBoardDao {
 		}
 		return result5;
 	}
+	
+	public int setM_divide(int m_num) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update user1 set m_divide = 1 where m_num=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, m_num);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("ERBoardDao setM_divide Exception->"+e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		return result;
+	}
 /////////////////////////////////////////////////
 		   
 	public int getM_divide(int m_num) throws SQLException {
@@ -468,20 +487,20 @@ public class ERBoardDao {
 	String sql = "select m_divide from user1 where m_num = ?";
 	int m_divide = 0;
 	try {
-	conn = getConnection();
-	pstmt = conn.prepareStatement(sql);
-	pstmt.setInt(1, m_num);
-	rs = pstmt.executeQuery();
-	if (rs.next()) {
-	m_divide = rs.getInt("m_divide");
-	} 
+		conn = getConnection();
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, m_num);
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+		m_divide = rs.getInt("m_divide");
+		} 
 	
 	} catch (Exception e) {
-	System.out.println(e.getMessage());
+		System.out.println(e.getMessage());
 	} finally {
-	if (rs != null) rs.close();
-	if (pstmt != null) pstmt.close();
-	if (conn  != null) conn.close();
+		if (rs != null) rs.close();
+		if (pstmt != null) pstmt.close();
+		if (conn  != null) conn.close();
 	}
 	return m_divide;
 	}

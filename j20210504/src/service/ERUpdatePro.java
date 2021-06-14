@@ -102,7 +102,11 @@ public class ERUpdatePro implements CommandProcess  {
 			System.out.println("ERUpdatePro result3->"+result3);
 			System.out.println("ERUpdatePro result4->"+result4);
 			System.out.println("ERUpdatePro result5->"+result5);
-
+			
+			if (result1 > 0 || result2 > 0 || result3 > 0 || result4 > 0 || result5 > 0) {
+				bd.setM_divide(Integer.parseInt(multi.getParameter("m_num")));
+			}
+			
 			request.setAttribute("m_num", erboard.getM_num());
 			request.setAttribute("result1", result1);
 			request.setAttribute("result2", result2);
