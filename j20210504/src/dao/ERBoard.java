@@ -3,6 +3,7 @@ package dao;
 public class ERBoard {
 	// user1 
 	private int m_num;
+	private String photo;
 	private String m_name;
 	private String mail;
 	private String additions;
@@ -46,6 +47,12 @@ public class ERBoard {
 	private String pcontent;
 	private String p_id;
 	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	public int getM_num() {
 		return m_num;
 	}

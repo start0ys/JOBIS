@@ -34,7 +34,7 @@ public class ERBoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql1 = "select u.m_name, u.mail, u.additions, u.college, u.major, u.date1, u.date2,"
-				+ "  u.date2, u.credit, u.millitary, u.m_dept, u.m_class, u.m_date1, u.m_date2,"
+				+ "  u.date2, u.credit, u.millitary, u.m_dept, u.m_class, u.m_date1, u.m_date2,u.photo,"
 				+ "  m.ename, m.edate1, m.edate2, m.ejob, m.econtent, m.aname, m.adate1, m.adate2,"
 				+ "  m.acontent, c2.col, c1.tnumber, c1.tname, c1.tscore, c1.tdate, c2.ldept, c2.lname, "
 				+ "  c2.ldate, p.p_id, p.price, p.pcontent, p.pdate, p.pdept, p.pname"
@@ -67,6 +67,7 @@ public class ERBoardDao {
 				erboard.setM_dept(rs.getString("m_dept"));
 				erboard.setM_date1(rs.getString("m_date1"));
 				erboard.setM_date2(rs.getString("m_date2"));
+				erboard.setPhoto(rs.getString("photo"));
 				erboard.setEname(rs.getString("ename"));
 				erboard.setEdate1(rs.getString("edate1"));
 				erboard.setEdate2(rs.getString("edate2"));
@@ -185,7 +186,7 @@ public class ERBoardDao {
 		PreparedStatement pstmt = null;
 		int result1 = 0;
 		String sql1 = "update user1 set m_name=?,mail=?,additions=?, college=?, major=?,date1=?, "
-				+ "date2=?,credit=?,millitary=?,m_dept=?,m_class=?,m_date1=?,m_date2=?"
+				+ "date2=?,credit=?,millitary=?,m_dept=?,m_class=?,m_date1=?,m_date2=?, photo=?"
 				+ " where m_num=?";		
 		System.out.println("ERBoardDao erUpdate sql1->"+sql1);
 
@@ -205,7 +206,8 @@ public class ERBoardDao {
 			pstmt.setString(11, erboard.getM_class());
 			pstmt.setString(12, erboard.getM_date1());
 			pstmt.setString(13, erboard.getM_date2());
-			pstmt.setInt(14, erboard.getM_num());
+			pstmt.setString(14, erboard.getPhoto());
+			pstmt.setInt(15, erboard.getM_num());
 			result1 = pstmt.executeUpdate();
 			System.out.println("ERBoardDao prepareStatement sql1...");
 			
