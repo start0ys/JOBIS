@@ -6,7 +6,7 @@
 <title>JOBIS</title></head><body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("입력 완료");  
+		alert("자기소개서 작성 완료!");  
 		location.href="Selist.do?pageNum=${pageNum}";	//페이지이동
 	</script>
 </c:if>
