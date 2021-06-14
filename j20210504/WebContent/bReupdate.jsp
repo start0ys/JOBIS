@@ -13,6 +13,11 @@
 		width: 90%;
 		resize: none;
 	}
+	.btn{
+		background: black;
+		color: white;
+		border-radius: 10px;
+	}
 </style>
 </head>
 
@@ -20,7 +25,7 @@
 	
 	<h2 style="color:black;">댓글 수정하기</h2>
 	
-	<div style="color:black; border: 2px solid #4d6083;">
+	<div style="color:black; border: 2px solid black;">
 		<form action="reUpdatePro.do" method="post" name="frm1" id="frm1">
 			<input type="hidden" name="c_idx" value="${comment.c_idx }">
 			<div style="margin: 11px 0 0 11px;">👤${comment.nickname }</div>
