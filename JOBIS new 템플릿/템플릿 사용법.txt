@@ -1,0 +1,32 @@
+command.properties
+/index.do=service.IndexAction(추가)
+
+
+
+service
+IndexAction(추가)
+MainAction(수정)
+
+dao
+
+
+
+
+WebContent
+index.jsp(수정)
+main.jsp(수정)
+main1.jsp(추가)
+main2.css(추가)
+
+images(폴더) -> main5.png(추가)
+
+
+
+이것들 다 넣어주시고 main1.jsp를 이용해서
+각자만든 페이지들 전부 디자인 수정해주시면됩니다.
+나중에 jsp페이지 수정된것들 전부 수정사항에 ~~.jps(수정)
+으로 다 알려주시면 감사하겠습니다.
+
+
+
+
