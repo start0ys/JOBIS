@@ -54,6 +54,7 @@ public class BseContentAction implements CommandProcess {
 			int endPage = startPage + blockSize -1;	
 			if (endPage > pageCnt) endPage = pageCnt;	
 			
+			request.setAttribute("bm_num", bm_num);
 			request.setAttribute("s_nickname", bd.getNickname(bm_num));
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum", pageNum);
