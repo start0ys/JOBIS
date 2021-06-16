@@ -11,17 +11,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-.w3-sidebar {
-  z-index: 3;
-  width: 250px;
-  top: 43px;
-  bottom: 0;
-  height: inherit;
-}
-#Community {float: right;}
-#Company {float: right;}
-i {float: right;}
+	html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+	.w3-sidebar {
+	  z-index: 3;
+	  width: 250px;
+	  top: 43px;
+	  bottom: 0;
+	  height: inherit;
+	}
+	#btn1{ 
+		background: black;
+		color: white;
+		border-radius: 10px;
+	}
+	#Community {float: right;}
+	#Company {float: right;}
+	#down {float: right;}
 </style>
 <body>
 
@@ -44,19 +49,20 @@ i {float: right;}
   </a>
   <c:if test="${m_num == 0 }">
   	<h4 class="w3-bar-item"><b>Administrator Page</b></h4>
-	<a class="w3-bar-item w3-button w3-hover-black" href="#">관리자페이지</a>
+	<a class="w3-bar-item w3-button w3-hover-black" href="aduserlist.do">관리자페이지</a>
+	<a class="w3-bar-item w3-button w3-hover-black" href="main.do">일정관리</a>
   </c:if>
   <c:if test="${m_num > 0 }">
 	  <h4 class="w3-bar-item"><b>My Page</b></h4>
-	  <a class="w3-bar-item w3-button w3-hover-black" href="#">일정관리</a>
+	  <a class="w3-bar-item w3-button w3-hover-black" href="main.do">일정관리</a>
 	  <a class="w3-bar-item w3-button w3-hover-black" href="erContent.do">이력서관리</a>
-	  <a onclick="listFunc1()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">자기소개서 <i class="fa fa-caret-down"></i>
+	  <a onclick="listFunc1()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">자기소개서 <i class="fa fa-caret-down" id="down"></i>
 	</a>
 	<div id="list1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
 	  <a href="SewriteForm.do" class="w3-bar-item w3-button w3-light-grey">자기소개서 작성</a>
 	  <a href="myse.do" class="w3-bar-item w3-button">자기소개서 관리</a>
 	</div>  
-	  <a onclick="listFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">내 정보관리 <i class="fa fa-caret-down"></i>
+	  <a onclick="listFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">내 정보관리 <i class="fa fa-caret-down" id="down"></i>
 	</a>
 	<div id="list2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
 	  <a href="updatePage.do" class="w3-bar-item w3-button w3-light-grey">회원관리</a>
@@ -68,7 +74,7 @@ i {float: right;}
  <a class="w3-bar-item w3-button w3-hover-black" href="board.do?b_type=1">Q&A게시판</a>
  <a class="w3-bar-item w3-button w3-hover-black" href="board.do?b_type=2">자유게시판</a>
  <h4 class="w3-bar-item"><b>Company Info</b></h4>
-<a onclick="listFunc3()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">기업 바로가기<i class="fa fa-caret-down"></i></a>
+<a onclick="listFunc3()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">기업 바로가기<i class="fa fa-caret-down" id="down"></i></a>
  <div id="list3" class="w3-bar-block w3-hide w3-padding-large w3-medium">
   <a href="mycom.do?comType=1" class="w3-bar-item w3-button w3-light-grey">삼성</a>
   <a href="mycom.do?comType=2" class="w3-bar-item w3-button w3-light-grey">쿠팡</a>
@@ -137,7 +143,7 @@ i {float: right;}
 			<tr><th>수상날짜</th><td>${erboard.pdate }</td></tr>
 			<tr><th>기타사항</th><td>${erboard.pcontent }</td></tr>
 			<%-- <tr><td><a href="erWriteForm.do?m_num=${m_num }">작성하기</a></td></tr> --%>
-			<tr><td><a href="erUpdateForm.do?m_num=${m_num }">수정하기</a></td></tr>
+			<tr><td><button type="button" id="btn1" onclick="location.href='erUpdateForm.do?m_num=${m_num }'">수정하기</button></td></tr>
 		</table>	
 <!--   Pagination
   <div class="w3-center w3-padding-32">

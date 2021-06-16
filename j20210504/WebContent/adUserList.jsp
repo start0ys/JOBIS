@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" errorPage="error.jsp"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html>
 <html lang="en">
@@ -23,49 +23,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 #Company {float: right;}
 #down {float: right;}
 </style>
-<style type="text/css">
-	a{
-		text-decoration: none;
-		color:black;
-	}
-	th{ 
-	/* 	border-top: solid 2px #aaaaaa;
-    	background-color: #4d6083;
-    	color:white; */
-    	background-color:#525252;
-    	border-top:solid 2px #aaaaaa;
-    	/* background-color:#eeeeee; */
-    	color: white;
-	}
-	tr{
-		height:30px; 
-		/* background-color: #e6efff; */
-	}
-	td{
-		border-bottom:solid 1px #dddddd;
-	}
- 	.boardCot{
-		display: inline-block; 
-		width: 80%; 
-		white-space: nowrap; 
-		overflow: hidden; 
-		text-overflow: ellipsis; 
-		
-	}  
-	.btn{
-		background: black;
-		color: white;
-		border-radius: 10px;
-	}
-</style>
-<script type="text/javascript">
-	function del(b_idx) {
-		const del =  confirm("해당 게시글을 삭제하시겠습니까?");
-		if(del){
-			location.href='bdelete.do?b_idx='+b_idx+'&pageNum=${pageNum }';
-		}
-	}
-</script>
 <body>
 
 <!-- Navbar -->
@@ -85,7 +42,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
     <i class="fa fa-remove"></i>
   </a>
- <c:if test="${m_num == 0 }">
+	<c:if test="${m_num == 0 }">
   	<h4 class="w3-bar-item"><b>Administrator Page</b></h4>
 	<a class="w3-bar-item w3-button w3-hover-black" href="aduserlist.do">관리자페이지</a>
 	<a class="w3-bar-item w3-button w3-hover-black" href="main.do">일정관리</a>
@@ -133,72 +90,111 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container" style="margin-left: 44px; margin-top: 18px; width: 78%;">
-      <h1 class="w3-text-teal">작성한 게시글</h1>
-      	<div style="margin: 0 auto; margin:35px 0 70px 0; text-align: center;">
-				
-				
-				<table style="text-align: center;margin: 0 auto; width: 100%; border-collapse:collapse;">
-					<tr>
-						
-						<th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th><th>게시판</th><th>삭제</th>
-					</tr>
-					
-					<c:if test="${totCnt > 0 }">
-						<c:forEach var="board" items="${list }">
-							<tr>
-								
-								<td style="width: 45%; font-size: 16px; text-align: initial;"> 
-									<a style="margin-left: 20px;" href="bview.do?b_idx=${board.b_idx }&pageNum=${currentPage}&b_type=${board.b_type }">${board.b_title }</a>
-								</td>
-								<td style="width: 15%;">👤${board.m_nickname }</td>
-								<td style="width: 10%;">${board.b_regdate }</td>
-								<td style="width: 10%;">${board.b_count }</td>
-								<c:if test="${board.b_type == 0 }">
-									<td style="width: 10%; color:red;"><b>면접게시판</b></td>
-								</c:if>
-								<c:if test="${board.b_type == 1 }">
-									<td style="width: 10%; color:red;"><b>Q&A게시판</b></td>
-								</c:if>
-								<c:if test="${board.b_type == 2 }">
-									<td style="width: 10%; color:red;"><b>자유게시판</b></td>
-								</c:if>
-								<td style="width: 5%;"><input style="padding: 5px;" type="button" class="btn" value="삭제" onclick="del(${board.b_idx})"></td>
-							</tr>
-						</c:forEach>
-					</c:if>
-					<c:if test="${toCnt == 0 }">
-						<tr>
-							<td colspan="7"></td>
-						</tr>
-					</c:if>
-				</table>
+      <h1 class="w3-text-teal">회원정보</h1>
+      
+      <style type="text/css">
+
+      tr{
+      	white-space: nowrap; 
+      }
+      
+      </style>
+      
+		<table>
+			<!-- <tr>
+				<font size=24>
+				<a>회원정보</a>
+				</font>
+			</tr> -->
+		</table>
+		<table border="1" cellspacing="0" cellpadding="1">
 			
-		
+				<tr style="background-color:black; color:white">
+					<th colspan="7"></th>
+					<th>전체회원수 : ${touCnt }</th>
+				</tr>
 			
+			<tr>
+				<th>회원번호</th><th>아이디</th><th>이름</th><th>닉네임</th><th>이메일</th><th>가입일</th><th>회원등급</th><th>회원등급 조정</th>
+				<!-- SQL 유저 데이터 순서 /회원번호/아이디/회원등급/가입일/성별/닉네임/이름/사진/이메일/--- -->
+			</tr>
+			<c:if test="${touCnt > 0 }">
+			<c:forEach var="userboard" items="${list }">
 			
-			
-			<div style="text-align: center; margin-top: 20px;">
-				 <div class="w3-center w3-padding-32">
-   					 <div class="w3-bar">
-						<c:if test="${startPage > blockSize }">
-							<a href="myboard.do?pageNum=${startPage-blockSize }&search=${m_num }"class="w3-button w3-hover-black">«</a>
-						</c:if>
-						<c:forEach var="i" begin="${startPage }" end="${endPage }">
-							<c:if test="${pageNum == i }">
-								<a href="myboard.do?pageNum=${i }&search=${m_num }" class="w3-button w3-black">${i }</a>
-							</c:if>
-							<c:if test="${pageNum != i }">
-								<a href="myboard.do?pageNum=${i }&search=${m_num }" class="w3-button w3-hover-black">${i }</a>
-							</c:if>
-						</c:forEach>
-						<c:if test="${endPage < pageCnt }">
-							<a href="myboard.do?pageNum=${startPage+blockSize }&search=${m_num }" class="w3-button w3-hover-black">»</a>
-						</c:if>
+			<tr <c:if test="${userboard.m_num == 0 }"> style="background-color: #FFD9FA;" </c:if>>
+				<td style="width: 2%;">	
+					<div style="float:right">
+						${userboard.m_num}
 					</div>
-				</div>
-			</div>
-		
-		</div>
+				</td>
+				<td style="width: 10%;"><center>${userboard.m_id}</center></td>				
+				<td style="width: 9%;"><center>${userboard.m_name}</center></td>
+				<td style="width: 12%;"><center>${userboard.m_nickname}</center></td>
+				<td style="width: 13%;">
+					<center><a href="mailto:${userboard.mail}">${userboard.mail}</a></center>
+				</td>
+				<td style="width: 11%;">
+					<center>
+						${userboard.m_birth}
+					</center>
+				</td>
+				<td style="width: 10%;"><center>
+				<c:if test="${userboard.m_num == 0 }">
+					관리자
+				</c:if>
+				<c:if test="${userboard.m_num > 0 }">
+					<c:if test="${userboard.m_divide == 0 }">
+							비활동회원
+					</c:if>
+					<c:if test="${userboard.m_divide == 1 }">
+							활동회원
+					</c:if>
+				</c:if>
+				</center>
+				</td>
+				<%-- <td>${userboard.m_divide}</td> --%>
+				
+				<td style="width: 1%;"><center>
+				<c:if test="${userboard.m_num > 0 }">
+					<c:if test="${userboard.m_divide == 0 }">
+						<form action="adUserGradeUp.do">
+							<input type="hidden" name="m_num" value="${userboard.m_num }">
+							<input type="submit" value="활동회원으로 승격">
+						</form>
+					</c:if>
+					<c:if test="${userboard.m_divide == 1 }">
+						<form action="adUserGradeDown.do">
+							<input type="hidden" name="m_num" value="${userboard.m_num }">
+							<input type="submit" value="비활동회원으로 강등">
+						</form>
+					</c:if>
+				</c:if>
+				</center>
+				</td>
+				
+			</tr>
+			<c:set var="startNum" value="${startNum - 1 }" />
+			</c:forEach>
+		</c:if>
+		<c:if test="${touCnt == 0 }">
+			<tr>
+				<td colspan=7>회원이 없습니다</td>
+			</tr>
+		</c:if>
+		</table>
+			
+	<div style="text-align: center;">
+		<c:if test="${startPage > blockSize }">
+			<a href='aduserlist.do?pageNum=${startPage-blockSize}'>[이전]</a>
+		</c:if>
+		<c:forEach var="i" begin="${startPage}" end="${endPage}">
+			<a href='aduserlist.do?pageNum=${i}'>[${i}]</a>
+		</c:forEach>
+		<c:if test="${endPage < pageCnt }">
+			<a href='aduserlist.do?pageNum=${startPage+blockSize}'>[다음]</a>
+		</c:if>
+	</div>
+      	
       	
 
 <!--   Pagination
@@ -279,6 +275,8 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 </script>
+</div>
+</div>
 
 </body>
 </html>

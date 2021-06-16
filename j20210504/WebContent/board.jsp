@@ -21,7 +21,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 }
 #Community {float: right;}
 #Company {float: right;}
-i {float: right;}
+#down {float: right;}
 </style>
 <style type="text/css">
 	a{
@@ -93,19 +93,20 @@ i {float: right;}
   </a>
   <c:if test="${m_num == 0 }">
   	<h4 class="w3-bar-item"><b>Administrator Page</b></h4>
-	<a class="w3-bar-item w3-button w3-hover-black" href="#">관리자페이지</a>
+	<a class="w3-bar-item w3-button w3-hover-black" href="aduserlist.do">관리자페이지</a>
+	<a class="w3-bar-item w3-button w3-hover-black" href="main.do">일정관리</a>
   </c:if>
   <c:if test="${m_num > 0 }">
 	  <h4 class="w3-bar-item"><b>My Page</b></h4>
-	  <a class="w3-bar-item w3-button w3-hover-black" href="#">일정관리</a>
+	  <a class="w3-bar-item w3-button w3-hover-black" href="main.do">일정관리</a>
 	  <a class="w3-bar-item w3-button w3-hover-black" href="erContent.do">이력서관리</a>
-	  <a onclick="listFunc1()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">자기소개서 <i class="fa fa-caret-down"></i>
+	  <a onclick="listFunc1()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">자기소개서 <i class="fa fa-caret-down" id="down"></i>
 	</a>
 	<div id="list1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
 	  <a href="SewriteForm.do" class="w3-bar-item w3-button w3-light-grey">자기소개서 작성</a>
 	  <a href="myse.do" class="w3-bar-item w3-button">자기소개서 관리</a>
 	</div>  
-	  <a onclick="listFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">내 정보관리 <i class="fa fa-caret-down"></i>
+	  <a onclick="listFunc2()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">내 정보관리 <i class="fa fa-caret-down" id="down"></i>
 	</a>
 	<div id="list2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
 	  <a href="updatePage.do" class="w3-bar-item w3-button w3-light-grey">회원관리</a>
@@ -117,7 +118,7 @@ i {float: right;}
  <a class="w3-bar-item w3-button w3-hover-black" href="board.do?b_type=1">Q&A게시판</a>
  <a class="w3-bar-item w3-button w3-hover-black" href="board.do?b_type=2">자유게시판</a>
  <h4 class="w3-bar-item"><b>Company Info</b></h4>
-<a onclick="listFunc3()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">기업 바로가기<i class="fa fa-caret-down"></i></a>
+<a onclick="listFunc3()" href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black">기업 바로가기<i class="fa fa-caret-down" id="down"></i></a>
  <div id="list3" class="w3-bar-block w3-hide w3-padding-large w3-medium">
   <a href="mycom.do?comType=1" class="w3-bar-item w3-button w3-light-grey">삼성</a>
   <a href="mycom.do?comType=2" class="w3-bar-item w3-button w3-light-grey">쿠팡</a>
@@ -310,15 +311,7 @@ i {float: right;}
       	
 
 
-<!--   <footer id="myFooter">
-    <div class="w3-container w3-theme-l2 w3-padding-32">
-      <h4>Footer</h4>
-    </div>
 
-    <div class="w3-container w3-theme-l1">
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    </div>
-  </footer> -->
 
 <!-- END MAIN -->
 </div>

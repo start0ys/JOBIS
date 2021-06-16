@@ -6,14 +6,14 @@ html {
 body {
     margin: 0;
     height: 100%;
-    background: #f5f6f7;
+    background: #F2F2F2;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
 #logo {
-    width: 240px;
-    height: 44px;
+    width: 460px;
+    height: 200px;
     cursor: pointer;
-}
+} 
 
 #header {
     padding-top: 62px;
@@ -45,7 +45,14 @@ h3 {
 }
 
 #chkid {
-	position: right;
+	float: right;
+    color: #fff;
+    background-color: #103740;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+
+#idbox {
+	width:100%;
 }
 
 .box {
@@ -123,8 +130,9 @@ select {
     border: 0;
     cursor: pointer;
     color: #fff;
-    background-color: #08a600;
+    background-color: #103740;
     font-size: 20px;
     font-weight: 400;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
+

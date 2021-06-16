@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JOBIS</title>
+<title>Insert title here</title>
 </head>
 <body>
 <c:if test="${result > 0}">
 	<script type="text/javascript">
-		alert("회원가입이 완료되었습니다.");
-		location.href="index.do";
+		alert("일정이 삭제되었습니다.");
+		opener.parent.location.reload();
+		window.close();
 	</script>
 </c:if>
 <c:if test="${result == 0 }">
