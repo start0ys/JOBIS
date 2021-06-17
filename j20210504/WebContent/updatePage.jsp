@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="UpdatePage.css">
+<link rel="stylesheet" href="updatePage.css">
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -58,6 +58,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 		background: black;
 		color: white;
 		border-radius: 10px;
+	}
+	.w3-padding-64 {
+    padding-top: 64px!important;
+    padding-bottom: 25px!important;
 	}
 </style>
 <script type="text/javascript">
@@ -158,53 +162,57 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 	  <c:if test="${b_type==1 }"><h1 class="w3-text-teal">Q&A 게시판</h1></c:if>
 	  <c:if test="${b_type==2 }"><h1 class="w3-text-teal">자유 게시판</h1></c:if>
      
+     </div>
+     </div>
+     </div>
      
-    <div id="modify_container">
+     
+    <div class="modify_container">
     <form action="userModify.do" onsubmit="return password()" >
 	<h1>회원정보 수정 화면</h1>
-    		<div class="login_id">
+    		<div class="info_box">
                 <h4>아이디</h4>
                 <input type="text" name="id" value="${m_id }">
             </div>
             
-    		<div class="login_id">
+    		<div class="info_box">
                 <h4>비밀번호</h4>
     			<input type="password" name="m_pw" id="m_pw" value="${m_pw}" required="required">
             </div>	
     		
-    		<div class="login_id">
+    		<div class="info_box">
                 <h4>비밀번호 확인</h4>
     			<input type="password" name="m_pw2" id="m_pw2" value="${m_pw}" required="required">
             </div>
     		
-    		<div class="login_id">
+    		<div class="info_box">
                 <h4>이름</h4>
     			<input type="text" name="m_name" value="${m_name}" required="required">
             </div>
     		
-			<div class="login_id">
-                <h4>성별</h4>
+			<div class="login_sex">
     		<c:if test="${m_sex == 'm' }">
+                <h4>성별</h4>
 	    		<input type="radio" name="m_sex" autocomplete="off" value="m" checked>남자
 	    		<input type="radio" name="m_sex" autocomplete="off" value="f">여자
     		</c:if>
 	    		</div>
     	
-    		<div class="login_id">
-    			<h4>성별</h4>
+    		<div class="login_sex">
     		<c:if test="${m_sex == 'f' }">
+    			<h4>성별</h4>
 	    		<input type="radio" name="m_sex" autocomplete="off" value="m">남자
 	    		<input type="radio" name="m_sex" autocomplete="off" value="f" checked>여자
     		</c:if>
             </div>
     	
-    	   <div class="login_id">
+    	   <div class="info_box">
                 <h4>이메일</h4>
  		   		<input type="email" name="mail" value="${mail }" required="required">
            </div>
             
     		
-    		<div class="login_id">
+    		<div class="login_select">
     		<c:if test="${fn:substringBefore(m_nickname, ']') == '[취준생'}">
 				<h4>구직여부</h4>
 				<select name="ed">
@@ -222,27 +230,22 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
        		</c:if>
        		</div>
        		
-	    	<div class="login_id">
+	    	<div class="info_box">
 	                <h4>닉네임</h4>
 	    			<input type="text" name="m_nickname" value="${fn:substringAfter(m_nickname, ']')}" required="required">
 	       	</div>
 	       	
 	    	<div class="submit">
 		    	<input type="submit" value="수정" class="btn">
+		    	<button type="button" onclick="location.href='main.do'">취소</button>    
 	            </form>
-		    	<button type="button" onclick="location.href='main.do'" class="btn">취소</button>    
 			<form action = "delete.do?m_num=${m_num }"  name="frm"  onsubmit="return chk()">
 				<input type="hidden" name="m_num" value="${m_num }" >
-				<input type="submit" value="회원탈퇴" >
+				<input type="submit" value="회원탈퇴" id="submit">
 			</form> 
 			</div>
-	        </div>
-	    </form>
 			
-    
-	</div>
-</div>
-      	
+        	
 
 
 
