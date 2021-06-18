@@ -38,8 +38,8 @@ public class CalendarDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int result = 0;
-	    String sql1 = "select max(substr(cal_num, -2, 2)) from calendar1 where m_num=?";
-	    String sql2 = "select m_id from calendar1 where M_num=?";
+	    String sql1 = "select nvl(max(substr(cal_num, -2, 2)), '00') from calendar1 where m_num=?";
+	    String sql2 = "select m_id from user1 where m_num=?";
 		String sql =  "INSERT INTO calendar1 values(?,?,?,?,?,?,?,?)";
 		try {
 			conn = getConnection();
@@ -48,7 +48,6 @@ public class CalendarDao {
 	        rs = pstmt.executeQuery();
 	        rs.next();
 	        String cal_num = String.format("%02d", m_num) + String.format("%02d", Integer.parseInt(rs.getString(1))+1);
-	        System.out.println(cal_num);
 	        rs.close();
 	        pstmt.close();
 	        pstmt = conn.prepareStatement(sql2);
@@ -139,14 +138,14 @@ public class CalendarDao {
 			if (conn  != null)  conn.close();
 		}
 		return list;
-	}
+	} 
 	
 	public List<Calendar1> dlist(int m_num, String cal_date) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Calendar1> dlist = new ArrayList<Calendar1>();
-		String sql = "select cal_num, cal_title, cal_bgcolor, cal_contents from calendar1 where M_num=? and cal_date=?";
+		String sql = "select m_num, cal_num, cal_cate, cal_title, cal_bgcolor, cal_contents from calendar1 where M_num in (0,?) and cal_date=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -156,12 +155,15 @@ public class CalendarDao {
 			if(rs.next()) {
 				do {
 					Calendar1 calendar = new Calendar1();
+					calendar.setM_num(rs.getInt("m_num"));
 					calendar.setCal_num(rs.getString("cal_num"));
+					calendar.setCal_cate(rs.getInt("cal_cate"));
 					calendar.setCal_title(rs.getString("cal_title"));
 					calendar.setCal_contents(rs.getString("cal_contents"));
 					calendar.setCal_bgcolor(rs.getString("cal_bgcolor"));
 					dlist.add(calendar);
 					System.out.println(rs.getString("cal_num"));
+					System.out.println(rs.getString("cal_cate"));
 				}while(rs.next());
 			}			
 		} catch (Exception e) {

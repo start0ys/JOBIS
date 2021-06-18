@@ -184,34 +184,65 @@ public class ERBoardDao {
 	public int erUpdate1(ERBoard erboard) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		int result1 = 0;
-		String sql1 = "update user1 set m_name=?,mail=?,additions=?, college=?, major=?,date1=?, "
+		int number = 0;
+		String sql1 = "select count(*) from user1 where m_num=?";
+		String sql2 = "update user1 set m_name=?,mail=?,additions=?, college=?, major=?,date1=?, "
 				+ "date2=?,credit=?,millitary=?,m_dept=?,m_class=?,m_date1=?,m_date2=?, photo=?"
 				+ " where m_num=?";		
+		String sql3 = "insert into user1 values(?,?,?,?,?,?,?,?,?,?,?)";
 		System.out.println("ERBoardDao erUpdate sql1->"+sql1);
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
-			pstmt.setString(1, erboard.getM_name());
-			pstmt.setString(2, erboard.getMail());
-			pstmt.setString(3, erboard.getAdditions());
-			pstmt.setString(4, erboard.getCollege());
-			pstmt.setString(5, erboard.getMajor());
-			pstmt.setString(6, erboard.getDate1());
-			pstmt.setString(7, erboard.getDate2());
-			pstmt.setString(8, erboard.getCredit());
-			pstmt.setString(9, erboard.getMillitary());
-			pstmt.setString(10, erboard.getM_dept());
-			pstmt.setString(11, erboard.getM_class());
-			pstmt.setString(12, erboard.getM_date1());
-			pstmt.setString(13, erboard.getM_date2());
-			pstmt.setString(14, erboard.getPhoto());
-			pstmt.setInt(15, erboard.getM_num());
-			result1 = pstmt.executeUpdate();
-			System.out.println("ERBoardDao prepareStatement sql1...");
+			pstmt.setInt(1, erboard.getM_num());
+			System.out.println("ERBoardDao erUpdate1 select sql1->"+sql1);
+			System.out.println("ERBoardDao erUpdate1 select m_num->"+erboard.getM_num());
+			rs = pstmt.executeQuery();
+			if (rs.next()) number = rs.getInt(1);
+			else 	       number = 0;
+			System.out.println("ERBoardDao erUpdate2 number->"+number);
 			
-			
+			rs.close();
+			pstmt.close();
+			if (number == 1) {
+				pstmt = conn.prepareStatement(sql2);
+				System.out.println("ERBoardDao erUpdate1 getCollege->"+erboard.getCollege());
+				pstmt.setString(1, erboard.getM_name());
+				pstmt.setString(2, erboard.getMail());
+				pstmt.setString(3, erboard.getAdditions());
+				pstmt.setString(4, erboard.getCollege());
+				pstmt.setString(5, erboard.getMajor());
+				pstmt.setString(6, erboard.getDate1());
+				pstmt.setString(7, erboard.getDate2());
+				pstmt.setString(8, erboard.getCredit());
+				pstmt.setString(9, erboard.getMillitary());
+				pstmt.setString(10, erboard.getM_dept());
+				pstmt.setString(11, erboard.getM_class());
+				pstmt.setString(12, erboard.getM_date1());
+				pstmt.setString(13, erboard.getM_date2());
+				pstmt.setString(14, erboard.getPhoto());
+				pstmt.setInt(15, erboard.getM_num());
+				result1 = pstmt.executeUpdate(); // Update
+			}
+			else {
+				pstmt= conn.prepareStatement(sql3);
+				System.out.println("ERBoardDao erUpdate1 getCollege->"+erboard.getCollege());
+				pstmt.setString(1, erboard.getCollege());
+				pstmt.setString(2, erboard.getMajor());
+				pstmt.setString(3, erboard.getDate1());
+				pstmt.setString(4, erboard.getDate2());
+				pstmt.setString(5, erboard.getCredit());
+				pstmt.setString(6, erboard.getMillitary());
+				pstmt.setString(7, erboard.getM_dept());
+				pstmt.setString(8, erboard.getM_class());
+				pstmt.setString(9, erboard.getM_date1());
+				pstmt.setString(10, erboard.getM_date2());
+				pstmt.setString(11, erboard.getPhoto());
+				result1 = pstmt.executeUpdate(); // insert
+			}
 		} catch (Exception e) {
 			System.out.println("ERBoardDao erUpdate1 Exception->"+e.getMessage());
 		} finally {

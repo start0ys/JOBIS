@@ -57,7 +57,7 @@ public class ERUpdatePro implements CommandProcess  {
 			erboard.setM_name(multi.getParameter("m_name"));
 			erboard.setMail(multi.getParameter("mail"));
 			erboard.setAdditions(multi.getParameter("additions"));
-			erboard.setCollege(multi.getParameter("collage"));
+			erboard.setCollege(multi.getParameter("college"));
 			erboard.setMajor(multi.getParameter("major"));
 			erboard.setDate1(multi.getParameter("date1"));
 			erboard.setDate2(multi.getParameter("date2"));
@@ -81,7 +81,7 @@ public class ERUpdatePro implements CommandProcess  {
 			erboard.setTname(multi.getParameter("tname"));
 			erboard.setTscore(multi.getParameter("tscore"));
 			erboard.setTdate(multi.getParameter("tdate"));
-			erboard.setLdate(multi.getParameter("ldate"));
+			erboard.setLdept(multi.getParameter("ldept"));
 			erboard.setLname(multi.getParameter("lname"));
 			erboard.setLdate(multi.getParameter("ldate"));
 			erboard.setPrice(multi.getParameter("price"));

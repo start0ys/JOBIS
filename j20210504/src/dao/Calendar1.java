@@ -3,19 +3,19 @@ package dao;
 import java.sql.Date;
 
 public class Calendar1 {
-	private int M_num;
+	private int m_num;
 	private String cal_num;
-	private String M_id;
+	private String m_id;
 	private int cal_cate;
 	private String cal_title;
 	private String cal_date;
 	private String cal_contents;
 	private String cal_bgcolor;
 	public int getM_num() {
-		return M_num;
+		return m_num;
 	}
 	public void setM_num(int m_num) {
-		M_num = m_num;
+		this.m_num = m_num;
 	}
 	public String getCal_num() {
 		return cal_num;
@@ -24,10 +24,10 @@ public class Calendar1 {
 		this.cal_num = cal_num;
 	}
 	public String getM_id() {
-		return M_id;
+		return m_id;
 	}
 	public void setM_id(String m_id) {
-		M_id = m_id;
+		this.m_id = m_id;
 	}
 	public int getCal_cate() {
 		return cal_cate;
@@ -59,6 +59,8 @@ public class Calendar1 {
 	public void setCal_bgcolor(String cal_bgcolor) {
 		this.cal_bgcolor = cal_bgcolor;
 	}
+	
+	
 	
 	
 	
