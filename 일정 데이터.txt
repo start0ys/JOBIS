@@ -1,0 +1,229 @@
+--공용 일정--
+INSERT INTO CALENDAR1 VALUES(00, '0001', 'zz', 1, 
+                    'ADT캡스',
+                    '2021/06/06', 
+                    'infosec 보안솔루션 서버 개발 신입/경력직 채용',
+                    '#3C3530');
+INSERT INTO CALENDAR1 VALUES(00, '0002', 'zz', 1, 
+                    'ADT캡스',
+                    '2021/05/30', 
+                    'DT운영팀(Cloud 인프라 구축,데이터 플랫폼 구축) 신입/경력직 채용',
+                    '#3C3530');
+INSERT INTO CALENDAR1 VALUES(00, '0003', 'zz', 1, 
+                    '오티아이(주)',
+                    '2021/06/06', 
+                    'SW개발 부문 신입 및 경력직 채용',
+                    '#3C3530'); 
+INSERT INTO CALENDAR1 VALUES(00, '0004', 'zz', 1, 
+                    '경동물류㈜',
+                    '2021/06/23', 
+                    '자바(Java, JSP) 웹개발자, 웹 퍼블리셔(리액트가능자 우대) 모집',
+                    '#3C3530');      
+INSERT INTO CALENDAR1 VALUES(00, '0005', 'zz', 1, 
+                    '㈜케이씨텍',
+                    '2021/06/06', 
+                    '각 분야 신입/경력 채용',
+                    '#3C3530');     
+-------------------------------
+ --개인 일정--
+INSERT INTO CALENDAR1 VALUES(01, '0101', 'aa', 0, 
+                    '네이버 면접',
+                    '2021/05/30', 
+                    '편안한 복장, 2시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(01, '0102', 'aa', 0, 
+                    '면접 스터디',
+                    '2021/05/29', 
+                    '신도림역, 3시',
+                    '#FBFFB9');                    
+INSERT INTO CALENDAR1 VALUES(01, '0103', 'aa', 0, 
+                    '토익시험',
+                    '2021/06/05', 
+                    '1시 30분',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(01, '0104', 'aa', 0, 
+                    '동기 모임',
+                    '2021/06/05', 
+                    '홍대역, 6시',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(02, '0201', 'bb', 0, 
+                    '쿠팡 면접',
+                    '2021/06/06', 
+                    '정장, 2시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(02, '0202', 'bb', 0, 
+                    '토익스피킹',
+                    '2021/05/26', 
+                    '3시',
+                    '#F16B6F');                    
+INSERT INTO CALENDAR1 VALUES(02, '0203', 'bb', 0, 
+                    '정장 맞추기',
+                    '2021/06/01', 
+                    '1시 예약',
+                    '#FBFFB9');
+INSERT INTO CALENDAR1 VALUES(02, '0204', 'bb', 0, 
+                    '자소서 첨삭',
+                    '2021/06/02', 
+                    '12시 이메일제출',
+                    '#FBFFB9');
+INSERT INTO CALENDAR1 VALUES(03, '0301', 'cc', 0, 
+                    '기사실기 결과',
+                    '2021/06/02', 
+                    '',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(03, '0302', 'cc', 0, 
+                    '알바 면접',
+                    '2021/05/29', 
+                    '파리바게트, 1시',
+                    '#FBFFB9');                    
+INSERT INTO CALENDAR1 VALUES(03, '0303', 'cc', 0, 
+                    '토익시험',
+                    '2021/06/05', 
+                    '1시 30분',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(03, '0304', 'cc', 0, 
+                    '가족모임',
+                    '2021/05/30', 
+                    '6시',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(04, '0401', 'dd', 0, 
+                    '네이버 면접',
+                    '2021/05/30', 
+                    '편안한 복장, 4시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(04, '0402', 'dd', 0, 
+                    '회화 스터디',
+                    '2021/06/05', 
+                    '부평역, 4시',
+                    '#FBFFB9');                    
+INSERT INTO CALENDAR1 VALUES(04, '0403', 'dd', 0, 
+                    '토익결과',
+                    '2021/06/03', 
+                    '',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(04, '0404', 'dd', 0, 
+                    '제주도 여행',
+                    '2021/06/06', 
+                    '2박3일',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(05, '0501', 'ee', 0, 
+                    '후배 약속',
+                    '2021/06/01', 
+                    '신촌역, 7시',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(05, '0502', 'ee', 0, 
+                    '건강검진',
+                    '2021/05/29', 
+                    '3시',
+                    '#FBFFB9');                    
+INSERT INTO CALENDAR1 VALUES(05, '0503', 'ee', 0, 
+                    '토익스피킹',
+                    '2021/06/05', 
+                    '1시 30분',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(05, '0504', 'ee', 0, 
+                    '배민 면접',
+                    '2021/06/06', 
+                    '편안한 복장, 10시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(06, '0601', 'ff', 0, 
+                    '인턴 OT',
+                    '2021/06/12', 
+                    '10시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(06, '0602', 'ff', 0, 
+                    '건강검진',
+                    '2021/06/05', 
+                    '1시',
+                    '#FBFFB9');                    
+INSERT INTO CALENDAR1 VALUES(06, '0603', 'ff', 0, 
+                    '가족여행',
+                    '2021/05/30', 
+                    '경주',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(06, '0604', 'ff', 0, 
+                    '배민 면접',
+                    '2021/06/02', 
+                    '편안한 복장, 1시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(07, '0701', 'gg', 0, 
+                    '쿠팡 면접',
+                    '2021/06/15', 
+                    '정장, 13시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(07, '0702', 'gg', 0, 
+                    '면접 스터디',
+                    '2021/06/05', 
+                    '이대역, 15시',
+                    '#FBFFB9');                    
+INSERT INTO CALENDAR1 VALUES(07, '0703', 'gg', 0, 
+                    '토익스피킹',
+                    '2021/06/08', 
+                    '13시 30분',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(07, '0704', 'gg', 0, 
+                    '배민 면접',
+                    '2021/06/12', 
+                    '편안한 복장, 14시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(08, '0801', 'hh', 0, 
+                    '모의면접',
+                    '2021/06/10', 
+                    '4시',
+                    '#FBFFB9');
+INSERT INTO CALENDAR1 VALUES(08, '0802', 'hh', 0, 
+                    '카카오 인턴 서류',
+                    '2021/06/21', 
+                    '12시',
+                    '#F16B6F');                    
+INSERT INTO CALENDAR1 VALUES(08, '0803', 'hh', 0, 
+                    '토익시험',
+                    '2021/06/05', 
+                    '9시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(08, '0804', 'hh', 0, 
+                    '친구 약속',
+                    '2021/06/17', 
+                    '6시',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(09, '0901', 'ii', 0, 
+                    '자소서 첨삭',
+                    '2021/06/01', 
+                    '3시, 이메일제출',
+                    '#FBFFB9');
+INSERT INTO CALENDAR1 VALUES(09, '0902', 'ii', 0, 
+                    '공연 보러가기',
+                    '2021/06/06', 
+                    '5시',
+                    '#AACD6E');                    
+INSERT INTO CALENDAR1 VALUES(09, '0903', 'ii', 0, 
+                    '면접 스터디',
+                    '2021/06/13', 
+                    '2시',
+                    '#FBFFB9');
+INSERT INTO CALENDAR1 VALUES(09, '0904', 'ii', 0, 
+                    '배민 면접',
+                    '2021/06/11', 
+                    '정장, 11시',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(10, '1001', 'jj', 0, 
+                    '가족 모임',
+                    '2021/06/05', 
+                    '월미도, 5시',
+                    '#AACD6E');
+INSERT INTO CALENDAR1 VALUES(10, '1002', 'jj', 0, 
+                    '네이버 서류제출',
+                    '2021/06/10', 
+                    '12시',
+                    '#F16B6F');                    
+INSERT INTO CALENDAR1 VALUES(10, '1003', 'jj', 0, 
+                    '자격증 시험',
+                    '2021/06/12', 
+                    '1시 30분',
+                    '#F16B6F');
+INSERT INTO CALENDAR1 VALUES(10, '1004', 'jj', 0, 
+                    '회화 스터디',
+                    '2021/06/06', 
+                    '10시',
+                    '#FBFFB9');
+                    
